@@ -22,57 +22,70 @@
   "certs": [
     {
       "t": "TÜV Rheinland 认证",
-      "d": "由 TÜV Rheinland 颁发的供应商认证（店铺首页 by TÜVRheinland 标识）。"
+      "d": "由 TÜV Rheinland 颁发的供应商认证（店铺首页 by TÜVRheinland 标识）。",
+      "id": "C-001"
     },
     {
       "t": "Trade Assurance 贸易保障",
-      "d": "100% 产品质量与准时发货保障，支持安全付款与退款政策。"
+      "d": "100% 产品质量与准时发货保障，支持安全付款与退款政策。",
+      "id": "C-002"
     },
     {
       "t": "Supplier Assessment / Onsite Check",
-      "d": "已通过 Alibaba.com 实地核验（Onsite Check），第三方机构确认法人资质。"
+      "d": "已通过 Alibaba.com 实地核验（Onsite Check），第三方机构确认法人资质。",
+      "id": "C-003"
     },
     {
       "t": "CE 认证 (欧洲市场)",
-      "d": "部分大尺寸 RV 雨棚地垫产品已标注 CE Certified for European Market。"
+      "d": "部分大尺寸 RV 雨棚地垫产品已标注 CE Certified for European Market。",
+      "id": "C-004"
     },
     {
       "t": "环保再生材料",
-      "d": "主打 Recycled Polypropylene（再生 PP）环保材质，支持原材料识别与可追溯。"
+      "d": "主打 Recycled Polypropylene（再生 PP）环保材质，支持原材料识别与可追溯。",
+      "id": "C-005"
     },
     {
       "t": "质量控制服务",
-      "d": "提供来料检验、成品检验、原材料识别与追溯等全流程质控服务。"
+      "d": "提供来料检验、成品检验、原材料识别与追溯等全流程质控服务。",
+      "id": "C-006"
     },
     {
       "t": "定制能力",
-      "d": "支持图纸定制（Drawing-based）与打样定制（Sample-based），全定制 + ODM 服务。"
+      "d": "支持图纸定制（Drawing-based）与打样定制（Sample-based），全定制 + ODM 服务。",
+      "id": "C-007"
     }
   ],
   "intel": [
     {
       "t": "核心客户结构",
-      "d": "主要服务 Aldi、Lidl、The Home Depot、K-mart 等欧美大型连锁零售商，具备大宗 OEM/ODM 供货经验，适合走商超采购、批发分销渠道的买家。"
+      "d": "主要服务 Aldi、Lidl、The Home Depot、K-mart 等欧美大型连锁零售商，具备大宗 OEM/ODM 供货经验，适合走商超采购、批发分销渠道的买家。",
+      "id": "I-001"
     },
     {
       "t": "目标市场画像",
-      "d": "北美（RV 房车文化盛行，露营/庭院垫需求大）、西欧（露台/花园场景）、大洋洲（户外生活）、中东（祈祷垫 Prayer Rug 需求）、南欧。"
+      "d": "北美（RV 房车文化盛行，露营/庭院垫需求大）、西欧（露台/花园场景）、大洋洲（户外生活）、中东（祈祷垫 Prayer Rug 需求）、南欧。",
+      "id": "I-002"
     },
     {
       "t": "典型买家场景",
-      "d": "RV 房车露营、庭院露台、泳池边、野餐、沙滩、宠物喂食垫、儿童游戏垫、室内外通用、清真祈祷垫。"
+      "d": "RV 房车露营、庭院露台、泳池边、野餐、沙滩、宠物喂食垫、儿童游戏垫、室内外通用、清真祈祷垫。",
+      "id": "I-003"
     },
     {
       "t": "采购决策关键词",
-      "d": "买家高频关注：reversible(双面)、washable(可水洗)、waterproof(防水)、UV-resistant(抗UV)、recycled/eco-friendly(环保)、non-slip(防滑)、lightweight(轻便)、foldable(可折叠)。"
+      "d": "买家高频关注：reversible(双面)、washable(可水洗)、waterproof(防水)、UV-resistant(抗UV)、recycled/eco-friendly(环保)、non-slip(防滑)、lightweight(轻便)、foldable(可折叠)。",
+      "id": "I-004"
     },
     {
       "t": "价格带与起订量",
-      "d": "主力价格带 US$2-20/件，起订量多为 200-500 件；存在 MOQ 低至 3 件的样品款（如热销 526 sold 的几何双面垫），可作为引流款撬动小单试单买家。"
+      "d": "主力价格带 US$2-20/件，起订量多为 200-500 件；存在 MOQ 低至 3 件的样品款（如热销 526 sold 的几何双面垫），可作为引流款撬动小单试单买家。",
+      "id": "I-005"
     },
     {
       "t": "竞争优势话术锚点",
-      "d": "12 年工厂 + 25000m² + 200 设备 + 服务过 Aldi/Lidl/Home Depot —— 用大牌背书快速建立信任；100% 准时发货 + ≤3h 响应抢占询盘转化窗口。"
+      "d": "12 年工厂 + 25000m² + 200 设备 + 服务过 Aldi/Lidl/Home Depot —— 用大牌背书快速建立信任；100% 准时发货 + ≤3h 响应抢占询盘转化窗口。",
+      "id": "I-006"
     }
   ],
   "products": [
@@ -522,43 +535,45 @@
   "brand": [
     {
       "t": "品牌名",
-      "d": "爱以思 / AIYISI"
+      "d": "爱以思 / AIYISI",
+      "id": "B-001"
     },
     {
       "t": "主体公司",
-      "d": "台州爱以思休闲用品有限公司 (Taizhou Aiyisi Leisure Products Co., Ltd.)"
+      "d": "台州爱以思休闲用品有限公司 (Taizhou Aiyisi Leisure Products Co., Ltd.)",
+      "id": "B-002"
     },
     {
       "t": "国际站旺铺",
-      "d": "https://aiyisi.en.alibaba.com/"
+      "d": "https://aiyisi.en.alibaba.com/",
+      "id": "B-003"
     },
     {
       "t": "品牌定位",
-      "d": "专注户外 PP 编织地垫的 12 年 ODM 工厂，环保再生材料 + 双面可逆设计，主攻欧美商超与 RV 露营市场。"
+      "d": "专注户外 PP 编织地垫的 12 年 ODM 工厂，环保再生材料 + 双面可逆设计，主攻欧美商超与 RV 露营市场。",
+      "id": "B-004"
     },
     {
       "t": "核心品类",
-      "d": "户外地垫 / RV 房车垫 / 露台垫 / 沙滩野餐垫 / 圆形地垫 / 浴室垫 / 宠物垫 / 祈祷垫"
+      "d": "户外地垫 / RV 房车垫 / 露台垫 / 沙滩野餐垫 / 圆形地垫 / 浴室垫 / 宠物垫 / 祈祷垫",
+      "id": "B-005"
     },
     {
       "t": "主营市场",
-      "d": "北美 · 西欧 · 大洋洲 · 中东 · 南欧"
+      "d": "北美 · 西欧 · 大洋洲 · 中东 · 南欧",
+      "id": "B-006"
     },
     {
       "t": "品牌背书",
-      "d": "TÜV Rheinland 认证 · 户外地毯类目 #1 Best Seller · 服务 Aldi/Lidl/Home Depot/K-mart"
+      "d": "TÜV Rheinland 认证 · 户外地毯类目 #1 Best Seller · 服务 Aldi/Lidl/Home Depot/K-mart",
+      "id": "B-007"
     },
     {
       "t": "产品色调/风格",
-      "d": "波西米亚曼陀罗、几何条纹、摩洛哥花纹、航海主题；大地色系与高饱和撞色并存，适配欧美庭院与露营审美。"
+      "d": "波西米亚曼陀罗、几何条纹、摩洛哥花纹、航海主题；大地色系与高饱和撞色并存，适配欧美庭院与露营审美。",
+      "id": "B-008"
     }
   ],
-  "manual": {
-    "products": [],
-    "scripts": [],
-    "intel": [],
-    "certs": []
-  },
-  "notes": {},
-  "_updated": "2026-06-25T17:29:41.001238+00:00"
+  "_updated": "2026-06-25T17:36:43.781344+00:00",
+  "_schema": "v2-unified"
 }
