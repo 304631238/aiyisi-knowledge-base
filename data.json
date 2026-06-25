@@ -1,0 +1,564 @@
+{
+  "company": {
+    "name_cn": "台州爱以思休闲用品有限公司",
+    "name_en": "Taizhou Aiyisi Leisure Products Co., Ltd.",
+    "url": "https://aiyisi.en.alibaba.com/",
+    "founded": "2014",
+    "years": "12 年金牌供应商 (12 YRS Gold Supplier)",
+    "type": "定制制造商 (Custom Manufacturer / ODM)",
+    "staff": "101-200 人 (官网披露约 162 人)",
+    "floor": "25,000 m² 厂区 / 200+ 套先进设备",
+    "revenue": "年产值 US$5M - US$10M",
+    "rating": "5.0 / 5.0 店铺评分",
+    "ontime": "100% 准时发货率",
+    "response": "≤3h 响应时间 / 96.39% 快速回复率",
+    "rd": "R&D 工程师 2 名",
+    "markets": "北美、西欧、大洋洲、中东、南欧",
+    "region": "中国 浙江 台州",
+    "rank": "户外地毯类目 排名 #1 (Best Seller)",
+    "cats": "户外地垫 Outdoor Rug、浴室垫 Bath Mat、露台垫 Patio Rug、RV 房车垫、宠物垫 Pet Mat、沙滩/野餐垫 Beach/Picnic Mat",
+    "bigClients": "Aldi、Lidl、The Home Depot、K-mart 等欧美连锁零售商"
+  },
+  "certs": [
+    {
+      "t": "TÜV Rheinland 认证",
+      "d": "由 TÜV Rheinland 颁发的供应商认证（店铺首页 by TÜVRheinland 标识）。"
+    },
+    {
+      "t": "Trade Assurance 贸易保障",
+      "d": "100% 产品质量与准时发货保障，支持安全付款与退款政策。"
+    },
+    {
+      "t": "Supplier Assessment / Onsite Check",
+      "d": "已通过 Alibaba.com 实地核验（Onsite Check），第三方机构确认法人资质。"
+    },
+    {
+      "t": "CE 认证 (欧洲市场)",
+      "d": "部分大尺寸 RV 雨棚地垫产品已标注 CE Certified for European Market。"
+    },
+    {
+      "t": "环保再生材料",
+      "d": "主打 Recycled Polypropylene（再生 PP）环保材质，支持原材料识别与可追溯。"
+    },
+    {
+      "t": "质量控制服务",
+      "d": "提供来料检验、成品检验、原材料识别与追溯等全流程质控服务。"
+    },
+    {
+      "t": "定制能力",
+      "d": "支持图纸定制（Drawing-based）与打样定制（Sample-based），全定制 + ODM 服务。"
+    }
+  ],
+  "intel": [
+    {
+      "t": "核心客户结构",
+      "d": "主要服务 Aldi、Lidl、The Home Depot、K-mart 等欧美大型连锁零售商，具备大宗 OEM/ODM 供货经验，适合走商超采购、批发分销渠道的买家。"
+    },
+    {
+      "t": "目标市场画像",
+      "d": "北美（RV 房车文化盛行，露营/庭院垫需求大）、西欧（露台/花园场景）、大洋洲（户外生活）、中东（祈祷垫 Prayer Rug 需求）、南欧。"
+    },
+    {
+      "t": "典型买家场景",
+      "d": "RV 房车露营、庭院露台、泳池边、野餐、沙滩、宠物喂食垫、儿童游戏垫、室内外通用、清真祈祷垫。"
+    },
+    {
+      "t": "采购决策关键词",
+      "d": "买家高频关注：reversible(双面)、washable(可水洗)、waterproof(防水)、UV-resistant(抗UV)、recycled/eco-friendly(环保)、non-slip(防滑)、lightweight(轻便)、foldable(可折叠)。"
+    },
+    {
+      "t": "价格带与起订量",
+      "d": "主力价格带 US$2-20/件，起订量多为 200-500 件；存在 MOQ 低至 3 件的样品款（如热销 526 sold 的几何双面垫），可作为引流款撬动小单试单买家。"
+    },
+    {
+      "t": "竞争优势话术锚点",
+      "d": "12 年工厂 + 25000m² + 200 设备 + 服务过 Aldi/Lidl/Home Depot —— 用大牌背书快速建立信任；100% 准时发货 + ≤3h 响应抢占询盘转化窗口。"
+    }
+  ],
+  "products": [
+    {
+      "id": "AY-001",
+      "name": "Polypropylene Reversible Outdoor RV Rug 6x9ft Washable Abstract Pattern Recycled Mat for Patio Picnic Camping",
+      "price": "$6.90-10.40",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H9b83542c1d484e2f886a9c736b2507ec1/Polypropylene-Reversible-Outdoor-RV-Rug-6x9ft-Washable.png",
+      "url": "https://www.alibaba.com/product-detail/Polypropylene-Reversible-Outdoor-RV-Rug-6x9ft_1601673099498.html"
+    },
+    {
+      "id": "AY-002",
+      "name": "9x12ft Outdoor RV Mat PP Recycled Mat Woven Jacquard Abstract Washable Machine Made Lightweight Reversible Outdoor Rug",
+      "price": "$7-10.50",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hea48da17c34d4bbd90cf335b7a245b1eI/9x12ft-Outdoor-RV-Mat-PP-Recycled-Mat.jpg",
+      "url": "https://www.alibaba.com/product-detail/9x12ft-Outdoor-RV-Mat-PP-Recycled_1601638523699.html"
+    },
+    {
+      "id": "AY-003",
+      "name": "New Style 7Colour Environmental protection and Anti-aging Custom Outdoor Mat Waterproof RV Outdoor Mat",
+      "price": "$14.90-19.90",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H0271052e3efa47cab7097f8411f01d0ff/New-Style-7Colour-Environmental-protection-and-Anti.jpg",
+      "url": "https://www.alibaba.com/product-detail/New-Style-7Colour-Environmental-protection-and_1600486946826.html"
+    },
+    {
+      "id": "AY-004",
+      "name": "Factory Environmental protection and Anti-aging Custom Outdoor Mat Waterproof RV Outdoor Mat",
+      "price": "$13.90-18.90",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hbdc2e595fe79483788b052f61644a993c/Factory-Environmental-protection-and-Anti-aging-Custom.jpg",
+      "url": "https://www.alibaba.com/product-detail/Factory-Environmental-protection-and-Anti-aging_1600506274276.html"
+    },
+    {
+      "id": "AY-005",
+      "name": "Large size Floor Mat 2.5x3m 3x3m 3x4m Outdoor caravan Awning Carpet with carry bag",
+      "price": "$13.50-15",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8af0dbbd4da540249625750cfe915435l/Large-size-Floor-Mat-2-5x3m-3x3m.jpg_350x350.jpg",
+      "url": "https://www.alibaba.com/product-detail/Large-size-Floor-Mat-2-5x3m_1601665064902.html"
+    },
+    {
+      "id": "AY-006",
+      "name": "Outdoor RV Plastic Mat Recycled Camping Picnic Rugs Straw Outdoor Mat for Everyone",
+      "price": "$8.60-10",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H518397782b2a418096c37849e401c2ebx/Outdoor-RV-Plastic-Mat-Recycled-Camping-Picnic.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-RV-Plastic-Mat-Recycled-Camping_1600546514482.html"
+    },
+    {
+      "id": "AY-007",
+      "name": "Extra Large Outdoor Camping Mat for SUV RV, Non-Slip Wear-Resistant Floor Mat, Fit European Market 2.5x3m 2.5x4m 2.5x5m",
+      "price": "$13.80-15",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8835dfa05c4c42dc91c7cbb4687b4410G/Extra-Large-Outdoor-Camping-Mat-for-SUV.jpg_350x350.jpg",
+      "url": "https://www.alibaba.com/product-detail/Extra-Large-Outdoor-Camping-Mat-for_1601665060851.html"
+    },
+    {
+      "id": "AY-008",
+      "name": "CE Certified for European Market Large Size RV Awning Carpet for SUV Waterproof Non-Slip Outdoor Mat",
+      "price": "$13.50-15",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H646b54279607476eb71009ee0a00e74fG/CE-Certified-for-European-Market-Large-Size.jpg",
+      "url": "https://www.alibaba.com/product-detail/CE-Certified-for-European-Market-Large_1601665008818.html"
+    },
+    {
+      "id": "AY-009",
+      "name": "Top Seller Awning Carpet Outdoor Camping Reversible Plastic Mat Foldable Rug",
+      "price": "$12-20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hbda0e3b29328442a820c07872e8a9250V/Top-Seller-Awning-Carpet-Outdoor-Camping-Reversible.jpg",
+      "url": "https://www.alibaba.com/product-detail/Top-Seller-Awning-Carpet-Outdoor-Camping_1600512325344.html"
+    },
+    {
+      "id": "AY-010",
+      "name": "New Style 6X9 Hot Modern Indoor Outdoor Waterproof PP Camping Carpet Rug",
+      "price": "$14.90-19.90",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H966d0b79a88440ba806c25dab859fd7ba/New-Style-6X9-Hot-Modern-Indoor-Outdoor.jpg",
+      "url": "https://www.alibaba.com/product-detail/New-Style-6X9-Hot-Modern-Indoor_1600494042399.html"
+    },
+    {
+      "id": "AY-011",
+      "name": "Outdoor Reversible 5x8 ft Area Rug UV Resistant Portable RV Mat Moroccan Flower Design for Patio Backyard Deck Porch Picnic",
+      "price": "$5.40-6.50",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8875593f11bf478d911e232d1834c548p/Outdoor-Reversible-5x8-ft-Area-Rug-UV.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-Reversible-5x8-ft-Area-Rug_1601417399057.html"
+    },
+    {
+      "id": "AY-012",
+      "name": "Wholesale Custom Polypropylene Plastic Outdoor Patio Rugs and Carpets Flat Weave Tent Mat Rug for RV Patio Camping",
+      "price": "$7.20-8.60",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hf646e4549d0d457a954ea2793bb6526d2/Wholesale-Custom-Polypropylene-Plastic-Outdoor-Patio-Rugs.jpg",
+      "url": "https://www.alibaba.com/product-detail/Wholesale-Custom-Polypropylene-Plastic-Outdoor-Patio_1600487508705.html"
+    },
+    {
+      "id": "AY-013",
+      "name": "Jacquard Striped Outdoor Polypropylene Rug Machine-Made Roll Runner Aqua Backing Shaggy Woven Belgium Carpet",
+      "price": "$3-5",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H773a940d053642d08acfe3e700351963T/Jacquard-Striped-Outdoor-Polypropylene-Rug-Machine-Made.jpg_350x350.jpg",
+      "url": "https://www.alibaba.com/product-detail/Jacquard-Striped-Outdoor-Polypropylene-Rug-Machine_1600508141493.html"
+    },
+    {
+      "id": "AY-014",
+      "name": "Nautical Themed Outdoor Rug Freedom Collection Large 8x10 Striped Navy Blue Jacquard Polypropylene Low Pile Deck Patio",
+      "price": "$3-5",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H7ecd6f87482f4450abfec14c4de49d54Q/Nautical-Themed-Outdoor-Rug-Freedom-Collection-Large.jpg_350x350.jpg",
+      "url": "https://www.alibaba.com/product-detail/Nautical-Themed-Outdoor-Rug-Freedom-Collection_1600509106602.html"
+    },
+    {
+      "id": "AY-015",
+      "name": "Outdoor Rug Freedom Collection Nautical Themed Smart Care Deck Patio Carpet 8x10 Floral Medallion Black and White",
+      "price": "$3-5",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H502dd88e407b435bbe4e2de1baa24967Z/Outdoor-Rug-Freedom-Collection-Nautical-Themed-Smart.jpg_350x350.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-Rug-Freedom-Collection-Nautical-Themed_1600509091736.html"
+    },
+    {
+      "id": "AY-016",
+      "name": "Outdoor Camping Reversible Carpet Rv Rug Outdoor Patio Floor Mat Rv Trailer Camping Patio Rug",
+      "price": "$6-12",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H43b9eceb00d24544893ed6c6f45df9e4g/Outdoor-Camping-Reversible-Carpet-Rv-Rug-Outdoor.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-Camping-Reversible-Carpet-Rv-Rug_1600513253266.html"
+    },
+    {
+      "id": "AY-017",
+      "name": "UV protection Garden Outdoor Plastic PP Straw Rug Play Flooring Mat for Children and Adult",
+      "price": "$4.50-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hdd19c75cde74478197b9cf959cacb5ecQ/UV-protection-Garden-Outdoor-Plastic-PP-Straw.jpg",
+      "url": "https://www.alibaba.com/product-detail/UV-protection-Garden-Outdoor-Plastic-PP_1600307437672.html"
+    },
+    {
+      "id": "AY-018",
+      "name": "Outdoor Rv Patio Mats Carpet Roll Picnic Mat Carpet for Grass",
+      "price": "$8-10",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H53bbf026542b4eeabfb8d3556a88ab1bc/Outdoor-Rv-Patio-Mats-Carpet-Roll-Picnic.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-Rv-Patio-Mats-Carpet-Roll_1600187299465.html"
+    },
+    {
+      "id": "AY-019",
+      "name": "Sustainable Eco Friendly Carpet Polypropylene Outdoor Plastic Rug and Carpets",
+      "price": "$8-10",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hfb2f0ec7ff0e45ae986c7030d596af5fV/Sustainable-Eco-Friendly-Carpet-Polypropylene-Outdoor-Plastic.jpg",
+      "url": "https://www.alibaba.com/product-detail/Sustainable-Eco-Friendly-Carpet-Polypropylene-Outdoor_1600307436440.html"
+    },
+    {
+      "id": "AY-020",
+      "name": "2023 Outdoor Polypropylene Plastic Woven Outdoor Mat Rugs Waterproof Carpet Rug Floor",
+      "price": "$4.50-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Ha925cff3635a47f59d8d068ddd8885701/2023-Outdoor-Polypropylene-Plastic-Woven-Outdoor-Mat.jpg",
+      "url": "https://www.alibaba.com/product-detail/2023-Outdoor-Polypropylene-Plastic-Woven-Outdoor_1600540049856.html"
+    },
+    {
+      "id": "AY-021",
+      "name": "Custom Living Room Washable Rugs and Carpet Islamic Prayer Rug Plastic Rugs Outdoor",
+      "price": "$4.50-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hcdece136eaa84f71bffed2259a1c6fafo/Custom-Living-Room-Washable-Rugs-and-Carpet.jpg",
+      "url": "https://www.alibaba.com/product-detail/Custom-Living-Room-Washable-Rugs-and_1600572436198.html"
+    },
+    {
+      "id": "AY-022",
+      "name": "Tapis De Priere Islam Area Rug Outdoor Patio Rugs Carpets and Rugs for Sale Waterproof Picnic Mat",
+      "price": "$8-10",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8a3dfe349af64c7a8b964bc1b2c29376G/Tapis-De-Priere-Islam-Area-Rug-Outdoor.jpg",
+      "url": "https://www.alibaba.com/product-detail/Tapis-De-Priere-Islam-Area-Rug_1600165763124.html"
+    },
+    {
+      "id": "AY-023",
+      "name": "Washable Polypropylene Geometric pp Straw Mats/rugs Outdoor Camp Mat Recycled Plastic Rugs Living Room Large 8 X 10",
+      "price": "$8-10",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hf284e2fa811b494f8024d0334a906862D/Washable-Polypropylene-Geometric-pp-Straw-Mats-rugs.jpg",
+      "url": "https://www.alibaba.com/product-detail/Washable-Polypropylene-Geometric-pp-Straw-Mats_1600172015891.html"
+    },
+    {
+      "id": "AY-024",
+      "name": "Outdoor Large Reversible Woven Polypropylene Sand Proof Waterproof Foldable Hiking Camping Beach Blanket Mat",
+      "price": "$3.50-4.50",
+      "moq": "300 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H59ba2bed79534b5ebeccdd83b2a84dd35/Outdoor-Large-Reversible-Woven-Polypropylene-Sand-Proof.jpg",
+      "url": "https://www.alibaba.com/product-detail/Outdoor-Large-Reversible-Woven-Polypropylene-Sand_1600179498687.html"
+    },
+    {
+      "id": "AY-025",
+      "name": "Waterproof Modern Geometric Washable Reversible Area Rugs Outdoors Mats Polypropylene for Indoor Outdoor Camping RV",
+      "price": "$2-6",
+      "moq": "3 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H195e1d7739014c8480014c4126b4bbb06/Waterproof-Modern-Geometric-Washable-Reversible-Area-Rugs.jpg",
+      "url": "https://www.alibaba.com/product-detail/Waterproof-Modern-Geometric-Washable-Reversible-Area_1600375644896.html"
+    },
+    {
+      "id": "AY-026",
+      "name": "Beach Mat Factory Wholesale Folded pp Mat Lunch Bag Picnic Mat",
+      "price": "$2-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H13b408ca19e147269d1cc276404bff10a/Beach-Mat-Factory-Wholesale-Folded-pp-Mat.jpg",
+      "url": "https://www.alibaba.com/product-detail/Beach-Mat-Factory-Wholesale-Folded-pp_62336865652.html"
+    },
+    {
+      "id": "AY-027",
+      "name": "Zhejiang Suppliers Outdoor pp Carpet Plastic Floor Mat Outdoor Patio Rug",
+      "price": "$2-5",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H37ae2d2580fc4ec6820a16f613252e94n/Zhejiang-Suppliers-Outdoor-pp-Carpet-Plastic-Floor.jpg",
+      "url": "https://www.alibaba.com/product-detail/Zhejiang-Suppliers-Outdoor-pp-Carpet-Plastic_62335954223.html"
+    },
+    {
+      "id": "AY-028",
+      "name": "Plastic Waterproof Lightweight Rolled Reversible Outdoor Rug",
+      "price": "$4-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8136db169fbf435d856eb05bb9d051218/Plastic-Waterproof-Lightweight-Rolled-Reversible-Outdoor-Rug.png",
+      "url": "https://www.alibaba.com/product-detail/Plastic-Waterproof-Lightweight-Rolled-Reversible-Outdoor_60252235155.html"
+    },
+    {
+      "id": "AY-029",
+      "name": "High-quality Recycled Polypropylene Jacquard Washable Machine Made Sand Proof Outdoor Beach Mat S",
+      "price": "$2-3.50",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hbb73fc4fce704f1f883b5d1682020c67h/High-quality-Recycled-Polypropylene-Jacquard-Washable-Machine.jpg",
+      "url": "https://www.alibaba.com/product-detail/High-quality-Recycled-Polypropylene-Jacquard-Washable_1601636974783.html"
+    },
+    {
+      "id": "AY-030",
+      "name": "100% pp Foldable Beach Mat/ Picnic Mat/outdoor Mat with Mickey Mouse",
+      "price": "$2-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/He1f95ddddc31410391f61359b604bac8D/100-pp-Foldable-Beach-Mat-Picnic-Mat.jpg",
+      "url": "https://www.alibaba.com/product-detail/100-pp-Foldable-Beach-Mat-Picnic_60353935983.html"
+    },
+    {
+      "id": "AY-031",
+      "name": "Recyclable Red PP Flooring Plastic Foldable Outdoor Mat Camping and RV Carpet",
+      "price": "$2-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H6a449e5f67824f4d9add6079fda318a2x/Recyclable-Red-PP-Flooring-Plastic-Foldable-Outdoor.jpg",
+      "url": "https://www.alibaba.com/product-detail/Recyclable-Red-PP-Flooring-Plastic-Foldable_1600122745419.html"
+    },
+    {
+      "id": "AY-032",
+      "name": "Woven Floor Mats Sheet Pp Large Plastic Wholesale Leisure Adult Modern Rectangle 10+ Years Experience",
+      "price": "$2-6",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H41d1e2d5501543e7828626699dc05d2aF/Woven-Floor-Mats-Sheet-Pp-Large-Plastic.jpg",
+      "url": "https://www.alibaba.com/product-detail/Woven-Floor-Mats-Sheet-Pp-Large_60742969228.html"
+    },
+    {
+      "id": "AY-033",
+      "name": "AIYISI Customizable Polypropylene Woven Machine Made Eco-Friendly Non-Slip Anti-aging Pet-Friendly Washable Camping Mats",
+      "price": "$4.50-6.36",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H68fd1704c45d43acba1e4e4b7abe71f9v/AIYISI-Customizable-Polypropylene-Woven-Machine-Made-Eco.jpg",
+      "url": "https://www.alibaba.com/product-detail/AIYISI-Customizable-Polypropylene-Woven-Machine-Made_1601668953811.html"
+    },
+    {
+      "id": "AY-034",
+      "name": "Polypropylene Braided Eco-Friendly Woven Outdoor Rug Easy to Cut Customizable Lightweight UV-Resistant Home Camping Picnic Mat",
+      "price": "$4.50-6.36",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H06a8758f51034cb98f0a7def9c7ff4b8J/Polypropylene-Braided-Eco-Friendly-Woven-Outdoor-Rug.jpg",
+      "url": "https://www.alibaba.com/product-detail/Polypropylene-Braided-Eco-Friendly-Woven-Outdoor_1601668742912.html"
+    },
+    {
+      "id": "AY-035",
+      "name": "Waterproof Indoor/Outdoor Reversible Area Rugs 6ft Circle Straw Jacquard Machine Made for Patio Porch Garden Deck Picnic",
+      "price": "$6.80-8.20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H0fc8d36b0e5b49c3b78c6073d0fe273eS/Waterproof-Indoor-Outdoor-Reversible-Area-Rugs-6ft.jpg",
+      "url": "https://www.alibaba.com/product-detail/Waterproof-Indoor-Outdoor-Reversible-Area-Rugs_1601428543392.html"
+    },
+    {
+      "id": "AY-036",
+      "name": "Reversible Indoor/Outdoor UV Resistant Plastic Straws Rug Patio Carpet Portable RV Mats for Camping Pool Deck Use",
+      "price": "$6.80-8.20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H33ff825642764761b44bef3c72cb3740O/Reversible-Indoor-Outdoor-UV-Resistant-Plastic-Straws.jpg",
+      "url": "https://www.alibaba.com/product-detail/Reversible-Indoor-Outdoor-UV-Resistant-Plastic_1601428585507.html"
+    },
+    {
+      "id": "AY-037",
+      "name": "Bohemian Mandala Round Mat for Home Travel Easy-Clean Foldable Double Sided Woven for Outdoor Patio & Camping",
+      "price": "$6.80-8.20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/He0595baf446b43dba726e0c166e9a9b7T/Bohemian-Mandala-Round-Mat-for-Home-Travel.jpg",
+      "url": "https://www.alibaba.com/product-detail/Bohemian-Mandala-Round-Mat-for-Home_1601486219722.html"
+    },
+    {
+      "id": "AY-038",
+      "name": "Modern Blue and White Geometric Pattern Jacquard Outdoor Rug Waterproof Machine Made for Garden Camping Patio & Picnic",
+      "price": "$6.80-8.20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H8a3abbebfb354b9b988d8fc60f41858cK/Modern-Blue-and-White-Geometric-Pattern-Jacquard.jpg",
+      "url": "https://www.alibaba.com/product-detail/Modern-Blue-and-White-Geometric-Pattern_1601463593687.html"
+    },
+    {
+      "id": "AY-039",
+      "name": "Tropical Escape Round Beach Mat - Blue Mandala Design for Island Vacations & Poolside Lounging",
+      "price": "$6.80-8.20",
+      "moq": "200 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/Hfb2c0445521e492a82b556307bc2f0e0d/Tropical-Escape-Round-Beach-Mat-Blue-Mandala.png",
+      "url": "https://www.alibaba.com/product-detail/Tropical-Escape-Round-Beach-Mat-Blue_1601463860998.html"
+    },
+    {
+      "id": "AY-040",
+      "name": "Luxury Round Carpet/reversible Mat Woven Recycled Mat",
+      "price": "$6-8",
+      "moq": "500 pieces",
+      "img": "https://s.alicdn.com/@sc04/kf/H9c807a3cb8b840fab6d775fc67cbc22aX/Luxury-Round-Carpet-reversible-Mat-Woven-Recycled.jpg",
+      "url": "https://www.alibaba.com/product-detail/Luxury-Round-Carpet-reversible-Mat-Woven_1600175078770.html"
+    }
+  ],
+  "scripts": [
+    {
+      "id": "S001",
+      "cat": "开场/询盘",
+      "t": "首次询盘回复 (English)",
+      "c": "Hi {Name}, thank you for your interest in our outdoor rugs! We are Aiyisi, a 12-year factory in Zhejiang specializing in reversible recycled-PP outdoor mats, serving Aldi, Lidl & The Home Depot. Could you share: 1) target size, 2) quantity, 3) destination country? I'll send you a tailored quote and free design catalog within 3 hours."
+    },
+    {
+      "id": "S002",
+      "cat": "开场/询盘",
+      "t": "工厂实力一句话背书",
+      "c": "We are a TÜV-certified custom manufacturer with 25,000 m² factory, 200+ machines and 100% on-time delivery. Big retail clients include Aldi, Lidl, The Home Depot and K-mart."
+    },
+    {
+      "id": "S003",
+      "cat": "开场/询盘",
+      "t": "中文-内部询盘转化要点",
+      "c": "询盘进来 3 小时内必回（响应≤3h 是我们的核心优势）。首回必问三要素：尺寸 / 数量 / 目的国，并立刻甩大牌客户背书 + 免费图册建立信任。"
+    },
+    {
+      "id": "S004",
+      "cat": "报价",
+      "t": "报价模板 (FOB)",
+      "c": "Based on your request, our FOB Ningbo price is: {Size} reversible PP outdoor rug at USD {Price}/pc, MOQ {MOQ} pcs. Price includes recycled-PP material, jacquard weaving and standard export packing. Lead time: 25-35 days after deposit. Shall I arrange a sample for you?"
+    },
+    {
+      "id": "S005",
+      "cat": "报价",
+      "t": "阶梯价话术",
+      "c": "We offer tiered pricing — the larger the order, the better the unit price. For example: 200 pcs at USD X, 500 pcs at USD Y, 1000+ pcs at USD Z. Let me know your target volume and I'll optimize the best price for you."
+    },
+    {
+      "id": "S006",
+      "cat": "报价",
+      "t": "应对'价格太高'",
+      "c": "I understand price matters. Our rugs use 100% recycled PP and pass UV & anti-aging tests, so they last 2-3x longer than cheap imports — lower return rate for your store. If budget is tight, we can adjust pile height or size to fit your target price. What's your ideal landed cost?"
+    },
+    {
+      "id": "S007",
+      "cat": "打样/定制",
+      "t": "打样流程",
+      "c": "For custom designs: 1) send us your pattern/logo or size, 2) we make a sample in 7-10 days, 3) sample fee USD {fee} (refundable on bulk order). We support drawing-based & sample-based customization. Reversible double-sided design and any size are available."
+    },
+    {
+      "id": "S008",
+      "cat": "打样/定制",
+      "t": "OEM/ODM 能力",
+      "c": "Yes, we provide full OEM/ODM service — custom size, pattern, color, logo weaving and private-label packaging with carry bag. Our 2 R&D engineers can turn your idea into a production-ready design."
+    },
+    {
+      "id": "S009",
+      "cat": "打样/定制",
+      "t": "中文-定制注意",
+      "c": "客户要定制图案先确认：是否涉及版权图案（卡通/品牌LOGO需授权，规避侵权）；尺寸是否标准（非标尺寸影响开机成本与MOQ）；颜色批次差异需提前告知。"
+    },
+    {
+      "id": "S010",
+      "cat": "物流/交期",
+      "t": "交期说明",
+      "c": "Standard lead time is 25-35 days after deposit for MOQ orders. Large orders (1x40HQ) about 35-45 days. We guarantee 100% on-time shipment — it's tracked in our store record."
+    },
+    {
+      "id": "S011",
+      "cat": "物流/交期",
+      "t": "装柜数据询问",
+      "c": "To calculate freight, our rugs are lightweight and foldable — a 20GP fits roughly {qty} pcs depending on size. Tell me your size and I'll confirm exact loading quantity and CBM."
+    },
+    {
+      "id": "S012",
+      "cat": "物流/交期",
+      "t": "贸易方式",
+      "c": "We accept FOB, CIF and DDP. For Trade Assurance orders you get 100% protection on quality and on-time shipment. Which Incoterm do you prefer?"
+    },
+    {
+      "id": "S013",
+      "cat": "产品卖点",
+      "t": "双面可逆卖点",
+      "c": "Our signature feature: fully reversible design — two looks in one rug. Customers flip it for a fresh pattern, doubling the value. Great selling point for retail shelves."
+    },
+    {
+      "id": "S014",
+      "cat": "产品卖点",
+      "t": "环保再生PP卖点",
+      "c": "Made from recycled polypropylene — eco-friendly, 100% washable (just hose it down), waterproof, UV-resistant and anti-aging. Perfect for RV, patio, camping, beach and poolside."
+    },
+    {
+      "id": "S015",
+      "cat": "产品卖点",
+      "t": "中文-卖点排序",
+      "c": "对欧美买家按此优先级讲卖点：1) reversible 双面 2) recycled/eco 环保(欧盟买家最吃) 3) washable/waterproof 易打理 4) UV-resistant 耐用 5) lightweight/foldable 物流友好。"
+    },
+    {
+      "id": "S016",
+      "cat": "催单/跟进",
+      "t": "询盘无回应跟进",
+      "c": "Hi {Name}, just following up on the outdoor rug quote I sent. Are there any questions I can help with? I can also send you our best-selling designs and a free sample arrangement to help you decide."
+    },
+    {
+      "id": "S017",
+      "cat": "催单/跟进",
+      "t": "样品后跟进",
+      "c": "Hi {Name}, hope you received our sample! How do you find the quality and texture? If everything looks good, I can lock in current pricing and reserve production slots for you before our peak season."
+    },
+    {
+      "id": "S018",
+      "cat": "催单/跟进",
+      "t": "旺季备货提醒",
+      "c": "Spring/summer is peak season for outdoor rugs and our lines fill up fast. To secure your delivery date, I'd recommend placing the order soon. Shall I prepare the PI for you?"
+    },
+    {
+      "id": "S019",
+      "cat": "售后",
+      "t": "质量异议处理",
+      "c": "I'm sorry to hear that. Please send photos/video of the issue and the order number. We take quality seriously — all orders are protected by Trade Assurance. We'll investigate and offer a fair solution (replacement/refund) immediately."
+    },
+    {
+      "id": "S020",
+      "cat": "售后",
+      "t": "中文-售后红线",
+      "c": "售后投诉先共情再要证据（图/视频+订单号），全程走 Trade Assurance 留痕；不在平台外承诺私下赔付；质量问题先内部核验再给方案，避免口头承诺超出权限。"
+    }
+  ],
+  "brand": [
+    {
+      "t": "品牌名",
+      "d": "爱以思 / AIYISI"
+    },
+    {
+      "t": "主体公司",
+      "d": "台州爱以思休闲用品有限公司 (Taizhou Aiyisi Leisure Products Co., Ltd.)"
+    },
+    {
+      "t": "国际站旺铺",
+      "d": "https://aiyisi.en.alibaba.com/"
+    },
+    {
+      "t": "品牌定位",
+      "d": "专注户外 PP 编织地垫的 12 年 ODM 工厂，环保再生材料 + 双面可逆设计，主攻欧美商超与 RV 露营市场。"
+    },
+    {
+      "t": "核心品类",
+      "d": "户外地垫 / RV 房车垫 / 露台垫 / 沙滩野餐垫 / 圆形地垫 / 浴室垫 / 宠物垫 / 祈祷垫"
+    },
+    {
+      "t": "主营市场",
+      "d": "北美 · 西欧 · 大洋洲 · 中东 · 南欧"
+    },
+    {
+      "t": "品牌背书",
+      "d": "TÜV Rheinland 认证 · 户外地毯类目 #1 Best Seller · 服务 Aldi/Lidl/Home Depot/K-mart"
+    },
+    {
+      "t": "产品色调/风格",
+      "d": "波西米亚曼陀罗、几何条纹、摩洛哥花纹、航海主题；大地色系与高饱和撞色并存，适配欧美庭院与露营审美。"
+    }
+  ],
+  "manual": {
+    "products": [],
+    "scripts": [],
+    "intel": [],
+    "certs": []
+  },
+  "notes": {},
+  "_updated": "2026-06-25T16:28:40.969Z"
+}
