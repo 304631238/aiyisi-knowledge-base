@@ -1,63 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>爱以思 · 公司知识库 | Taizhou Aiyisi Leisure Products</title>
+<title>AIYISI · Outdoor Rug Catalog</title>
 <style>
   :root{
-    --bg:#0f1419; --panel:#1a2129; --panel2:#222c36; --line:#2d3a47;
-    --txt:#e8eef3; --txt2:#9fb0c0; --accent:#2f9e6e; --accent2:#3fc88c;
-    --warn:#d98a2b; --danger:#c14b4b; --chip:#283642;
-    --shadow:0 8px 30px rgba(0,0,0,.35);
+    --bg:#0f1419;--panel:#1a2129;--panel2:#222c36;--line:#2d3a47;
+    --txt:#e8eef3;--txt2:#9fb0c0;--accent:#2f9e6e;--accent2:#3fc88c;
+    --warn:#d98a2b;--danger:#c14b4b;--chip:#283642;--shadow:0 8px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
-    background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:var(--accent2);text-decoration:none}
-  header{position:sticky;top:0;z-index:50;background:rgba(15,20,25,.92);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .top{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  header{position:sticky;top:0;z-index:50;background:rgba(15,20,25,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
-  .brand .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#06140d}
-  .brand h1{font-size:17px;font-weight:700;letter-spacing:.3px}
+  .brand .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#06140d}
+  .brand h1{font-size:16px;font-weight:700}
   .brand p{font-size:12px;color:var(--txt2)}
-  nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-  nav button{background:transparent;border:1px solid transparent;color:var(--txt2);
-    padding:8px 14px;border-radius:9px;cursor:pointer;font-size:14px;transition:.2s}
+  nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;align-items:center}
+  nav button{background:transparent;border:1px solid transparent;color:var(--txt2);padding:8px 13px;border-radius:9px;cursor:pointer;font-size:14px;transition:.2s}
   nav button:hover{color:var(--txt);background:var(--panel)}
   nav button.active{color:#06140d;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:700}
-  .adminbadge{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--warn);color:#1a1206;font-weight:700;margin-left:6px}
+  .langtoggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-left:4px}
+  .langtoggle button{padding:6px 11px;border-radius:0;font-size:13px;border:none}
+  .langtoggle button.on{background:var(--accent);color:#06140d;font-weight:700}
+  .adminbadge{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--warn);color:#1a1206;font-weight:700}
   main{max-width:1240px;margin:0 auto;padding:26px 22px 80px;min-height:50vh}
-  .hero{background:linear-gradient(135deg,#16241c,#1a2129);border:1px solid var(--line);
-    border-radius:18px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px}
+  .hero{background:linear-gradient(135deg,#16241c,#1a2129);border:1px solid var(--line);border-radius:18px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px}
   .hero h2{font-size:26px;margin-bottom:6px}
   .hero .en{color:var(--txt2);font-size:14px;margin-bottom:18px}
   .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:20px}
   .stat{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px}
   .stat b{display:block;font-size:22px;color:var(--accent2)}
   .stat span{font-size:12px;color:var(--txt2)}
-  .tag{display:inline-block;background:var(--chip);border:1px solid var(--line);color:var(--txt2);
-    padding:4px 11px;border-radius:20px;font-size:12px;margin:3px 4px 0 0}
+  .tag{display:inline-block;background:var(--chip);border:1px solid var(--line);color:var(--txt2);padding:4px 11px;border-radius:20px;font-size:12px;margin:3px 4px 0 0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s;display:flex;flex-direction:column;cursor:pointer}
   .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
   .card .thumb{width:100%;aspect-ratio:1/1;object-fit:cover;background:#0b0f13}
   .card .body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .card .pid{font-size:11px;color:var(--accent2);font-weight:700;letter-spacing:.5px}
+  .card .pid{font-size:11px;color:var(--accent2);font-weight:700}
   .card .name{font-size:13.5px;font-weight:600;line-height:1.45;min-height:38px}
   .card .price{font-size:15px;color:var(--warn);font-weight:700}
   .card .moq{font-size:12px;color:var(--txt2)}
   .card .acts{display:flex;gap:8px;margin-top:auto;padding-top:8px}
-  .card .acts a,.card .acts button{flex:1;text-align:center;font-size:12px;padding:7px;border-radius:8px;
-    border:1px solid var(--line);background:var(--panel2);color:var(--txt);cursor:pointer;transition:.2s}
-  .card .acts a:hover,.card .acts button:hover{background:var(--accent);color:#06140d;border-color:var(--accent)}
+  .card .acts button{flex:1;text-align:center;font-size:12px;padding:7px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);cursor:pointer}
+  .card .acts button:hover{background:var(--accent);color:#06140d}
   .card .acts .delp{background:var(--danger);color:#fff;border-color:var(--danger)}
+  .vbadge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;padding:3px 8px;border-radius:6px}
   .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
   .search{flex:1;min-width:220px;position:relative}
-  .search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:11px;
-    color:var(--txt);padding:12px 14px 12px 40px;font-size:14px}
+  .search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:11px;color:var(--txt);padding:12px 14px 12px 40px;font-size:14px}
   .search input:focus{outline:none;border-color:var(--accent)}
   .search svg{position:absolute;left:13px;top:13px;opacity:.5}
   .count{background:var(--chip);border:1px solid var(--line);padding:9px 14px;border-radius:11px;font-size:13px;color:var(--txt2);white-space:nowrap}
@@ -68,47 +63,57 @@
   .qrow .q{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14.5px}
   .qrow .a{color:var(--txt);font-size:14px;white-space:pre-wrap}
   .qrow .meta{font-size:11px;color:var(--txt2);margin-top:8px}
-  .qrow .copy{float:right;font-size:11px;background:var(--chip);border:1px solid var(--line);color:var(--txt2);padding:4px 10px;border-radius:7px;cursor:pointer;margin-left:6px}
-  .qrow .copy:hover{background:var(--accent);color:#06140d}
-  .qrow .delq{float:right;font-size:11px;background:var(--danger);border:1px solid var(--danger);color:#fff;padding:4px 10px;border-radius:7px;cursor:pointer}
+  .qrow .copy,.qrow .delq,.qrow .editb{float:right;font-size:11px;padding:4px 10px;border-radius:7px;cursor:pointer;margin-left:6px;border:1px solid var(--line)}
+  .qrow .copy{background:var(--chip);color:var(--txt2)}
+  .qrow .editb{background:var(--chip);color:var(--txt)}
+  .qrow .delq{background:var(--danger);color:#fff;border-color:var(--danger)}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}
   .panel h3{font-size:16px;margin-bottom:14px;color:var(--accent2)}
   .field{margin-bottom:14px}
   .field label{display:block;font-size:13px;color:var(--txt2);margin-bottom:6px}
-  .field input,.field textarea,.field select{width:100%;background:var(--panel2);border:1px solid var(--line);
-    border-radius:9px;color:var(--txt);padding:10px 12px;font-size:14px;font-family:inherit}
+  .field input,.field textarea,.field select{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:10px 12px;font-size:14px;font-family:inherit}
   .field textarea{min-height:80px;resize:vertical}
-  .btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06140d;border:none;
-    padding:11px 22px;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px}
+  .btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06140d;border:none;padding:11px 22px;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px}
   .btn:hover{filter:brightness(1.08)}
   .btn:disabled{opacity:.5;cursor:not-allowed}
   .btn-ghost{background:var(--chip);color:var(--txt);border:1px solid var(--line)}
   .btn-danger{background:var(--danger);color:#fff}
-  .manual-item{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
-    margin-bottom:10px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-  .manual-item .mi-body{flex:1;font-size:13px}
-  .manual-item .mi-body b{color:var(--accent2)}
-  .del{background:var(--danger);color:#fff;border:none;padding:6px 12px;border-radius:7px;cursor:pointer;font-size:12px;white-space:nowrap}
+  .btn-sm{padding:7px 14px;font-size:13px}
+  /* detail page */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:800px){.detail{grid-template-columns:1fr}}
+  .gallery .main{width:100%;aspect-ratio:1/1;object-fit:cover;background:#0b0f13;border-radius:14px;border:1px solid var(--line)}
+  .gallery .thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .gallery .thumbs .t{position:relative;width:64px;height:64px;border-radius:8px;overflow:hidden;border:2px solid var(--line);cursor:pointer}
+  .gallery .thumbs .t.on{border-color:var(--accent)}
+  .gallery .thumbs .t img{width:100%;height:100%;object-fit:cover}
+  .gallery .thumbs .t .x{position:absolute;top:0;right:0;background:var(--danger);color:#fff;font-size:11px;width:18px;height:18px;line-height:18px;text-align:center;cursor:pointer}
+  .video-wrap{margin-top:16px;position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .video-wrap iframe,.video-wrap video{width:100%;height:100%;border:0}
+  .spectable{width:100%;border-collapse:collapse;margin-top:8px}
+  .spectable td{border:1px solid var(--line);padding:9px 12px;font-size:13.5px}
+  .spectable td.k{background:var(--panel2);color:var(--txt2);width:38%;font-weight:600}
+  .back{display:inline-flex;align-items:center;gap:6px;color:var(--txt2);cursor:pointer;margin-bottom:16px;font-size:14px}
+  .back:hover{color:var(--accent2)}
+  .uploadzone{border:2px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--txt2);cursor:pointer;font-size:13px;transition:.2s}
+  .uploadzone:hover,.uploadzone.drag{border-color:var(--accent);color:var(--accent2);background:rgba(47,158,110,.06)}
   .empty{color:var(--txt2);font-size:13px;padding:14px;text-align:center;border:1px dashed var(--line);border-radius:10px}
   footer{text-align:center;color:var(--txt2);font-size:12px;padding:30px;border-top:1px solid var(--line)}
-  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:var(--accent);color:#06140d;
-    padding:12px 24px;border-radius:10px;font-weight:700;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;z-index:99;max-width:90%}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:var(--accent);color:#06140d;padding:12px 24px;border-radius:10px;font-weight:700;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;z-index:99;max-width:90%}
   .toast.show{opacity:1}
   .toast.err{background:var(--danger);color:#fff}
   .loading{text-align:center;padding:60px 20px;color:var(--txt2)}
   .spin{display:inline-block;width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:rot 1s linear infinite}
   @keyframes rot{to{transform:rotate(360deg)}}
-  /* login modal */
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
   .modal.show{display:flex}
-  .modal .box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:460px;width:100%;box-shadow:var(--shadow)}
+  .modal .box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:520px;width:100%;box-shadow:var(--shadow);max-height:88vh;overflow:auto}
   .modal h3{font-size:18px;margin-bottom:8px}
   .modal p{color:var(--txt2);font-size:13px;margin-bottom:16px}
-  .savebar{position:sticky;top:64px;z-index:40;background:rgba(217,138,43,.14);border:1px solid var(--warn);
-    border-radius:10px;padding:10px 16px;margin-bottom:18px;display:none;align-items:center;gap:12px;flex-wrap:wrap}
-  .savebar.show{display:flex}
-  .savebar span{flex:1;font-size:13px;color:var(--warn);min-width:160px}
-  @media(max-width:600px){.hero{padding:22px}.hero h2{font-size:21px}nav{width:100%}}
+  .speceditrow{display:flex;gap:8px;margin-bottom:8px}
+  .speceditrow input{flex:1}
+  .speceditrow .rm{background:var(--danger);color:#fff;border:none;border-radius:7px;padding:0 12px;cursor:pointer}
+  @media(max-width:600px){.hero{padding:22px}.hero h2{font-size:21px}}
 </style>
 </head>
 <body>
@@ -117,375 +122,441 @@
     <div class="brand">
       <div class="logo">AY</div>
       <div>
-        <h1>爱以思 · 公司知识库 <span id="adminBadge" class="adminbadge" style="display:none">管理模式</span></h1>
+        <h1>AIYISI · Outdoor Rug Catalog</h1>
         <p>Taizhou Aiyisi Leisure Products Co., Ltd.</p>
       </div>
     </div>
     <nav id="nav"></nav>
   </div>
 </header>
-<main id="main"><div class="loading"><div class="spin"></div><p style="margin-top:14px">正在加载知识库数据…</p></div></main>
+<main id="main"><div class="loading"><div class="spin"></div><p style="margin-top:14px">Loading…</p></div></main>
 <div class="toast" id="toast"></div>
-
-<!-- 管理员登录弹窗 -->
 <div class="modal" id="loginModal">
   <div class="box">
-    <h3>企业内部后台登录</h3>
-    <p>请输入管理令牌（GitHub Token）。仅供内部管理人员使用，令牌仅保存在你本机浏览器，不会上传或泄露。</p>
-    <div class="field"><label>管理令牌</label><input id="tokenInput" type="password" placeholder="ghp_ 或 gho_ 开头的令牌"></div>
+    <h3 id="lm_title">Admin Login</h3>
+    <p id="lm_desc">Enter the admin token (GitHub Token). Stored only in your browser.</p>
+    <div class="field"><label id="lm_label">Admin Token</label><input id="tokenInput" type="password" placeholder="ghp_ / github_pat_ ..."></div>
     <div style="display:flex;gap:10px;margin-top:6px">
-      <button class="btn" onclick="doLogin()">登录后台</button>
-      <button class="btn btn-ghost" onclick="closeLogin()">取消</button>
+      <button class="btn" id="lm_ok" onclick="doLogin()">Login</button>
+      <button class="btn btn-ghost" id="lm_cancel" onclick="closeLogin()">Cancel</button>
     </div>
-    <p style="margin-top:14px;font-size:12px">忘记令牌？联系网站管理员重新获取。</p>
   </div>
 </div>
-
-<!-- 编辑/新增弹窗 -->
 <div class="modal" id="editModal"></div>
-
-<footer id="footer">爱以思公司知识库 · 数据来源 aiyisi.en.alibaba.com</footer>
-
+<footer id="footer">AIYISI · Outdoor Rug Catalog</footer>
 <script>
-/* ===================== CONFIG ===================== */
-const GH_OWNER="304631238";
-const GH_REPO="aiyisi-knowledge-base";
-const GH_BRANCH="main";
-const DATA_PATH="data.json";
-const SAME_URL=`./${DATA_PATH}`; // 同源（GitHub Pages 托管）
-const RAW_URL=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${DATA_PATH}`; // 回退源
+/* ===== CONFIG ===== */
+const GH_OWNER="304631238",GH_REPO="aiyisi-knowledge-base",GH_BRANCH="main",DATA_PATH="data.json";
+const SAME_URL=`./${DATA_PATH}`;
+const RAW_URL=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${DATA_PATH}`;
 const API_CONTENT=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${DATA_PATH}`;
-const LS_TOKEN="aiyisi_admin_token";
+const LS_TOKEN="aiyisi_admin_token",LS_LANG="aiyisi_lang";
 
-/* ===================== STATE ===================== */
-let DB=null;              // 整个 data.json
-let DATA_SHA=null;        // data.json 当前 sha（写回需要）
-let DIRTY=false;          // 是否有未保存改动
+/* ===== STATE ===== */
+let DB=null,DATA_SHA=null;
+let LANG=localStorage.getItem(LS_LANG)||"en";   // 默认英文
+let CUR="home", CUR_PID=null;
 const IS_ADMIN_URL=/[?&]admin\b/.test(location.search);
 function token(){return localStorage.getItem(LS_TOKEN)||""}
 function isAdmin(){return IS_ADMIN_URL && !!token()}
-
 function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
-function toast(msg,err){const t=document.getElementById("toast");t.textContent=msg;t.className="toast show"+(err?" err":"");setTimeout(()=>t.className="toast",err?3200:1800)}
+function toast(m,e){const t=document.getElementById("toast");t.textContent=m;t.className="toast show"+(e?" err":"");setTimeout(()=>t.className="toast",e?3200:1800)}
+// 取双语字段：值可能是 {en,zh} 或纯字符串
+function L(v){if(v&&typeof v==="object")return v[LANG]||v.en||v.zh||"";return v||""}
 
-/* ===================== LOAD DATA ===================== */
+/* ===== I18N (界面文案) ===== */
+const I18N={
+  home:{en:"Home",zh:"首页"},
+  identity:{en:"Certifications",zh:"身份/资质"},
+  products:{en:"Products",zh:"产品中心"},
+  intel:{en:"Intel",zh:"情报/画像"},
+  scripts:{en:"Scripts",zh:"话术/SOP"},
+  brand:{en:"Brand",zh:"品牌资产"},
+  login:{en:"🔒 Admin",zh:"🔒 后台登录"},
+  logout:{en:"Logout",zh:"退出"},
+  adminmode:{en:"Admin mode",zh:"管理模式"},
+  searchProduct:{en:"Search product name / code...",zh:"搜索产品名称 / 编号..."},
+  searchScript:{en:"Search scripts / scene / code...",zh:"搜索话术 / 场景 / 编号..."},
+  items:{en:"items",zh:"款"},
+  rows:{en:"items",zh:"条"},
+  copy:{en:"Copy",zh:"复制"},
+  edit:{en:"Edit",zh:"编辑"},
+  del:{en:"Delete",zh:"删除"},
+  view:{en:"View details",zh:"查看详情"},
+  addProduct:{en:"+ Add product",zh:"+ 新增产品"},
+  addScript:{en:"+ Add script",zh:"+ 新增话术"},
+  addIntel:{en:"+ Add intel",zh:"+ 新增情报"},
+  addCert:{en:"+ Add certification",zh:"+ 新增资质"},
+  addBrand:{en:"+ Add brand item",zh:"+ 新增品牌项"},
+  back:{en:"← Back to products",zh:"← 返回产品列表"},
+  specs:{en:"Specifications",zh:"规格参数"},
+  desc:{en:"Description",zh:"产品描述"},
+  video:{en:"Product Video",zh:"产品视频"},
+  noSpec:{en:"No specifications yet.",zh:"暂无规格参数。"},
+  noDesc:{en:"No description yet.",zh:"暂无产品描述。"},
+  price:{en:"Price",zh:"价格"},
+  moq:{en:"MOQ",zh:"起订量"},
+  inquiry:{en:"Inquire",zh:"询价"},
+  companyOverview:{en:"Company Overview",zh:"公司速览"},
+  dataSource:{en:"Source",zh:"数据来源"},
+  adminTip:{en:" · Admin mode: edit/delete each item",zh:" · 管理模式：可编辑/删除每一条"},
+  uploadImg:{en:"Click or drag images here to upload",zh:"点击或拖拽图片到此上传"},
+  saving:{en:"Saving to server…",zh:"正在保存到服务器…"},
+  saved:{en:"Saved. Clients see it after refresh.",zh:"已保存，客户刷新即可见。"},
+  uploading:{en:"Uploading image…",zh:"正在上传图片…"},
+  // stats labels
+  stProducts:{en:"Products",zh:"在库产品"},
+  stScripts:{en:"Scripts",zh:"销售话术"},
+  stRating:{en:"Store rating",zh:"店铺评分"},
+  stOntime:{en:"On-time delivery",zh:"准时发货率"},
+  stResp:{en:"Response",zh:"询盘响应"},
+  stFloor:{en:"Floor area",zh:"厂区面积"},
+};
+function T(k){const o=I18N[k];return o?(o[LANG]||o.en):k}
+
+/* ===== LOAD ===== */
 async function loadDB(){
-  const sources=[SAME_URL,RAW_URL];
-  let lastErr=null;
-  for(const base of sources){
-    try{
-      const res=await fetch(base+"?t="+Date.now(),{cache:"no-store"});
-      if(!res.ok) throw new Error("HTTP "+res.status);
-      DB=await res.json();
-      lastErr=null;break;
-    }catch(e){lastErr=e;}
+  for(const base of [SAME_URL,RAW_URL]){
+    try{const r=await fetch(base+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;DB=await r.json();break;}catch(e){}
   }
-  if(lastErr){
-    document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">数据加载失败：${esc(lastErr.message)}</p><p style="margin-top:10px">请检查网络后刷新页面。</p></div>`;
-    return false;
-  }
-  // 兜底字段
-  DB.products=DB.products||[];DB.scripts=DB.scripts||[];
-  DB.intel=DB.intel||[];DB.certs=DB.certs||[];DB.brand=DB.brand||[];
+  if(!DB){document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">Data load failed. Please refresh.</p></div>`;return false;}
+  ["products","scripts","intel","certs","brand"].forEach(k=>DB[k]=DB[k]||[]);
   return true;
 }
 function allProducts(){return DB.products}
 function allScripts(){return DB.scripts}
-function allIntel(){return DB.intel}
-function allCerts(){return DB.certs}
 
-/* ===================== NAV ===================== */
+/* ===== LANG / NAV ===== */
+function setLang(l){LANG=l;localStorage.setItem(LS_LANG,l);document.documentElement.lang=(l==="zh"?"zh-CN":"en");buildNav();render();}
 function buildNav(){
-  const tabs=[["home","首页"],["identity","身份/资质"],["products","产品/Q&A"],["intel","情报/画像"],["scripts","话术/SOP"],["brand","品牌资产"]];
+  // 内部栏目 intel/scripts 仅管理员可见
+  const tabs=[["home",T("home")],["identity",T("identity")],["products",T("products")],["brand",T("brand")]];
+  if(isAdmin()){tabs.splice(3,0,["intel",T("intel")],["scripts",T("scripts")]);}
   const nav=document.getElementById("nav");
-  nav.innerHTML=tabs.map(([t,l])=>`<button data-t="${t}">${l}</button>`).join("")
-    + (IS_ADMIN_URL && !isAdmin()?`<button data-t="login" style="color:var(--warn)">🔒 后台登录</button>`:"")
-    + (isAdmin()?`<button data-t="logout" style="color:var(--txt2)">退出</button>`:"");
-  document.getElementById("adminBadge").style.display=isAdmin()?"inline-block":"none";
+  let html=tabs.map(([t,l])=>`<button data-t="${t}" class="${CUR===t?'active':''}">${l}</button>`).join("");
+  html+=`<div class="langtoggle"><button class="${LANG==='en'?'on':''}" onclick="setLang('en')">EN</button><button class="${LANG==='zh'?'on':''}" onclick="setLang('zh')">中</button></div>`;
+  if(IS_ADMIN_URL && !isAdmin()) html+=`<button data-t="login" style="color:var(--warn)">${T('login')}</button>`;
+  if(isAdmin()) html+=`<span class="adminbadge">${T('adminmode')}</span><button data-t="logout" style="color:var(--txt2)">${T('logout')}</button>`;
+  nav.innerHTML=html;
 }
 
-/* ===================== RENDER ===================== */
+/* ===== RENDER: HOME ===== */
 function renderHome(){
   const C=DB.company;
+  const cats=L(C.cats).split("|");
   return `<div class="hero">
-    <h2>${esc(C.name_cn)}</h2>
-    <div class="en">${esc(C.name_en)} · ${esc(C.region)}</div>
-    <p>${esc(C.years)} ｜ ${esc(C.type)} ｜ ${esc(C.rank)}</p>
-    <div style="margin-top:14px">${(C.cats||"").split("、").map(c=>`<span class="tag">${esc(c)}</span>`).join("")}</div>
+    <h2>${esc(L(C.name))}</h2>
+    <div class="en">${esc(L(C.region))}</div>
+    <p>${esc(L(C.years))} ｜ ${esc(L(C.type))} ｜ ${esc(L(C.rank))}</p>
+    <div style="margin-top:14px">${cats.map(c=>`<span class="tag">${esc(c)}</span>`).join("")}</div>
     <div class="stats">
-      <div class="stat"><b>${allProducts().length}</b><span>在库产品款数</span></div>
-      <div class="stat"><b>${allScripts().length}</b><span>销售话术/SOP</span></div>
-      <div class="stat"><b>${esc(C.rating||"5.0★")}</b><span>店铺评分</span></div>
-      <div class="stat"><b>100%</b><span>准时发货率</span></div>
-      <div class="stat"><b>≤3h</b><span>询盘响应</span></div>
-      <div class="stat"><b>25000m²</b><span>厂区面积</span></div>
+      <div class="stat"><b>${allProducts().length}</b><span>${T('stProducts')}</span></div>
+      <div class="stat"><b>${allScripts().length}</b><span>${T('stScripts')}</span></div>
+      <div class="stat"><b>5.0★</b><span>${T('stRating')}</span></div>
+      <div class="stat"><b>100%</b><span>${T('stOntime')}</span></div>
+      <div class="stat"><b>≤3h</b><span>${T('stResp')}</span></div>
+      <div class="stat"><b>25000m²</b><span>${T('stFloor')}</span></div>
     </div>
   </div>
-  <div class="panel"><h3>公司速览</h3>
+  <div class="panel"><h3>${T('companyOverview')}</h3>
     <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
-      ${[["成立年份",C.founded],["企业类型",C.type],["员工规模",C.staff],["年产值",C.revenue],["研发团队",C.rd],["主营市场",C.markets],["响应能力",C.response],["大客户",C.bigClients]].map(([k,v])=>`<div class="manual-item"><div class="mi-body"><b>${esc(k)}</b><br>${esc(v)}</div></div>`).join("")}
+      ${[["founded",C.founded],["type",C.type],["staff",C.staff],["revenue",C.revenue],["rd",C.rd],["markets",C.markets],["response",C.response],["bigClients",C.bigClients]].map(([k,v])=>`<div class="manual-item qrow"><div class="a">${esc(L(v))}</div></div>`).join("")}
     </div>
-    <p style="margin-top:14px;color:var(--txt2);font-size:13px">数据来源：<a href="${esc(C.url)}" target="_blank">${esc(C.url)}</a></p>
   </div>`;
 }
+
+/* ===== RENDER: IDENTITY / INTEL / BRAND (qrow lists) ===== */
 function adminBtns(type,id){
   if(!isAdmin())return "";
-  return `<button class="copy" style="background:var(--chip)" onclick="openEdit('${type}','${esc(id)}')">编辑</button>`+
-         `<button class="delq" onclick="delItem('${type}','${esc(id)}')">删除</button>`;
+  return `<button class="delq" onclick="event.stopPropagation();delItem('${type}','${esc(id)}')">${T('del')}</button>`+
+         `<button class="editb" onclick="event.stopPropagation();openEdit('${type}','${esc(id)}')">${T('edit')}</button>`;
 }
 function renderIdentity(){
-  return `<div class="sec-title"><span class="bar"></span>身份 / 资质</div>
-  <div class="sec-sub">公司认证、贸易保障与定制能力。${isAdmin()?'<span style="color:var(--warn)"> · 管理模式：可编辑/删除每一条</span>':''}</div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('certs','')">+ 新增资质</button>`:''}
-  ${allCerts().map(c=>`<div class="qrow">${adminBtns('certs',c.id)}<div class="q">${esc(c.t)}</div><div class="a">${esc(c.d)}</div></div>`).join("")}`;
+  return `<div class="sec-title"><span class="bar"></span>${T('identity')}</div>
+  <div class="sec-sub">${LANG==='zh'?'公司认证、贸易保障与定制能力。':'Certifications, trade assurance & customization.'}${isAdmin()?T('adminTip'):''}</div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('certs','')">${T('addCert')}</button>`:''}
+  ${DB.certs.map(c=>`<div class="qrow">${adminBtns('certs',c.id)}<div class="q">${esc(L(c.t))}</div><div class="a">${esc(L(c.d))}</div></div>`).join("")}`;
 }
+function renderIntel(){
+  return `<div class="sec-title"><span class="bar"></span>${T('intel')} <span style="font-size:12px;color:var(--warn)">(${LANG==='zh'?'内部资料':'Internal only'})</span></div>
+  <div class="sec-sub">${LANG==='zh'?'客户结构、市场画像、采购决策关键词。':'Customer structure, market profile, purchase keywords.'}${isAdmin()?T('adminTip'):''}</div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('intel','')">${T('addIntel')}</button>`:''}
+  ${DB.intel.map(i=>`<div class="qrow">${adminBtns('intel',i.id)}<div class="q">${esc(L(i.t))}</div><div class="a">${esc(L(i.d))}</div></div>`).join("")}`;
+}
+function renderBrand(){
+  return `<div class="sec-title"><span class="bar"></span>${T('brand')}</div>
+  <div class="sec-sub">${LANG==='zh'?'品牌定位、核心品类、市场与背书。':'Positioning, categories, markets & endorsements.'}${isAdmin()?T('adminTip'):''}</div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('brand','')">${T('addBrand')}</button>`:''}
+  ${DB.brand.map(b=>`<div class="qrow">${adminBtns('brand',b.id)}<div class="q">${esc(L(b.t))}</div><div class="a">${esc(L(b.d))}</div></div>`).join("")}`;
+}
+
+/* ===== RENDER: SCRIPTS ===== */
+function scriptRow(s){
+  return `<div class="qrow">
+    <button class="copy" onclick="copyTxt(this.dataset.c)" data-c="${esc(s.c)}">${T('copy')}</button>
+    ${adminBtns('scripts',s.id)}
+    <div class="q">${esc(s.id)} · ${esc(L(s.t))}</div>
+    <div class="a">${esc(s.c)}</div>
+    <div class="meta">${LANG==='zh'?'场景':'Scene'}: ${esc(L(s.cat))}</div>
+  </div>`;
+}
+function scriptListHTML(f=""){f=f.toLowerCase();const list=allScripts().filter(s=>(L(s.t)+s.c+L(s.cat)+s.id).toLowerCase().includes(f));return{count:list.length,html:list.map(scriptRow).join("")};}
+function renderScripts(filter=""){
+  const r=scriptListHTML(filter);
+  return `<div class="sec-title"><span class="bar"></span>${T('scripts')} <span style="font-size:12px;color:var(--warn)">(${LANG==='zh'?'内部资料':'Internal only'})</span></div>
+  <div class="sec-sub">${LANG==='zh'?'B2B 销售全流程话术，点复制即用。':'B2B sales scripts, click to copy.'}${isAdmin()?T('adminTip'):''}</div>
+  <div class="toolbar"><div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="ssearch" placeholder="${T('searchScript')}" value="${esc(filter)}" oninput="filterScripts(this.value)"></div>
+    <div class="count" id="scount">${r.count} ${T('rows')}</div></div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('scripts','')">${T('addScript')}</button>`:''}
+  <div id="slist">${r.html}</div>`;
+}
+function filterScripts(v){const r=scriptListHTML(v);const l=document.getElementById("slist"),c=document.getElementById("scount");if(l)l.innerHTML=r.html;if(c)c.textContent=r.count+" "+T('rows');}
+
+/* ===== RENDER: PRODUCTS LIST ===== */
 function productCard(p){
-  return `<div class="card">
-      <img class="thumb" src="${esc(p.img)}" loading="lazy" alt="${esc(p.name)}" onerror="this.style.opacity=.3">
+  const img=(p.images&&p.images[0])||"https://img.alicdn.com/imgextra/i1/O1CN01YyMrnH1TH65JNfJZU_!!6000000002356-2-tps-600-600.png";
+  const hasVideo=!!p.video;
+  return `<div class="card" onclick="openDetail('${esc(p.id)}')">
+      <div style="position:relative"><img class="thumb" src="${esc(img)}" loading="lazy" onerror="this.style.opacity=.3">${hasVideo?'<span class="vbadge">▶ video</span>':''}</div>
       <div class="body">
         <div class="pid">${esc(p.id)}</div>
-        <div class="name">${esc(p.name)}</div>
-        <div class="price">${esc(p.price||'询价')}</div>
-        <div class="moq">起订量：${esc(p.moq||'-')}</div>
+        <div class="name">${esc(L(p.name))}</div>
+        <div class="price">${esc(p.price||T('inquiry'))}</div>
+        <div class="moq">${T('moq')}: ${esc(p.moq||'-')}</div>
         <div class="acts">
-          ${p.url?`<a href="${esc(p.url)}" target="_blank">查看详情</a>`:''}
-          <button onclick="copyTxt(this.dataset.n)" data-n="${esc(p.name)}">复制名称</button>
-          ${isAdmin()?`<button onclick="openEdit('products','${esc(p.id)}')">编辑</button><button class="delp" onclick="delItem('products','${esc(p.id)}')">删除</button>`:''}
+          <button onclick="event.stopPropagation();openDetail('${esc(p.id)}')">${T('view')}</button>
+          ${isAdmin()?`<button class="delp" onclick="event.stopPropagation();delItem('products','${esc(p.id)}')">${T('del')}</button>`:''}
         </div>
       </div>
     </div>`;
 }
-function productListHTML(filter=""){
-  const f=filter.toLowerCase();
-  const list=allProducts().filter(p=>((p.name||"")+(p.id||"")).toLowerCase().includes(f));
-  return {count:list.length, html:`<div class="grid">${list.map(productCard).join("")}</div>`};
-}
+function productListHTML(f=""){f=f.toLowerCase();const list=allProducts().filter(p=>(L(p.name)+p.id).toLowerCase().includes(f));return{count:list.length,html:`<div class="grid">${list.map(productCard).join("")}</div>`};}
 function renderProducts(filter=""){
   const r=productListHTML(filter);
-  return `<div class="sec-title"><span class="bar"></span>产品 / Q&amp;A</div>
-  <div class="sec-sub">店铺真实产品矩阵，支持搜索。${isAdmin()?'<span style="color:var(--warn)"> · 管理模式：可编辑/删除每一条</span>':''}</div>
-  <div class="toolbar">
-    <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input id="psearch" placeholder="搜索产品名称 / 编号..." value="${esc(filter)}" oninput="filterProducts(this.value)"></div>
-    <div class="count" id="pcount">${r.count} 款</div>
-  </div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('products','')">+ 新增产品</button>`:''}
+  return `<div class="sec-title"><span class="bar"></span>${T('products')}</div>
+  <div class="sec-sub">${LANG==='zh'?'点击任意产品查看多图、规格参数与视频。':'Click any product for photos, specs & video.'}${isAdmin()?T('adminTip'):''}</div>
+  <div class="toolbar"><div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="psearch" placeholder="${T('searchProduct')}" value="${esc(filter)}" oninput="filterProducts(this.value)"></div>
+    <div class="count" id="pcount">${r.count} ${T('items')}</div></div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('products','')">${T('addProduct')}</button>`:''}
   <div id="plist">${r.html}</div>`;
 }
-function filterProducts(v){
-  const r=productListHTML(v);
-  const lst=document.getElementById("plist");const cnt=document.getElementById("pcount");
-  if(lst)lst.innerHTML=r.html;
-  if(cnt)cnt.textContent=r.count+" 款";
-}
-function renderIntel(){
-  return `<div class="sec-title"><span class="bar"></span>情报 / 画像</div>
-  <div class="sec-sub">客户结构、市场画像、采购决策关键词。${isAdmin()?'<span style="color:var(--warn)"> · 管理模式：可编辑/删除每一条</span>':''}</div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('intel','')">+ 新增情报</button>`:''}
-  ${allIntel().map(i=>`<div class="qrow">${adminBtns('intel',i.id)}<div class="q">${esc(i.t)}</div><div class="a">${esc(i.d)}</div></div>`).join("")}`;
-}
-function scriptRow(s){
-  return `<div class="qrow">
-    <button class="copy" onclick="copyTxt(this.dataset.c)" data-c="${esc(s.c)}">复制</button>
-    ${adminBtns('scripts',s.id)}
-    <div class="q">${esc(s.id)} · ${esc(s.t)}</div>
-    <div class="a">${esc(s.c)}</div>
-    <div class="meta">场景：${esc(s.cat||'-')}</div>
-  </div>`;
-}
-function scriptListHTML(filter=""){
-  const f=filter.toLowerCase();
-  const list=allScripts().filter(s=>((s.t||"")+(s.c||"")+(s.cat||"")+(s.id||"")).toLowerCase().includes(f));
-  return {count:list.length, html:list.map(scriptRow).join("")};
-}
-function renderScripts(filter=""){
-  const r=scriptListHTML(filter);
-  return `<div class="sec-title"><span class="bar"></span>话术 / SOP</div>
-  <div class="sec-sub">B2B 户外地垫销售全流程话术，点复制即用。${isAdmin()?'<span style="color:var(--warn)"> · 管理模式：可编辑/删除每一条</span>':''}</div>
-  <div class="toolbar">
-    <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input id="ssearch" placeholder="搜索话术 / 场景 / 编号..." value="${esc(filter)}" oninput="filterScripts(this.value)"></div>
-    <div class="count" id="scount">${r.count} 条</div>
-  </div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('scripts','')">+ 新增话术</button>`:''}
-  <div id="slist">${r.html}</div>`;
-}
-function filterScripts(v){
-  const r=scriptListHTML(v);
-  const lst=document.getElementById("slist");const cnt=document.getElementById("scount");
-  if(lst)lst.innerHTML=r.html;
-  if(cnt)cnt.textContent=r.count+" 条";
-}
-function renderBrand(){
-  return `<div class="sec-title"><span class="bar"></span>品牌资产</div>
-  <div class="sec-sub">品牌定位、核心品类、市场与背书。${isAdmin()?'<span style="color:var(--warn)"> · 管理模式：可编辑/删除每一条</span>':''}</div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('brand','')">+ 新增品牌项</button>`:''}
-  ${(DB.brand||[]).map(b=>`<div class="qrow">${adminBtns('brand',b.id)}<div class="q">${esc(b.t)}</div><div class="a">${esc(b.d)}</div></div>`).join("")}`;
-}
-/* ===================== EDIT SCHEMA ===================== */
-/* 每种类型的字段定义：key=数据字段, label=显示名, type=input/textarea, required, placeholder, idprefix */
-const SCHEMA={
-  products:{title:"产品",idprefix:"AY",fields:[
-    {k:"name",label:"产品名称",type:"input",required:true,ph:"如：New PP Reversible Outdoor Rug 8x10"},
-    {k:"price",label:"价格",type:"input",ph:"如：$6.5-9.0"},
-    {k:"moq",label:"起订量",type:"input",ph:"如：200 pieces"},
-    {k:"img",label:"图片链接",type:"input",ph:"https://...jpg"},
-    {k:"url",label:"详情链接",type:"input",ph:"https://www.alibaba.com/product-detail/..."}
-  ]},
-  scripts:{title:"话术",idprefix:"S",fields:[
-    {k:"cat",label:"场景分类",type:"input",ph:"如：报价 / 催单 / 售后"},
-    {k:"t",label:"话术标题",type:"input",required:true,ph:"如：大客户专属折扣话术"},
-    {k:"c",label:"话术内容",type:"textarea",ph:"输入话术正文..."}
-  ]},
-  intel:{title:"情报",idprefix:"I",fields:[
-    {k:"t",label:"标题",type:"input",required:true,ph:"如：德国买家偏好"},
-    {k:"d",label:"内容",type:"textarea",ph:"输入情报内容..."}
-  ]},
-  certs:{title:"资质",idprefix:"C",fields:[
-    {k:"t",label:"标题",type:"input",required:true,ph:"如：BSCI 认证"},
-    {k:"d",label:"内容",type:"textarea",ph:"输入资质内容..."}
-  ]},
-  brand:{title:"品牌项",idprefix:"B",fields:[
-    {k:"t",label:"标题",type:"input",required:true,ph:"如：品牌口号"},
-    {k:"d",label:"内容",type:"textarea",ph:"输入内容..."}
-  ]}
-};
-let EDIT_TYPE=null, EDIT_ID=null;
+function filterProducts(v){const r=productListHTML(v);const l=document.getElementById("plist"),c=document.getElementById("pcount");if(l)l.innerHTML=r.html;if(c)c.textContent=r.count+" "+T('items');}
 
-function openEdit(type,id){
-  if(!isAdmin())return;
-  EDIT_TYPE=type;EDIT_ID=id;
-  const sc=SCHEMA[type];
-  const item=id?DB[type].find(x=>String(x.id)===String(id)):{};
-  const isNew=!id;
-  const html=`<div class="box" style="max-height:88vh;overflow:auto">
-    <h3>${isNew?'新增':'编辑'}${sc.title}</h3>
-    <p>${isNew?'填写后保存，将同步到公开链接。':'修改后保存，将同步到公开链接，客户刷新即见。'}</p>
-    ${sc.fields.map(f=>`<div class="field"><label>${f.label}${f.required?' *':''}</label>${
-      f.type==="textarea"
-        ?`<textarea id="ef_${f.k}" placeholder="${esc(f.ph||'')}">${esc((item&&item[f.k])||"")}</textarea>`
-        :`<input id="ef_${f.k}" placeholder="${esc(f.ph||'')}" value="${esc((item&&item[f.k])||"")}">`
-    }</div>`).join("")}
-    <div style="display:flex;gap:10px;margin-top:6px">
-      <button class="btn" id="editSaveBtn" onclick="saveEdit()">保存</button>
-      <button class="btn btn-ghost" onclick="closeEdit()">取消</button>
+/* ===== RENDER: PRODUCT DETAIL ===== */
+function ytEmbed(url){
+  if(!url)return "";
+  let id="";
+  let m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+  if(m)id=m[1];
+  if(id)return `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe></div>`;
+  if(/\.mp4($|\?)/i.test(url))return `<div class="video-wrap"><video src="${esc(url)}" controls></video></div>`;
+  return `<div class="video-wrap"><iframe src="${esc(url)}" allowfullscreen></iframe></div>`;
+}
+let DETAIL_IMG=0;
+function renderDetail(){
+  const p=DB.products.find(x=>String(x.id)===String(CUR_PID));
+  if(!p)return `<p>Not found.</p>`;
+  const imgs=p.images&&p.images.length?p.images:["https://img.alicdn.com/imgextra/i1/O1CN01YyMrnH1TH65JNfJZU_!!6000000002356-2-tps-600-600.png"];
+  if(DETAIL_IMG>=imgs.length)DETAIL_IMG=0;
+  const specs=p.specs||[];
+  return `<div class="back" onclick="show('products')">${T('back')}</div>
+  <div class="detail">
+    <div class="gallery">
+      <img class="main" id="mainImg" src="${esc(imgs[DETAIL_IMG])}" onerror="this.style.opacity=.3">
+      <div class="thumbs">
+        ${imgs.map((im,i)=>`<div class="t ${i===DETAIL_IMG?'on':''}" onclick="setDetailImg(${i})"><img src="${esc(im)}">${isAdmin()?`<span class="x" onclick="event.stopPropagation();delProductImg(${i})">×</span>`:''}</div>`).join("")}
+        ${isAdmin()?`<div class="t" style="display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--accent2)" onclick="document.getElementById('imgFile').click()">+</div>`:''}
+      </div>
+      ${isAdmin()?`<input type="file" id="imgFile" accept="image/*" style="display:none" onchange="uploadImg(this)"><div style="margin-top:8px"><input id="imgUrlInput" placeholder="${LANG==='zh'?'或粘贴图片链接后回车':'or paste image URL + Enter'}" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px" onkeydown="if(event.key==='Enter')addImgUrl(this.value)"></div>`:''}
+      ${ytEmbed(p.video)}
+    </div>
+    <div class="info">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+        <div><div class="card-pid" style="color:var(--accent2);font-size:12px;font-weight:700">${esc(p.id)}</div>
+        <h2 style="font-size:20px;margin:4px 0 10px">${esc(L(p.name))}</h2></div>
+        ${isAdmin()?`<button class="btn btn-sm" onclick="openEdit('products','${esc(p.id)}')">${T('edit')}</button>`:''}
+      </div>
+      <div style="font-size:18px;color:var(--warn);font-weight:700;margin-bottom:4px">${esc(p.price||T('inquiry'))}</div>
+      <div style="color:var(--txt2);font-size:13px;margin-bottom:18px">${T('moq')}: ${esc(p.moq||'-')}</div>
+      <h3 style="font-size:15px;color:var(--accent2);margin-bottom:8px">${T('specs')}</h3>
+      ${specs.length?`<table class="spectable">${specs.map(s=>`<tr><td class="k">${esc(L(s.k))}</td><td>${esc(L(s.v))}</td></tr>`).join("")}</table>`:`<div class="empty">${T('noSpec')}</div>`}
+      <h3 style="font-size:15px;color:var(--accent2);margin:18px 0 8px">${T('desc')}</h3>
+      <div class="a" style="white-space:pre-wrap;font-size:14px">${esc(L(p.desc))||`<span style="color:var(--txt2)">${T('noDesc')}</span>`}</div>
     </div>
   </div>`;
-  const modal=document.getElementById("editModal");
-  modal.innerHTML=html;modal.classList.add("show");
-  setTimeout(()=>{const e=document.querySelector('#editModal [id^="ef_"]');if(e)e.focus();},100);
 }
-function closeEdit(){const m=document.getElementById("editModal");m.classList.remove("show");m.innerHTML="";EDIT_TYPE=EDIT_ID=null;}
+function setDetailImg(i){DETAIL_IMG=i;const m=document.getElementById("mainImg");if(m)m.src=DB.products.find(x=>String(x.id)===String(CUR_PID)).images[i];document.querySelectorAll(".thumbs .t").forEach((t,idx)=>t.classList.toggle("on",idx===i));}
+function openDetail(pid){CUR_PID=pid;DETAIL_IMG=0;CUR="detail";buildNav();document.getElementById("main").innerHTML=renderDetail();window.scrollTo({top:0,behavior:"smooth"});}
 
-async function saveEdit(){
-  const type=EDIT_TYPE,sc=SCHEMA[type];
-  const obj={};
-  for(const f of sc.fields){
-    const el=document.getElementById("ef_"+f.k);
-    const v=el?el.value.trim():"";
-    if(f.required && !v)return toast("请填写「"+f.label+"」",true);
-    obj[f.k]=v;
-  }
-  // 产品图兜底
-  if(type==="products" && !obj.img) obj.img="https://img.alicdn.com/imgextra/i1/O1CN01YyMrnH1TH65JNfJZU_!!6000000002356-2-tps-600-600.png";
-  const btn=document.getElementById("editSaveBtn");if(btn){btn.disabled=true;btn.textContent="保存中…";}
-  let msg;
-  if(EDIT_ID){ // 编辑
-    const it=DB[type].find(x=>String(x.id)===String(EDIT_ID));
-    Object.assign(it,obj);
-    msg="Edit "+type+": "+(obj.t||obj.name||EDIT_ID);
-  }else{ // 新增
-    obj.id=uid(sc.idprefix+"-M");
-    DB[type].push(obj);
-    msg="Add "+type+": "+(obj.t||obj.name||obj.id);
-  }
-  const ok=await saveDB(msg);
-  if(ok){closeEdit();const cur=document.querySelector("#nav button.active");show(cur?cur.dataset.t:"home");}
-  else{if(btn){btn.disabled=false;btn.textContent="保存";}}
-}
-
-async function delItem(type,id){
-  if(!isAdmin())return;
-  if(!confirm("确定删除这条内容？删除后客户也将看不到。"))return;
-  const arr=DB[type];
-  const idx=arr.findIndex(x=>String(x.id)===String(id));
-  if(idx<0)return toast("未找到该条目",true);
-  const removed=arr.splice(idx,1)[0];
-  if(await saveDB("Delete "+type+": "+id)){const cur=document.querySelector("#nav button.active");show(cur?cur.dataset.t:"home");}
-  else{arr.splice(idx,0,removed);}
-}
-
-/* ===================== WRITE BACK TO GITHUB ===================== */
-async function saveDB(commitMsg){
-  if(!isAdmin()){toast("未登录后台，无法保存",true);return false}
-  toast("正在保存到服务器…");
+/* ===== GITHUB WRITE ===== */
+async function saveDB(msg){
+  if(!isAdmin()){toast("Not logged in",true);return false}
+  toast(T('saving'));
   try{
-    // 取最新 sha（避免冲突）
     const meta=await fetch(API_CONTENT+"?t="+Date.now(),{headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json"},cache:"no-store"});
-    if(meta.ok){const mj=await meta.json();DATA_SHA=mj.sha;}
+    if(meta.ok)DATA_SHA=(await meta.json()).sha;
     DB._updated=new Date().toISOString();
-    const content=JSON.stringify(DB,null,2);
-    const b64=btoa(unescape(encodeURIComponent(content)));
-    const res=await fetch(API_CONTENT,{
-      method:"PUT",
-      headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json","Content-Type":"application/json"},
-      body:JSON.stringify({message:commitMsg||"Update knowledge base",content:b64,sha:DATA_SHA,branch:GH_BRANCH})
-    });
-    if(!res.ok){const er=await res.json();throw new Error(er.message||("HTTP "+res.status))}
-    const rj=await res.json();
-    DATA_SHA=rj.content.sha;
-    toast("已保存，客户刷新即可见最新内容");
-    return true;
-  }catch(e){
-    toast("保存失败："+e.message,true);
-    return false;
+    const b64=btoa(unescape(encodeURIComponent(JSON.stringify(DB,null,2))));
+    const res=await fetch(API_CONTENT,{method:"PUT",headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify({message:msg||"update",content:b64,sha:DATA_SHA,branch:GH_BRANCH})});
+    if(!res.ok)throw new Error((await res.json()).message||res.status);
+    DATA_SHA=(await res.json()).content.sha;
+    toast(T('saved'));return true;
+  }catch(e){toast("Save failed: "+e.message,true);return false}
+}
+function uid(p){return p+Date.now().toString(36)+Math.floor(Math.random()*900+100)}
+
+/* ===== IMAGE UPLOAD (to GitHub /images/) ===== */
+async function uploadImg(input){
+  const file=input.files[0];if(!file)return;
+  if(file.size>5*1024*1024){toast("Image too large (max 5MB)",true);return}
+  toast(T('uploading'));
+  try{
+    const b64=await new Promise((rs,rj)=>{const r=new FileReader();r.onload=()=>rs(r.result.split(",")[1]);r.onerror=rj;r.readAsDataURL(file);});
+    const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+    const path=`images/${CUR_PID}_${Date.now()}.${ext}`;
+    const api=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`;
+    const res=await fetch(api,{method:"PUT",headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify({message:"Upload image "+path,content:b64,branch:GH_BRANCH})});
+    if(!res.ok)throw new Error((await res.json()).message||res.status);
+    const url=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${path}`;
+    const p=DB.products.find(x=>String(x.id)===String(CUR_PID));
+    p.images=p.images||[];p.images.push(url);
+    if(await saveDB("Add image to "+CUR_PID)){document.getElementById("main").innerHTML=renderDetail();}
+  }catch(e){toast("Upload failed: "+e.message,true)}
+}
+function addImgUrl(url){url=url.trim();if(!url)return;const p=DB.products.find(x=>String(x.id)===String(CUR_PID));p.images=p.images||[];p.images.push(url);saveDB("Add image url to "+CUR_PID).then(ok=>{if(ok)document.getElementById("main").innerHTML=renderDetail();});}
+async function delProductImg(i){const p=DB.products.find(x=>String(x.id)===String(CUR_PID));if(!confirm("Delete this image?"))return;p.images.splice(i,1);if(DETAIL_IMG>=p.images.length)DETAIL_IMG=0;if(await saveDB("Remove image from "+CUR_PID))document.getElementById("main").innerHTML=renderDetail();}
+
+/* ===== EDIT MODAL ===== */
+/* 字段定义：bl=双语(存{en,zh}), s=单值字符串 */
+const SCHEMA={
+  products:{title:{en:"Product",zh:"产品"},idp:"AY",fields:[
+    {k:"name",t:"bl",label:{en:"Product name",zh:"产品名称"},req:1},
+    {k:"price",t:"s",label:{en:"Price",zh:"价格"}},
+    {k:"moq",t:"s",label:{en:"MOQ",zh:"起订量"}},
+    {k:"video",t:"s",label:{en:"YouTube / video URL",zh:"YouTube / 视频链接"}},
+    {k:"desc",t:"bl",label:{en:"Description",zh:"产品描述"},area:1},
+  ],hasSpecs:1},
+  scripts:{title:{en:"Script",zh:"话术"},idp:"S",fields:[
+    {k:"cat",t:"bl",label:{en:"Scene",zh:"场景分类"}},
+    {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
+    {k:"c",t:"s",label:{en:"Content",zh:"内容"},area:1},
+  ]},
+  intel:{title:{en:"Intel",zh:"情报"},idp:"I",fields:[
+    {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
+    {k:"d",t:"bl",label:{en:"Content",zh:"内容"},area:1},
+  ]},
+  certs:{title:{en:"Certification",zh:"资质"},idp:"C",fields:[
+    {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
+    {k:"d",t:"bl",label:{en:"Content",zh:"内容"},area:1},
+  ]},
+  brand:{title:{en:"Brand item",zh:"品牌项"},idp:"B",fields:[
+    {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
+    {k:"d",t:"bl",label:{en:"Content",zh:"内容"},area:1},
+  ]},
+};
+let EDIT_TYPE=null,EDIT_ID=null,EDIT_SPECS=[];
+function fld(id){const e=document.getElementById(id);return e?e.value.trim():""}
+function openEdit(type,id){
+  if(!isAdmin())return;EDIT_TYPE=type;EDIT_ID=id;
+  const sc=SCHEMA[type];const it=id?DB[type].find(x=>String(x.id)===String(id)):null;
+  EDIT_SPECS=it&&it.specs?JSON.parse(JSON.stringify(it.specs)):[];
+  const lbl=o=>o[LANG]||o.en;
+  let html=`<div class="box"><h3>${id?(LANG==='zh'?'编辑':'Edit'):(LANG==='zh'?'新增':'Add')} ${lbl(sc.title)}</h3>
+    <p>${LANG==='zh'?'填中英两种语言；保存后同步到公开链接。':'Fill both EN & 中文; saved to the public link.'}</p>`;
+  for(const f of sc.fields){
+    const v=it?it[f.k]:"";
+    if(f.t==="bl"){
+      const en=(v&&typeof v==="object")?v.en:"";const zh=(v&&typeof v==="object")?v.zh:"";
+      html+=`<div class="field"><label>${lbl(f.label)} (EN)${f.req?' *':''}</label>${f.area?`<textarea id="ef_${f.k}_en">${esc(en)}</textarea>`:`<input id="ef_${f.k}_en" value="${esc(en)}">`}</div>`;
+      html+=`<div class="field"><label>${lbl(f.label)} (中文)</label>${f.area?`<textarea id="ef_${f.k}_zh">${esc(zh)}</textarea>`:`<input id="ef_${f.k}_zh" value="${esc(zh)}">`}</div>`;
+    }else{
+      const sv=(v&&typeof v==="object")?(v.en||v.zh||""):(v||"");
+      html+=`<div class="field"><label>${lbl(f.label)}${f.req?' *':''}</label>${f.area?`<textarea id="ef_${f.k}">${esc(sv)}</textarea>`:`<input id="ef_${f.k}" value="${esc(sv)}">`}</div>`;
+    }
   }
+  if(sc.hasSpecs){
+    html+=`<div class="field"><label>${T('specs')}（${LANG==='zh'?'参数名 / 参数值，可双语':'key / value'}）</label><div id="specEdit">${specEditRows()}</div>
+      <button class="btn btn-ghost btn-sm" onclick="addSpecRow()">+ ${LANG==='zh'?'添加参数':'Add spec'}</button></div>`;
+  }
+  html+=`<div style="display:flex;gap:10px;margin-top:10px"><button class="btn" id="editSaveBtn" onclick="saveEdit()">${LANG==='zh'?'保存':'Save'}</button><button class="btn btn-ghost" onclick="closeEdit()">${LANG==='zh'?'取消':'Cancel'}</button></div></div>`;
+  const m=document.getElementById("editModal");m.innerHTML=html;m.classList.add("show");
+}
+function specEditRows(){
+  return EDIT_SPECS.map((s,i)=>`<div class="speceditrow">
+    <input value="${esc(L(s.k))}" placeholder="${LANG==='zh'?'参数名':'name'}" oninput="EDIT_SPECS[${i}].k=mkbl(this.value,EDIT_SPECS[${i}].k)">
+    <input value="${esc(L(s.v))}" placeholder="${LANG==='zh'?'参数值':'value'}" oninput="EDIT_SPECS[${i}].v=mkbl(this.value,EDIT_SPECS[${i}].v)">
+    <button class="rm" onclick="EDIT_SPECS.splice(${i},1);document.getElementById('specEdit').innerHTML=specEditRows()">×</button>
+  </div>`).join("")||`<div style="color:var(--txt2);font-size:12px;margin-bottom:8px">${T('noSpec')}</div>`;
+}
+function mkbl(val,old){const o=(old&&typeof old==="object")?old:{en:"",zh:""};o[LANG]=val;if(!o[LANG==='en'?'zh':'en'])o[LANG==='en'?'zh':'en']=val;return o;}
+function addSpecRow(){EDIT_SPECS.push({k:{en:"",zh:""},v:{en:"",zh:""}});document.getElementById("specEdit").innerHTML=specEditRows();}
+function closeEdit(){const m=document.getElementById("editModal");m.classList.remove("show");m.innerHTML="";EDIT_TYPE=EDIT_ID=null;EDIT_SPECS=[];}
+async function saveEdit(){
+  const type=EDIT_TYPE,sc=SCHEMA[type];const obj={};
+  for(const f of sc.fields){
+    if(f.t==="bl"){
+      const en=fld("ef_"+f.k+"_en"),zh=fld("ef_"+f.k+"_zh");
+      if(f.req&&!en&&!zh)return toast("Please fill "+(f.label[LANG]||f.label.en),true);
+      obj[f.k]={en:en||zh,zh:zh||en};
+    }else{obj[f.k]=fld("ef_"+f.k);}
+  }
+  if(sc.hasSpecs)obj.specs=EDIT_SPECS.filter(s=>L(s.k)||L(s.v));
+  if(type==="products"){obj.images=EDIT_ID?(DB.products.find(x=>String(x.id)===String(EDIT_ID)).images||[]):[];}
+  const btn=document.getElementById("editSaveBtn");if(btn){btn.disabled=1;btn.textContent="…";}
+  let msg;
+  if(EDIT_ID){Object.assign(DB[type].find(x=>String(x.id)===String(EDIT_ID)),obj);msg="Edit "+type;}
+  else{obj.id=uid(sc.idp+"-M");DB[type].push(obj);msg="Add "+type;}
+  const ok=await saveDB(msg);
+  if(ok){closeEdit();if(CUR==="detail")document.getElementById("main").innerHTML=renderDetail();else render();}
+  else if(btn){btn.disabled=0;btn.textContent=LANG==='zh'?'保存':'Save';}
+}
+async function delItem(type,id){
+  if(!isAdmin())return;if(!confirm(LANG==='zh'?'确定删除？客户也将看不到。':'Delete this? Clients will not see it.'))return;
+  const arr=DB[type];const idx=arr.findIndex(x=>String(x.id)===String(id));if(idx<0)return toast("Not found",true);
+  const rm=arr.splice(idx,1)[0];
+  if(await saveDB("Delete "+type)){if(CUR==="detail")show("products");else render();}else arr.splice(idx,0,rm);
 }
 
-function uid(prefix){return prefix+Date.now().toString(36)+Math.floor(Math.random()*900+100)}
-
-/* ===================== LOGIN ===================== */
-function openLogin(){document.getElementById("loginModal").classList.add("show");setTimeout(()=>{const i=document.getElementById("tokenInput");if(i)i.focus();},100)}
-function closeLogin(){document.getElementById("loginModal").classList.remove("show")}
+/* ===== LOGIN ===== */
+function openLogin(){document.getElementById("loginModal").classList.add("show");setTimeout(()=>{const i=document.getElementById("tokenInput");if(i)i.focus();},100);}
+function closeLogin(){document.getElementById("loginModal").classList.remove("show");}
 async function doLogin(){
-  const tk=document.getElementById("tokenInput").value.trim();
-  if(!tk)return toast("请输入管理令牌",true);
-  toast("正在验证令牌…");
+  const tk=document.getElementById("tokenInput").value.trim();if(!tk)return toast("Enter token",true);
+  toast("Verifying…");
   try{
     const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}`,{headers:{Authorization:"token "+tk}});
-    if(!r.ok)throw new Error("令牌无效或无权限");
-    const j=await r.json();
-    if(!j.permissions||!j.permissions.push)throw new Error("该令牌没有写入权限");
-    localStorage.setItem(LS_TOKEN,tk);
-    closeLogin();toast("登录成功，已进入管理模式，每页可直接编辑/删除");
-    buildNav();show("products");
-  }catch(e){toast("登录失败："+e.message,true)}
+    if(!r.ok)throw new Error("Invalid token");
+    const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error("No write permission");
+    localStorage.setItem(LS_TOKEN,tk);closeLogin();toast(LANG==='zh'?'登录成功':'Logged in');buildNav();show("products");
+  }catch(e){toast("Login failed: "+e.message,true)}
 }
-function logout(){localStorage.removeItem(LS_TOKEN);toast("已退出管理模式");buildNav();show("home");}
+function logout(){localStorage.removeItem(LS_TOKEN);toast(LANG==='zh'?'已退出':'Logged out');buildNav();show("home");}
+function copyTxt(t){navigator.clipboard.writeText(t).then(()=>toast(LANG==='zh'?'已复制':'Copied')).catch(()=>toast("Copy failed",true));}
 
-/* ===================== MISC ===================== */
-function copyTxt(t){navigator.clipboard.writeText(t).then(()=>toast("已复制")).catch(()=>toast("复制失败",true))}
-
-/* ===================== ROUTER ===================== */
+/* ===== ROUTER ===== */
 const VIEWS={home:renderHome,identity:renderIdentity,products:renderProducts,intel:renderIntel,scripts:renderScripts,brand:renderBrand};
+function render(){
+  if(CUR==="detail"){document.getElementById("main").innerHTML=renderDetail();return;}
+  const fn=VIEWS[CUR]||renderHome;document.getElementById("main").innerHTML=fn();
+}
 function show(t){
-  if(t==="login"){openLogin();return}
-  if(t==="logout"){logout();return}
-  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.t===t));
-  const fn=VIEWS[t]||renderHome;
-  document.getElementById("main").innerHTML=fn();
-  window.scrollTo({top:0,behavior:"smooth"});
+  if(t==="login"){openLogin();return}if(t==="logout"){logout();return}
+  if((t==="intel"||t==="scripts")&&!isAdmin())t="home";
+  CUR=t;buildNav();render();window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* ===================== INIT ===================== */
-(async function init(){
-  const ok=await loadDB();
-  if(!ok)return;
+/* ===== INIT ===== */
+(async function(){
+  if(!await loadDB())return;
+  document.documentElement.lang=(LANG==="zh"?"zh-CN":"en");
   buildNav();
   document.getElementById("nav").addEventListener("click",e=>{if(e.target.dataset.t)show(e.target.dataset.t)});
-  // 管理链接但未登录 → 自动弹登录
-  if(IS_ADMIN_URL && !isAdmin()){show("home");openLogin();}
-  else show("home");
+  CUR="home";render();
+  if(IS_ADMIN_URL && !isAdmin())openLogin();
 })();
 </script>
 </body>
