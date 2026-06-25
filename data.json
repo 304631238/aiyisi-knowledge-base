@@ -946,7 +946,10 @@
         "en": "Opening/Inquiry",
         "zh": "开场/询盘"
       },
-      "c": "Hi {Name}, thank you for your interest in our outdoor rugs! We are Aiyisi, a 12-year factory in Zhejiang specializing in reversible recycled-PP outdoor mats, serving Aldi, Lidl & The Home Depot. Could you share: 1) target size, 2) quantity, 3) destination country? I'll send you a tailored quote and free design catalog within 3 hours."
+      "c": {
+        "en": "Hi {Name}, thank you for your interest in our outdoor rugs! We are Aiyisi, a 12-year factory in Zhejiang specializing in reversible recycled-PP outdoor mats, serving Aldi, Lidl & The Home Depot. Could you share: 1) target size, 2) quantity, 3) destination country? I'll send you a tailored quote and free design catalog within 3 hours.",
+        "zh": "您好 {Name}，感谢您对我们户外地垫的关注！我们是爱以思，浙江一家有 12 年经验的工厂，专注双面再生 PP 户外垫，服务过 Aldi、Lidl 和 The Home Depot。能否告诉我：1）目标尺寸 2）数量 3）目的国？我会在 3 小时内为您发送定制报价和免费设计图册。"
+      }
     },
     {
       "id": "S002",
@@ -958,7 +961,10 @@
         "en": "Opening/Inquiry",
         "zh": "开场/询盘"
       },
-      "c": "We are a TÜV-certified custom manufacturer with 25,000 m² factory, 200+ machines and 100% on-time delivery. Big retail clients include Aldi, Lidl, The Home Depot and K-mart."
+      "c": {
+        "en": "We are a TÜV-certified custom manufacturer with 25,000 m² factory, 200+ machines and 100% on-time delivery. Big retail clients include Aldi, Lidl, The Home Depot and K-mart.",
+        "zh": "我们是 TÜV 认证的定制制造商，拥有 25,000 m² 厂房、200+ 台设备，100% 准时发货。大型零售客户包括 Aldi、Lidl、The Home Depot 和 K-mart。"
+      }
     },
     {
       "id": "S003",
@@ -970,7 +976,10 @@
         "en": "Opening/Inquiry",
         "zh": "开场/询盘"
       },
-      "c": "询盘进来 3 小时内必回（响应≤3h 是我们的核心优势）。首回必问三要素：尺寸 / 数量 / 目的国，并立刻甩大牌客户背书 + 免费图册建立信任。"
+      "c": {
+        "en": "[Internal] Reply within 3 hours of any inquiry (≤3h response is our core edge). In the first reply always ask the three essentials: size / quantity / destination country, and immediately drop the big-brand client endorsement + free catalog to build trust.",
+        "zh": "询盘进来 3 小时内必回（响应≤3h 是我们的核心优势）。首回必问三要素：尺寸 / 数量 / 目的国，并立刻甩大牌客户背书 + 免费图册建立信任。"
+      }
     },
     {
       "id": "S004",
@@ -982,7 +991,10 @@
         "en": "Quotation",
         "zh": "报价"
       },
-      "c": "Based on your request, our FOB Ningbo price is: {Size} reversible PP outdoor rug at USD {Price}/pc, MOQ {MOQ} pcs. Price includes recycled-PP material, jacquard weaving and standard export packing. Lead time: 25-35 days after deposit. Shall I arrange a sample for you?"
+      "c": {
+        "en": "Based on your request, our FOB Ningbo price is: {Size} reversible PP outdoor rug at USD {Price}/pc, MOQ {MOQ} pcs. Price includes recycled-PP material, jacquard weaving and standard export packing. Lead time: 25-35 days after deposit. Shall I arrange a sample for you?",
+        "zh": "根据您的需求，我们的 FOB 宁波报价为：{Size} 双面 PP 户外垫，USD {Price}/件，起订量 {MOQ} 件。价格含再生 PP 材料、提花编织和标准出口包装。交期：定金后 25-35 天。需要我为您安排样品吗？"
+      }
     },
     {
       "id": "S005",
@@ -994,7 +1006,10 @@
         "en": "Quotation",
         "zh": "报价"
       },
-      "c": "We offer tiered pricing — the larger the order, the better the unit price. For example: 200 pcs at USD X, 500 pcs at USD Y, 1000+ pcs at USD Z. Let me know your target volume and I'll optimize the best price for you."
+      "c": {
+        "en": "We offer tiered pricing — the larger the order, the better the unit price. For example: 200 pcs at USD X, 500 pcs at USD Y, 1000+ pcs at USD Z. Let me know your target volume and I'll optimize the best price for you.",
+        "zh": "我们提供阶梯报价——订量越大，单价越优。例如：200 件 USD X，500 件 USD Y，1000+ 件 USD Z。告诉我您的目标数量，我帮您算出最优价格。"
+      }
     },
     {
       "id": "S006",
@@ -1006,7 +1021,10 @@
         "en": "Quotation",
         "zh": "报价"
       },
-      "c": "I understand price matters. Our rugs use 100% recycled PP and pass UV & anti-aging tests, so they last 2-3x longer than cheap imports — lower return rate for your store. If budget is tight, we can adjust pile height or size to fit your target price. What's your ideal landed cost?"
+      "c": {
+        "en": "I understand price matters. Our rugs use 100% recycled PP and pass UV & anti-aging tests, so they last 2-3x longer than cheap imports — lower return rate for your store. If budget is tight, we can adjust pile height or size to fit your target price. What's your ideal landed cost?",
+        "zh": "我理解价格很重要。我们的地垫采用 100% 再生 PP，通过抗 UV 和抗老化测试，比廉价进口品耐用 2-3 倍——能降低您店铺的退货率。如果预算紧张，我们可调整绒高或尺寸来匹配您的目标价。您理想的到岸成本是多少？"
+      }
     },
     {
       "id": "S007",
@@ -1018,7 +1036,10 @@
         "en": "Sampling/Custom",
         "zh": "打样/定制"
       },
-      "c": "For custom designs: 1) send us your pattern/logo or size, 2) we make a sample in 7-10 days, 3) sample fee USD {fee} (refundable on bulk order). We support drawing-based & sample-based customization. Reversible double-sided design and any size are available."
+      "c": {
+        "en": "For custom designs: 1) send us your pattern/logo or size, 2) we make a sample in 7-10 days, 3) sample fee USD {fee} (refundable on bulk order). We support drawing-based & sample-based customization. Reversible double-sided design and any size are available.",
+        "zh": "定制流程：1）发我们您的图案/LOGO 或尺寸 2）我们 7-10 天打样 3）样品费 USD {fee}（批量订单可退）。我们支持图纸定制和打样定制。双面可逆设计、任意尺寸均可。"
+      }
     },
     {
       "id": "S008",
@@ -1030,7 +1051,10 @@
         "en": "Sampling/Custom",
         "zh": "打样/定制"
       },
-      "c": "Yes, we provide full OEM/ODM service — custom size, pattern, color, logo weaving and private-label packaging with carry bag. Our 2 R&D engineers can turn your idea into a production-ready design."
+      "c": {
+        "en": "Yes, we provide full OEM/ODM service — custom size, pattern, color, logo weaving and private-label packaging with carry bag. Our 2 R&D engineers can turn your idea into a production-ready design.",
+        "zh": "是的，我们提供完整 OEM/ODM 服务——定制尺寸、图案、颜色、LOGO 编织以及带手提袋的贴牌包装。我们的 2 名研发工程师能把您的想法变成可量产的设计。"
+      }
     },
     {
       "id": "S009",
@@ -1042,7 +1066,10 @@
         "en": "Sampling/Custom",
         "zh": "打样/定制"
       },
-      "c": "客户要定制图案先确认：是否涉及版权图案（卡通/品牌LOGO需授权，规避侵权）；尺寸是否标准（非标尺寸影响开机成本与MOQ）；颜色批次差异需提前告知。"
+      "c": {
+        "en": "[Internal] For custom patterns, confirm first: any copyright issue (cartoon/brand logos need authorization to avoid infringement); whether the size is standard (non-standard sizes raise tooling cost & MOQ); inform color batch variation in advance.",
+        "zh": "客户要定制图案先确认：是否涉及版权图案（卡通/品牌LOGO需授权，规避侵权）；尺寸是否标准（非标尺寸影响开机成本与MOQ）；颜色批次差异需提前告知。"
+      }
     },
     {
       "id": "S010",
@@ -1054,7 +1081,10 @@
         "en": "Logistics/Lead time",
         "zh": "物流/交期"
       },
-      "c": "Standard lead time is 25-35 days after deposit for MOQ orders. Large orders (1x40HQ) about 35-45 days. We guarantee 100% on-time shipment — it's tracked in our store record."
+      "c": {
+        "en": "Standard lead time is 25-35 days after deposit for MOQ orders. Large orders (1x40HQ) about 35-45 days. We guarantee 100% on-time shipment — it's tracked in our store record.",
+        "zh": "起订量订单标准交期为定金后 25-35 天。大订单（1x40HQ）约 35-45 天。我们保证 100% 准时发货——这在我们店铺记录中可查。"
+      }
     },
     {
       "id": "S011",
@@ -1066,7 +1096,10 @@
         "en": "Logistics/Lead time",
         "zh": "物流/交期"
       },
-      "c": "To calculate freight, our rugs are lightweight and foldable — a 20GP fits roughly {qty} pcs depending on size. Tell me your size and I'll confirm exact loading quantity and CBM."
+      "c": {
+        "en": "To calculate freight, our rugs are lightweight and foldable — a 20GP fits roughly {qty} pcs depending on size. Tell me your size and I'll confirm exact loading quantity and CBM.",
+        "zh": "关于运费，我们的地垫轻便可折叠——一个 20GP 视尺寸约可装 {qty} 件。告诉我您的尺寸，我确认准确的装柜量和体积（CBM）。"
+      }
     },
     {
       "id": "S012",
@@ -1078,7 +1111,10 @@
         "en": "Logistics/Lead time",
         "zh": "物流/交期"
       },
-      "c": "We accept FOB, CIF and DDP. For Trade Assurance orders you get 100% protection on quality and on-time shipment. Which Incoterm do you prefer?"
+      "c": {
+        "en": "We accept FOB, CIF and DDP. For Trade Assurance orders you get 100% protection on quality and on-time shipment. Which Incoterm do you prefer?",
+        "zh": "我们接受 FOB、CIF 和 DDP。Trade Assurance 订单可获得质量和准时发货的 100% 保障。您倾向哪种贸易方式？"
+      }
     },
     {
       "id": "S013",
@@ -1090,7 +1126,10 @@
         "en": "Product USP",
         "zh": "产品卖点"
       },
-      "c": "Our signature feature: fully reversible design — two looks in one rug. Customers flip it for a fresh pattern, doubling the value. Great selling point for retail shelves."
+      "c": {
+        "en": "Our signature feature: fully reversible design — two looks in one rug. Customers flip it for a fresh pattern, doubling the value. Great selling point for retail shelves.",
+        "zh": "我们的招牌特点：完全双面可逆设计——一块地垫两种外观。客户翻面即换新图案，价值翻倍。是货架零售的绝佳卖点。"
+      }
     },
     {
       "id": "S014",
@@ -1102,7 +1141,10 @@
         "en": "Product USP",
         "zh": "产品卖点"
       },
-      "c": "Made from recycled polypropylene — eco-friendly, 100% washable (just hose it down), waterproof, UV-resistant and anti-aging. Perfect for RV, patio, camping, beach and poolside."
+      "c": {
+        "en": "Made from recycled polypropylene — eco-friendly, 100% washable (just hose it down), waterproof, UV-resistant and anti-aging. Perfect for RV, patio, camping, beach and poolside.",
+        "zh": "采用再生聚丙烯制成——环保、100% 可水洗（冲一下即可）、防水、抗 UV、抗老化。适用于房车、露台、露营、沙滩和泳池边。"
+      }
     },
     {
       "id": "S015",
@@ -1114,7 +1156,10 @@
         "en": "Product USP",
         "zh": "产品卖点"
       },
-      "c": "对欧美买家按此优先级讲卖点：1) reversible 双面 2) recycled/eco 环保(欧盟买家最吃) 3) washable/waterproof 易打理 4) UV-resistant 耐用 5) lightweight/foldable 物流友好。"
+      "c": {
+        "en": "[Internal] Pitch selling points to EU/US buyers in this order: 1) reversible 2) recycled/eco (EU buyers love this most) 3) washable/waterproof 4) UV-resistant 5) lightweight/foldable (logistics-friendly).",
+        "zh": "对欧美买家按此优先级讲卖点：1) reversible 双面 2) recycled/eco 环保(欧盟买家最吃) 3) washable/waterproof 易打理 4) UV-resistant 耐用 5) lightweight/foldable 物流友好。"
+      }
     },
     {
       "id": "S016",
@@ -1126,7 +1171,10 @@
         "en": "Follow-up",
         "zh": "催单/跟进"
       },
-      "c": "Hi {Name}, just following up on the outdoor rug quote I sent. Are there any questions I can help with? I can also send you our best-selling designs and a free sample arrangement to help you decide."
+      "c": {
+        "en": "Hi {Name}, just following up on the outdoor rug quote I sent. Are there any questions I can help with? I can also send you our best-selling designs and a free sample arrangement to help you decide.",
+        "zh": "您好 {Name}，跟进一下我之前发的户外地垫报价。有什么我能帮您解答的吗？我也可以发您我们的热销款式并安排免费样品，方便您做决定。"
+      }
     },
     {
       "id": "S017",
@@ -1138,7 +1186,10 @@
         "en": "Follow-up",
         "zh": "催单/跟进"
       },
-      "c": "Hi {Name}, hope you received our sample! How do you find the quality and texture? If everything looks good, I can lock in current pricing and reserve production slots for you before our peak season."
+      "c": {
+        "en": "Hi {Name}, hope you received our sample! How do you find the quality and texture? If everything looks good, I can lock in current pricing and reserve production slots for you before our peak season.",
+        "zh": "您好 {Name}，希望您已收到样品！您觉得质量和手感如何？如果都满意，我可以在旺季前为您锁定当前价格并预留生产排期。"
+      }
     },
     {
       "id": "S018",
@@ -1150,7 +1201,10 @@
         "en": "Follow-up",
         "zh": "催单/跟进"
       },
-      "c": "Spring/summer is peak season for outdoor rugs and our lines fill up fast. To secure your delivery date, I'd recommend placing the order soon. Shall I prepare the PI for you?"
+      "c": {
+        "en": "Spring/summer is peak season for outdoor rugs and our lines fill up fast. To secure your delivery date, I'd recommend placing the order soon. Shall I prepare the PI for you?",
+        "zh": "春夏是户外地垫旺季，我们的产线排得很快。为确保您的交期，建议尽快下单。需要我为您准备形式发票（PI）吗？"
+      }
     },
     {
       "id": "S019",
@@ -1162,7 +1216,10 @@
         "en": "After-sales",
         "zh": "售后"
       },
-      "c": "I'm sorry to hear that. Please send photos/video of the issue and the order number. We take quality seriously — all orders are protected by Trade Assurance. We'll investigate and offer a fair solution (replacement/refund) immediately."
+      "c": {
+        "en": "I'm sorry to hear that. Please send photos/video of the issue and the order number. We take quality seriously — all orders are protected by Trade Assurance. We'll investigate and offer a fair solution (replacement/refund) immediately.",
+        "zh": "很抱歉听到这个问题。请发我问题的照片/视频和订单号。我们非常重视质量——所有订单都受 Trade Assurance 保障。我们会立即核查并提供公平的解决方案（补发/退款）。"
+      }
     },
     {
       "id": "S020",
@@ -1174,7 +1231,10 @@
         "en": "After-sales",
         "zh": "售后"
       },
-      "c": "售后投诉先共情再要证据（图/视频+订单号），全程走 Trade Assurance 留痕；不在平台外承诺私下赔付；质量问题先内部核验再给方案，避免口头承诺超出权限。"
+      "c": {
+        "en": "[Internal] For after-sales complaints: empathize first, then ask for evidence (photo/video + order number); keep everything on-platform via Trade Assurance; never promise off-platform compensation; verify quality issues internally before offering a solution to avoid over-promising.",
+        "zh": "售后投诉先共情再要证据（图/视频+订单号），全程走 Trade Assurance 留痕；不在平台外承诺私下赔付；质量问题先内部核验再给方案，避免口头承诺超出权限。"
+      }
     }
   ],
   "brand": [
@@ -1267,6 +1327,6 @@
       }
     }
   ],
-  "_updated": "2026-06-25T17:59:29.208573+00:00",
-  "_schema": "v3-bilingual"
+  "_updated": "2026-06-25T18:42:05.341612+00:00",
+  "_schema": "v4-full-bilingual"
 }
