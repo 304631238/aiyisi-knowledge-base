@@ -149,7 +149,8 @@ const GH_OWNER="304631238";
 const GH_REPO="aiyisi-knowledge-base";
 const GH_BRANCH="main";
 const DATA_PATH="data.json";
-const RAW_URL=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${DATA_PATH}`;
+const SAME_URL=`./${DATA_PATH}`; // 同源（GitHub Pages 托管）
+const RAW_URL=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${DATA_PATH}`; // 回退源
 const API_CONTENT=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${DATA_PATH}`;
 const LS_TOKEN="aiyisi_admin_token";
 
@@ -166,13 +167,18 @@ function toast(msg,err){const t=document.getElementById("toast");t.textContent=m
 
 /* ===================== LOAD DATA ===================== */
 async function loadDB(){
-  try{
-    // 加时间戳绕过缓存，确保拿到最新
-    const res=await fetch(RAW_URL+"?t="+Date.now(),{cache:"no-store"});
-    if(!res.ok) throw new Error("HTTP "+res.status);
-    DB=await res.json();
-  }catch(e){
-    document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">数据加载失败：${esc(e.message)}</p><p style="margin-top:10px">请检查网络后刷新页面。</p></div>`;
+  const sources=[SAME_URL,RAW_URL];
+  let lastErr=null;
+  for(const base of sources){
+    try{
+      const res=await fetch(base+"?t="+Date.now(),{cache:"no-store"});
+      if(!res.ok) throw new Error("HTTP "+res.status);
+      DB=await res.json();
+      lastErr=null;break;
+    }catch(e){lastErr=e;}
+  }
+  if(lastErr){
+    document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">数据加载失败：${esc(lastErr.message)}</p><p style="margin-top:10px">请检查网络后刷新页面。</p></div>`;
     return false;
   }
   // 兜底字段
