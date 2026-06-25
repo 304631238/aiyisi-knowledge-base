@@ -300,7 +300,7 @@ function scriptRow(s){
     <div class="meta">${LANG==='zh'?'场景':'Scene'}: ${esc(L(s.cat))}</div>
   </div>`;
 }
-function scriptListHTML(f=""){f=f.toLowerCase();const list=allScripts().filter(s=>(L(s.t)+s.c+L(s.cat)+s.id).toLowerCase().includes(f));return{count:list.length,html:list.map(scriptRow).join("")};}
+function scriptListHTML(f=""){f=f.toLowerCase();const list=allScripts().filter(s=>(bothLang(s.t)+" "+s.c+" "+bothLang(s.cat)+" "+s.id).toLowerCase().includes(f));return{count:list.length,html:list.map(scriptRow).join("")};}
 function renderScripts(filter=""){
   const r=scriptListHTML(filter);
   return `<div class="sec-title"><span class="bar"></span>${T('scripts')} <span style="font-size:12px;color:var(--warn)">(${LANG==='zh'?'内部资料':'Internal only'})</span></div>
@@ -331,7 +331,8 @@ function productCard(p){
       </div>
     </div>`;
 }
-function productListHTML(f=""){f=f.toLowerCase();const list=allProducts().filter(p=>(L(p.name)+p.id).toLowerCase().includes(f));return{count:list.length,html:`<div class="grid">${list.map(productCard).join("")}</div>`};}
+function bothLang(v){if(v&&typeof v==="object")return (v.en||"")+" "+(v.zh||"");return v||"";}
+function productListHTML(f=""){f=f.toLowerCase();const list=allProducts().filter(p=>(bothLang(p.name)+" "+p.id).toLowerCase().includes(f));return{count:list.length,html:`<div class="grid">${list.map(productCard).join("")}</div>`};}
 function renderProducts(filter=""){
   const r=productListHTML(filter);
   return `<div class="sec-title"><span class="bar"></span>${T('products')}</div>
