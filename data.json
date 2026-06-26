@@ -87,24 +87,6 @@
       }
     },
     {
-      "id": "C-003",
-      "t": {
-        "en": "Onsite Verification & Supplier Assessment",
-        "zh": "实地核验与供应商评估"
-      },
-      "d": {
-        "en": "Factory verified by third-party onsite check; legal status confirmed by an independent verification company.",
-        "zh": "工厂已通过第三方机构实地核验（Onsite Check），法人资质经独立机构确认。"
-      },
-      "verify": {
-        "url": "https://www.sgs.com.cn/",
-        "label": {
-          "en": "Independent verification info",
-          "zh": "独立机构核验信息"
-        }
-      }
-    },
-    {
       "id": "C-004",
       "t": {
         "en": "CE Certified (EU Market)",
@@ -141,24 +123,6 @@
       }
     },
     {
-      "id": "C-006",
-      "t": {
-        "en": "Quality Control Service",
-        "zh": "质量控制服务"
-      },
-      "d": {
-        "en": "Full QC: incoming material inspection, finished-product inspection, material traceability.",
-        "zh": "提供来料检验、成品检验、原材料识别与追溯等全流程质控服务。"
-      },
-      "verify": {
-        "url": "https://www.intertek.com/",
-        "label": {
-          "en": "Quality control standards",
-          "zh": "质量控制标准"
-        }
-      }
-    },
-    {
       "id": "C-008",
       "t": {
         "en": "National High-Tech Enterprise",
@@ -191,24 +155,6 @@
         "label": {
           "en": "CNIPA patent search",
           "zh": "国家知识产权局专利查询"
-        }
-      }
-    },
-    {
-      "id": "C-010",
-      "t": {
-        "en": "A-Grade Tax Credit",
-        "zh": "纳税信用 A 级企业"
-      },
-      "d": {
-        "en": "Top-grade A-rated tax credit by State Taxation Administration of China — reflects 100% compliance and reliability.",
-        "zh": "国家税务总局评定的最高 A 级纳税信用 —— 反映 100% 合规与可靠性。"
-      },
-      "verify": {
-        "url": "https://www.chinatax.gov.cn/",
-        "label": {
-          "en": "China State Taxation",
-          "zh": "国家税务总局"
         }
       }
     }
@@ -8122,7 +8068,7 @@
       }
     }
   ],
-  "_updated": "2026-06-26T11:44:29.730939+00:00",
+  "_updated": "2026-06-26T11:49:12.837859+00:00",
   "_schema": "v4-full-bilingual",
   "cases": [
     {
