@@ -6,8 +6,8 @@
     },
     "url": "https://aiyisi.en.alibaba.com/",
     "founded": {
-      "en": "2014",
-      "zh": "2014 年"
+      "en": "Aug 26, 2014",
+      "zh": "2014 年 8 月 26 日"
     },
     "years": {
       "en": "12-Year Gold Supplier",
@@ -64,7 +64,8 @@
     "bigClients": {
       "en": "Aldi, Lidl, The Home Depot, K-mart and other EU/US retail chains",
       "zh": "Aldi、Lidl、The Home Depot、K-mart 等欧美连锁零售商"
-    }
+    },
+    "foundedDate": "2014-08-26"
   },
   "certs": [
     {
@@ -8065,7 +8066,7 @@
       }
     }
   ],
-  "_updated": "2026-06-26T03:54:53.283274+00:00",
+  "_updated": "2026-06-26T07:31:21.735019+00:00",
   "_schema": "v4-full-bilingual",
   "cases": [
     {
