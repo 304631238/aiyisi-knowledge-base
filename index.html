@@ -262,7 +262,7 @@ const STAFF_PASSWORD="aiyisi2026";
 /* ===== STATE ===== */
 let DB=null,DATA_SHA=null;
 let LANG=localStorage.getItem(LS_LANG)||"en";   // 默认英文
-let CUR="home", CUR_PID=null;
+let CUR="home", CUR_PID=null, CUR_FAIR=null;
 const IS_ADMIN_URL=/[?&]admin\b/.test(location.search);
 const IS_STAFF_URL=/[?&]staff\b/.test(location.search);
 function token(){return localStorage.getItem(LS_TOKEN)||""}
@@ -299,6 +299,16 @@ const I18N={
   brand:{en:"Brand",zh:"品牌资产"},
   cases:{en:"Cases",zh:"合作案例"},
   addCase:{en:"+ Add case",zh:"+ 新增案例"},
+  fairs:{en:"Trade Show Records",zh:"参展记录"},
+  fairEditions:{en:"Edition Records",zh:"参展届次"},
+  addEdition:{en:"+ Add edition",zh:"+ 新增参展记录"},
+  backToHome:{en:"← Back to home",zh:"← 返回首页"},
+  upcoming:{en:"Upcoming",zh:"即将参展"},
+  liveNow:{en:"Live Now",zh:"正在参展"},
+  past:{en:"Past",zh:"已参展"},
+  booth:{en:"Booth",zh:"展位"},
+  date:{en:"Date",zh:"日期"},
+  noEditions:{en:"No edition records yet.",zh:"暂无参展记录。"},
   login:{en:"🔒 Admin",zh:"🔒 后台登录"},
   logout:{en:"Logout",zh:"退出"},
   adminmode:{en:"Admin mode",zh:"管理模式"},
@@ -357,7 +367,7 @@ async function loadDB(){
     try{const r=await fetch(base+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;DB=await r.json();break;}catch(e){}
   }
   if(!DB){document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">Data load failed. Please refresh.</p></div>`;return false;}
-  ["products","scripts","intel","certs","brand","cases"].forEach(k=>DB[k]=DB[k]||[]);
+  ["products","scripts","intel","certs","brand","cases","fairs"].forEach(k=>DB[k]=DB[k]||[]);
   return true;
 }
 function allProducts(){return DB.products}
@@ -499,10 +509,12 @@ function renderHome(){
     <h3>${ZH?'全球展会持续参展':'Global Trade Show Presence'}</h3>
     <div class="sub">${ZH?'连续多届亮相国际顶级户外/家纺展会，与全球采购商面对面':'Continuous presence at top international outdoor & home-textile fairs'}</div>
     <div class="grid">
-      <div class="f"><div class="ico">🇨🇳</div><h4>${ZH?'广交会':'Canton Fair'}</h4><p>${ZH?'连续参展 6+ 届 · 11.1/12.1 馆':'6+ consecutive editions · Pavilion 11.1/12.1'}</p></div>
-      <div class="f"><div class="ico">🇩🇪</div><h4>Spoga+Gafa</h4><p>${ZH?'德国科隆 · 全球最大户外园艺展':'Cologne · World&#39;s largest outdoor & garden fair'}</p></div>
-      <div class="f"><div class="ico">🇩🇪</div><h4>Heimtextil</h4><p>${ZH?'法兰克福 · 国际家纺展':'Frankfurt · International home textiles fair'}</p></div>
-      <div class="f"><div class="ico">🇦🇺</div><h4>${ZH?'中国品牌澳洲展':'China Brand Fair (AU)'}</h4><p>${ZH?'代表中国优质制造':'Representing China premium manufacturing'}</p></div>
+      ${(DB.fairs||[]).map(f=>`<div class="f" onclick="openFair('${esc(f.id)}')" style="cursor:pointer">
+        <div class="ico">${f.flag||''}</div>
+        <h4>${esc(L(f.name))}</h4>
+        <p>${esc(L(f.subtitle||f.location||{en:'',zh:''}))}</p>
+        <div style="margin-top:8px;font-size:11px;color:var(--accent)">${(f.editions||[]).length} ${ZH?'届参展':'editions'} · ${ZH?'查看详情 →':'View details →'}</div>
+      </div>`).join("")}
     </div>
   </div>
 
@@ -721,6 +733,104 @@ function detailImagesBlock(p){
 function setDetailImg(i){DETAIL_IMG=i;const m=document.getElementById("mainImg");if(m)m.src=DB.products.find(x=>String(x.id)===String(CUR_PID)).images[i];document.querySelectorAll(".thumbs .t").forEach((t,idx)=>t.classList.toggle("on",idx===i));}
 function openDetail(pid){CUR_PID=pid;DETAIL_IMG=0;CUR="detail";buildNav();document.getElementById("main").innerHTML=renderDetail();window.scrollTo({top:0,behavior:"smooth"});}
 
+/* ===== 展会详情页 ===== */
+function openFair(fid){CUR_FAIR=fid;CUR="fair-detail";heroStopAuto();buildNav();document.getElementById("main").innerHTML=renderFairDetail();window.scrollTo({top:0,behavior:"smooth"});}
+function editionStatus(ed){
+  // 根据 date / dateEnd 自动判断状态
+  const today=new Date();today.setHours(0,0,0,0);
+  if(!ed.date)return {key:"past",label:T("past"),color:"#7a8590"};
+  const start=new Date(ed.date);const end=ed.dateEnd?new Date(ed.dateEnd):start;
+  if(today>end)return {key:"past",label:T("past"),color:"#7a8590"};
+  if(today>=start && today<=end)return {key:"live",label:T("liveNow"),color:"#3fc88c"};
+  return {key:"upcoming",label:T("upcoming"),color:"#D62828"};
+}
+function fmtDateRange(d1,d2,lang){
+  if(!d1)return"";
+  const opts={year:"numeric",month:"short",day:"numeric"};
+  const loc=lang==="zh"?"zh-CN":"en-US";
+  const s=new Date(d1).toLocaleDateString(loc,opts);
+  if(!d2||d2===d1)return s;
+  const e=new Date(d2).toLocaleDateString(loc,opts);
+  return s+" — "+e;
+}
+function renderFairDetail(){
+  const f=(DB.fairs||[]).find(x=>x.id===CUR_FAIR);
+  if(!f)return `<p>Fair not found.</p>`;
+  const ZH=LANG==='zh';
+  // 排序:先 upcoming/live,再按日期降序
+  const sortedEds=[...(f.editions||[])].sort((a,b)=>{
+    const sa=editionStatus(a),sb=editionStatus(b);
+    const w={upcoming:0,live:0,past:1};
+    if(w[sa.key]!==w[sb.key])return w[sa.key]-w[sb.key];
+    return (b.date||"").localeCompare(a.date||"");
+  });
+  return `<div class="back" onclick="show('home')">${T('backToHome')}</div>
+  <div style="background:linear-gradient(135deg,#0F2C4D,#1a3a5e);color:#fff;padding:40px 28px;border-radius:14px;margin-bottom:30px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap">
+    <div style="font-size:64px;line-height:1">${f.flag||'🏛'}</div>
+    <div style="flex:1;min-width:240px">
+      <h2 style="font-size:32px;margin-bottom:6px;letter-spacing:-.5px">${esc(L(f.name))}</h2>
+      <p style="font-size:14px;color:#cdd5dd;margin-bottom:14px">${esc(L(f.location||{en:'',zh:''}))} · ${esc(L(f.subtitle||{en:'',zh:''}))}</p>
+      <p style="line-height:1.6;color:rgba(255,255,255,.85);font-size:14px">${esc(L(f.desc||{en:'',zh:''}))}</p>
+      <div style="margin-top:14px;font-size:13px"><span style="color:#7DB8F0;font-weight:700">${(f.editions||[]).length}</span> <span style="color:rgba(255,255,255,.7)">${ZH?'届参展记录':'edition records'}</span></div>
+    </div>
+  </div>
+  <div class="sec-title"><span class="bar"></span>${T('fairEditions')}</div>
+  <div class="sec-sub">${ZH?'按时间倒序排列，自动标记参展状态':'Sorted by date with auto status badges'}${isAdmin()?T('adminTip'):''}</div>
+  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('fair-edition','')">${T('addEdition')}</button>`:''}
+  ${sortedEds.length?sortedEds.map(ed=>{
+    const s=editionStatus(ed);
+    return `<div class="qrow" style="position:relative">
+      <span style="position:absolute;top:14px;right:14px;background:${s.color};color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:700;letter-spacing:.5px">${esc(s.label)}</span>
+      ${isAdmin()?`<div style="position:absolute;top:14px;right:90px;display:flex;gap:6px"><button class="editb" onclick="openEdit('fair-edition','${esc(ed.id)}')">${T('edit')}</button><button class="delq" onclick="delFairEdition('${esc(ed.id)}')">${T('del')}</button></div>`:''}
+      <div class="q" style="padding-right:80px">${esc(L(ed.name))}</div>
+      <div style="font-size:13px;color:var(--txt2);margin-bottom:8px">📅 ${esc(fmtDateRange(ed.date,ed.dateEnd,LANG))}${ed.booth?` · 📍 ${T('booth')}: ${esc(ed.booth)}`:''}</div>
+      ${L(ed.note||{en:'',zh:''})?`<div class="a">${esc(L(ed.note))}</div>`:''}
+      ${(ed.photos&&ed.photos.length)?`<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">${ed.photos.map((p,i)=>`<div style="position:relative;width:120px;height:90px;border-radius:8px;overflow:hidden;border:1px solid var(--line)"><img src="${esc(p)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.opacity=.3">${isAdmin()?`<span onclick="delFairEditionPhoto('${esc(ed.id)}',${i})" style="position:absolute;top:4px;right:4px;background:var(--danger);color:#fff;width:20px;height:20px;line-height:20px;text-align:center;border-radius:4px;cursor:pointer;font-size:12px">×</span>`:''}</div>`).join("")}</div>`:''}
+      ${isAdmin()?`<div style="margin-top:10px"><input type="file" id="fairPhotoFile-${esc(ed.id)}" accept="image/*" multiple style="display:none" onchange="uploadFairEditionPhoto('${esc(ed.id)}',this)"><button class="btn btn-ghost btn-sm" onclick="document.getElementById('fairPhotoFile-${esc(ed.id)}').click()">${ZH?'+ 上传现场照':'+ Upload photos'}</button></div>`:''}
+    </div>`;
+  }).join(""):`<div class="empty">${T('noEditions')}</div>`}
+  `;
+}
+
+/* 参展记录的增删改 */
+async function delFairEdition(eid){
+  if(!isAdmin())return;
+  if(!confirm(LANG==='zh'?'确定删除这条参展记录？':'Delete this edition?'))return;
+  const f=DB.fairs.find(x=>x.id===CUR_FAIR);if(!f)return;
+  const idx=f.editions.findIndex(e=>e.id===eid);if(idx<0)return;
+  const rm=f.editions.splice(idx,1)[0];
+  if(await saveDB("Delete fair edition "+eid)){document.getElementById("main").innerHTML=renderFairDetail();}
+  else{f.editions.splice(idx,0,rm);}
+}
+async function uploadFairEditionPhoto(eid,input){
+  const files=Array.from(input.files||[]);if(!files.length)return;
+  const f=DB.fairs.find(x=>x.id===CUR_FAIR);if(!f)return;
+  const ed=f.editions.find(e=>e.id===eid);if(!ed)return;
+  ed.photos=ed.photos||[];
+  for(const file of files){
+    if(file.size>5*1024*1024){toast((file.name||"")+": >5MB skipped",true);continue;}
+    toast(T('uploading'));
+    try{
+      const b64=await new Promise((rs,rj)=>{const r=new FileReader();r.onload=()=>rs(r.result.split(",")[1]);r.onerror=rj;r.readAsDataURL(file);});
+      const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+      const path=`images/fair_${CUR_FAIR}_${eid}_${Date.now()}_${Math.floor(Math.random()*999)}.${ext}`;
+      const api=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`;
+      const res=await fetch(api,{method:"PUT",headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json","Content-Type":"application/json"},
+        body:JSON.stringify({message:"Upload fair photo "+path,content:b64,branch:GH_BRANCH})});
+      if(!res.ok)throw new Error((await res.json()).message||res.status);
+      ed.photos.push(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${path}`);
+    }catch(e){toast("Upload failed: "+e.message,true);}
+  }
+  if(await saveDB("Add fair edition photos"))document.getElementById("main").innerHTML=renderFairDetail();
+}
+async function delFairEditionPhoto(eid,i){
+  const f=DB.fairs.find(x=>x.id===CUR_FAIR);if(!f)return;
+  const ed=f.editions.find(e=>e.id===eid);if(!ed||!ed.photos)return;
+  if(!confirm(LANG==='zh'?'删除这张照片?':'Delete this photo?'))return;
+  ed.photos.splice(i,1);
+  if(await saveDB("Remove fair edition photo"))document.getElementById("main").innerHTML=renderFairDetail();
+}
+
 /* ===== GITHUB WRITE ===== */
 async function saveDB(msg){
   if(!isAdmin()){toast("Not logged in",true);return false}
@@ -817,6 +927,13 @@ const SCHEMA={
     {k:"d",t:"bl",label:{en:"Description",zh:"案例描述"},area:1},
     {k:"img",t:"s",label:{en:"Image URL (optional)",zh:"图片链接（选填）"}},
   ]},
+  "fair-edition":{title:{en:"Edition",zh:"参展记录"},idp:"ed-",fields:[
+    {k:"name",t:"bl",label:{en:"Edition name (e.g. 136th Canton Fair)",zh:"届次名称（如：第136届广交会）"},req:1},
+    {k:"date",t:"s",label:{en:"Start date (YYYY-MM-DD)",zh:"开始日期（YYYY-MM-DD）"},req:1},
+    {k:"dateEnd",t:"s",label:{en:"End date (YYYY-MM-DD)",zh:"结束日期（YYYY-MM-DD）"}},
+    {k:"booth",t:"s",label:{en:"Booth number (optional)",zh:"展位号（选填）"}},
+    {k:"note",t:"bl",label:{en:"Notes",zh:"备注"},area:1},
+  ]},
 };
 let EDIT_TYPE=null,EDIT_ID=null,EDIT_SPECS=[];
 /* 新增产品时预置的标准规格模板（阿里风格，参数名预填，值留空，你只需填值；不需要的删除即可） */
@@ -833,9 +950,14 @@ const PRODUCT_SPEC_TEMPLATE=[
 ];
 function newSpecTemplate(){return PRODUCT_SPEC_TEMPLATE.map(([g,en,zh])=>({g:g,k:{en:en,zh:zh},v:{en:"",zh:""}}));}
 function fld(id){const e=document.getElementById(id);return e?e.value.trim():""}
+function getEditList(type){
+  // fair-edition 列表挂在当前展会下
+  if(type==="fair-edition"){const f=DB.fairs&&DB.fairs.find(x=>x.id===CUR_FAIR);return f?(f.editions=f.editions||[]):[];}
+  return DB[type]||[];
+}
 function openEdit(type,id){
   if(!isAdmin())return;EDIT_TYPE=type;EDIT_ID=id;
-  const sc=SCHEMA[type];const it=id?DB[type].find(x=>String(x.id)===String(id)):null;
+  const sc=SCHEMA[type];const list=getEditList(type);const it=id?list.find(x=>String(x.id)===String(id)):null;
   if(it&&it.specs&&it.specs.length)EDIT_SPECS=JSON.parse(JSON.stringify(it.specs));
   else if(!id&&type==="products")EDIT_SPECS=newSpecTemplate();
   else EDIT_SPECS=[];
@@ -890,12 +1012,23 @@ async function saveEdit(){
   }
   if(sc.hasSpecs)obj.specs=EDIT_SPECS.filter(s=>(L(s.v)||"").trim()!=="");
   if(type==="products"){const ex=EDIT_ID?DB.products.find(x=>String(x.id)===String(EDIT_ID)):null;obj.images=ex?(ex.images||[]):[];obj.detailImgs=ex?(ex.detailImgs||[]):[];}
+  // fair-edition: 保留 photos
+  if(type==="fair-edition"){
+    const list=getEditList(type);
+    const ex=EDIT_ID?list.find(x=>String(x.id)===String(EDIT_ID)):null;
+    obj.photos=ex?(ex.photos||[]):[];
+  }
   const btn=document.getElementById("editSaveBtn");if(btn){btn.disabled=1;btn.textContent="…";}
   let msg;
-  if(EDIT_ID){Object.assign(DB[type].find(x=>String(x.id)===String(EDIT_ID)),obj);msg="Edit "+type;}
-  else{obj.id=uid(sc.idp+"-M");DB[type].push(obj);msg="Add "+type;}
+  const list=getEditList(type);
+  if(EDIT_ID){Object.assign(list.find(x=>String(x.id)===String(EDIT_ID)),obj);msg="Edit "+type;}
+  else{obj.id=uid(sc.idp+"-M");list.push(obj);msg="Add "+type;}
   const ok=await saveDB(msg);
-  if(ok){closeEdit();if(CUR==="detail")document.getElementById("main").innerHTML=renderDetail();else render();}
+  if(ok){closeEdit();
+    if(CUR==="detail")document.getElementById("main").innerHTML=renderDetail();
+    else if(CUR==="fair-detail")document.getElementById("main").innerHTML=renderFairDetail();
+    else render();
+  }
   else if(btn){btn.disabled=0;btn.textContent=LANG==='zh'?'保存':'Save';}
 }
 async function delItem(type,id){
@@ -945,6 +1078,7 @@ function copyTxt(t){navigator.clipboard.writeText(t).then(()=>toast(LANG==='zh'?
 const VIEWS={home:renderHome,identity:renderIdentity,products:renderProducts,intel:renderIntel,scripts:renderScripts,brand:renderBrand,cases:renderCases};
 function render(){
   if(CUR==="detail"){document.getElementById("main").innerHTML=renderDetail();return;}
+  if(CUR==="fair-detail"){document.getElementById("main").innerHTML=renderFairDetail();return;}
   const fn=VIEWS[CUR]||renderHome;document.getElementById("main").innerHTML=fn();
   if(CUR==="home" && window.__pendingHero){heroStartAuto(window.__pendingHero);window.__pendingHero=null;}
 }
