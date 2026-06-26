@@ -150,15 +150,21 @@ const GH_OWNER="304631238",GH_REPO="aiyisi-knowledge-base",GH_BRANCH="main",DATA
 const SAME_URL=`./${DATA_PATH}`;
 const RAW_URL=`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${DATA_PATH}`;
 const API_CONTENT=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${DATA_PATH}`;
-const LS_TOKEN="aiyisi_admin_token",LS_LANG="aiyisi_lang";
+const LS_TOKEN="aiyisi_admin_token",LS_LANG="aiyisi_lang",LS_STAFF="aiyisi_staff_ok";
+/* 业务员访问密码（共享给内部业务员；仅软门禁，用于对客户隐藏内部话术/SOP） */
+const STAFF_PASSWORD="aiyisi2026";
 
 /* ===== STATE ===== */
 let DB=null,DATA_SHA=null;
 let LANG=localStorage.getItem(LS_LANG)||"en";   // 默认英文
 let CUR="home", CUR_PID=null;
 const IS_ADMIN_URL=/[?&]admin\b/.test(location.search);
+const IS_STAFF_URL=/[?&]staff\b/.test(location.search);
 function token(){return localStorage.getItem(LS_TOKEN)||""}
 function isAdmin(){return IS_ADMIN_URL && !!token()}
+function isStaff(){return IS_STAFF_URL && localStorage.getItem(LS_STAFF)==="1"}
+/* 能否查看内部栏目（话术/SOP、情报）：业务员或管理员 */
+function canViewInternal(){return isAdmin()||isStaff()}
 function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function toast(m,e){const t=document.getElementById("toast");t.textContent=m;t.className="toast show"+(e?" err":"");setTimeout(()=>t.className="toast",e?3200:1800)}
 // 取双语字段：值可能是 {en,zh} 或纯字符串
@@ -175,6 +181,11 @@ const I18N={
   login:{en:"🔒 Admin",zh:"🔒 后台登录"},
   logout:{en:"Logout",zh:"退出"},
   adminmode:{en:"Admin mode",zh:"管理模式"},
+  staffLogin:{en:"🔑 Staff",zh:"🔑 员工登录"},
+  staffMode:{en:"Staff (read-only)",zh:"员工·只读"},
+  staffTitle:{en:"Staff Login",zh:"员工登录"},
+  staffDesc:{en:"Enter the staff password to view internal scripts & SOP (read-only).",zh:"输入员工密码即可查看内部话术/SOP（只读，不能修改）。"},
+  staffPwLabel:{en:"Staff Password",zh:"员工密码"},
   searchProduct:{en:"Search product name / code...",zh:"搜索产品名称 / 编号..."},
   searchScript:{en:"Search scripts / scene / code...",zh:"搜索话术 / 场景 / 编号..."},
   items:{en:"items",zh:"款"},
@@ -234,14 +245,16 @@ function allScripts(){return DB.scripts}
 /* ===== LANG / NAV ===== */
 function setLang(l){LANG=l;localStorage.setItem(LS_LANG,l);document.documentElement.lang=(l==="zh"?"zh-CN":"en");buildNav();render();}
 function buildNav(){
-  // 内部栏目 intel/scripts 仅管理员可见
+  // 内部栏目 intel/scripts 对客户隐藏；业务员(只读)和管理员可见
   const tabs=[["home",T("home")],["identity",T("identity")],["products",T("products")],["brand",T("brand")]];
-  if(isAdmin()){tabs.splice(3,0,["intel",T("intel")],["scripts",T("scripts")]);}
+  if(canViewInternal()){tabs.splice(3,0,["intel",T("intel")],["scripts",T("scripts")]);}
   const nav=document.getElementById("nav");
   let html=tabs.map(([t,l])=>`<button data-t="${t}" class="${CUR===t?'active':''}">${l}</button>`).join("");
   html+=`<div class="langtoggle"><button class="${LANG==='en'?'on':''}" onclick="setLang('en')">EN</button><button class="${LANG==='zh'?'on':''}" onclick="setLang('zh')">中</button></div>`;
   if(IS_ADMIN_URL && !isAdmin()) html+=`<button data-t="login" style="color:var(--warn)">${T('login')}</button>`;
   if(isAdmin()) html+=`<span class="adminbadge">${T('adminmode')}</span><button data-t="logout" style="color:var(--txt2)">${T('logout')}</button>`;
+  if(IS_STAFF_URL && !isStaff() && !isAdmin()) html+=`<button data-t="stafflogin" style="color:var(--warn)">${T('staffLogin')}</button>`;
+  if(isStaff() && !isAdmin()) html+=`<span class="adminbadge" style="background:var(--accent2)">${T('staffMode')}</span><button data-t="stafflogout" style="color:var(--txt2)">${T('logout')}</button>`;
   nav.innerHTML=html;
 }
 
@@ -617,7 +630,13 @@ async function delItem(type,id){
 }
 
 /* ===== LOGIN ===== */
-function openLogin(){document.getElementById("loginModal").classList.add("show");setTimeout(()=>{const i=document.getElementById("tokenInput");if(i)i.focus();},100);}
+function openLogin(){
+  const m=document.getElementById("loginModal");
+  m.innerHTML=`<div class="box"><h3>${T('login')==='🔒 Admin'?'Admin Login':'管理员登录'}</h3><p>${LANG==='zh'?'输入管理令牌（GitHub Token），仅保存在你的浏览器。':'Enter the admin token (GitHub Token). Stored only in your browser.'}</p>
+    <div class="field"><label>${LANG==='zh'?'管理令牌':'Admin Token'}</label><input id="tokenInput" type="password" placeholder="github_pat_ ..." onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div style="display:flex;gap:10px;margin-top:6px"><button class="btn" onclick="doLogin()">${LANG==='zh'?'登录':'Login'}</button><button class="btn btn-ghost" onclick="closeLogin()">${LANG==='zh'?'取消':'Cancel'}</button></div></div>`;
+  m.classList.add("show");setTimeout(()=>{const i=document.getElementById("tokenInput");if(i)i.focus();},100);
+}
 function closeLogin(){document.getElementById("loginModal").classList.remove("show");}
 async function doLogin(){
   const tk=document.getElementById("tokenInput").value.trim();if(!tk)return toast("Enter token",true);
@@ -630,6 +649,20 @@ async function doLogin(){
   }catch(e){toast("Login failed: "+e.message,true)}
 }
 function logout(){localStorage.removeItem(LS_TOKEN);toast(LANG==='zh'?'已退出':'Logged out');buildNav();show("home");}
+/* 员工登录（只读密码门） */
+function openStaffLogin(){
+  const m=document.getElementById("loginModal");
+  m.innerHTML=`<div class="box"><h3>${T('staffTitle')}</h3><p>${T('staffDesc')}</p>
+    <div class="field"><label>${T('staffPwLabel')}</label><input id="staffPwInput" type="password" placeholder="••••••" onkeydown="if(event.key==='Enter')doStaffLogin()"></div>
+    <div style="display:flex;gap:10px;margin-top:6px"><button class="btn" onclick="doStaffLogin()">${LANG==='zh'?'登录':'Login'}</button><button class="btn btn-ghost" onclick="closeLogin()">${LANG==='zh'?'取消':'Cancel'}</button></div></div>`;
+  m.classList.add("show");setTimeout(()=>{const i=document.getElementById("staffPwInput");if(i)i.focus();},100);
+}
+function doStaffLogin(){
+  const pw=document.getElementById("staffPwInput").value.trim();
+  if(pw!==STAFF_PASSWORD)return toast(LANG==='zh'?'密码错误':'Wrong password',true);
+  localStorage.setItem(LS_STAFF,"1");closeLogin();toast(LANG==='zh'?'登录成功':'Logged in');buildNav();show("scripts");
+}
+function staffLogout(){localStorage.removeItem(LS_STAFF);toast(LANG==='zh'?'已退出':'Logged out');buildNav();show("home");}
 function copyTxt(t){navigator.clipboard.writeText(t).then(()=>toast(LANG==='zh'?'已复制':'Copied')).catch(()=>toast("Copy failed",true));}
 
 /* ===== ROUTER ===== */
@@ -640,7 +673,8 @@ function render(){
 }
 function show(t){
   if(t==="login"){openLogin();return}if(t==="logout"){logout();return}
-  if((t==="intel"||t==="scripts")&&!isAdmin())t="home";
+  if(t==="stafflogin"){openStaffLogin();return}if(t==="stafflogout"){staffLogout();return}
+  if((t==="intel"||t==="scripts")&&!canViewInternal())t="home";
   CUR=t;buildNav();render();window.scrollTo({top:0,behavior:"smooth"});
 }
 
@@ -652,6 +686,7 @@ function show(t){
   document.getElementById("nav").addEventListener("click",e=>{if(e.target.dataset.t)show(e.target.dataset.t)});
   CUR="home";render();
   if(IS_ADMIN_URL && !isAdmin())openLogin();
+  else if(IS_STAFF_URL && !isStaff())openStaffLogin();
 })();
 </script>
 </body>
