@@ -8065,6 +8065,44 @@
       }
     }
   ],
-  "_updated": "2026-06-26T00:58:22.510258+00:00",
-  "_schema": "v4-full-bilingual"
+  "_updated": "2026-06-26T03:54:53.283274+00:00",
+  "_schema": "v4-full-bilingual",
+  "cases": [
+    {
+      "id": "CASE-001",
+      "t": {
+        "en": "Supplying EU Retail Chains (Aldi / Lidl)",
+        "zh": "供应欧洲连锁商超 (Aldi / Lidl)"
+      },
+      "d": {
+        "en": "Long-term OEM/ODM supplier of reversible recycled-PP outdoor rugs for major European discount retail chains, with stable bulk orders and strict QC compliance.",
+        "zh": "为欧洲大型折扣连锁商超长期 OEM/ODM 供应双面再生 PP 户外地垫，订单稳定、严格质控达标。"
+      },
+      "img": ""
+    },
+    {
+      "id": "CASE-002",
+      "t": {
+        "en": "North America - The Home Depot / K-mart",
+        "zh": "北美 - The Home Depot / K-mart"
+      },
+      "d": {
+        "en": "Customized patio & RV mats for North American home-improvement and retail chains, meeting CE and BSCI standards for the US/EU market.",
+        "zh": "为北美家居建材与零售连锁定制露台垫与房车垫，满足欧美市场 CE、BSCI 标准。"
+      },
+      "img": ""
+    },
+    {
+      "id": "CASE-003",
+      "t": {
+        "en": "OEM/ODM Custom Projects",
+        "zh": "OEM/ODM 定制项目"
+      },
+      "d": {
+        "en": "Full custom service: client patterns, sizes, logos and private-label packaging. 2 R&D engineers turn buyer designs into production-ready products.",
+        "zh": "全定制服务：客户图案、尺寸、LOGO 与贴牌包装。2 名研发工程师将买家设计转化为可量产产品。"
+      },
+      "img": ""
+    }
+  ]
 }
