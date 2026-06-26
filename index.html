@@ -137,11 +137,22 @@
   .yhero .dots .dot.on{background:#fff;width:48px}
   @media(max-width:768px){.yhero{height:460px}.yhero h1{font-size:30px}.yhero .sub{font-size:14px}.yhero .nav-arrow{width:38px;height:38px;font-size:16px}}
   /* === 数据成就横条 === */
-  .ystats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:40px}
-  .ystats .s{background:var(--panel);padding:26px 18px;text-align:center}
-  .ystats .s b{display:block;font-size:32px;color:#3fc88c;font-weight:800;letter-spacing:-1px;margin-bottom:6px}
-  .ystats .s span{font-size:12px;color:var(--txt2);text-transform:uppercase;letter-spacing:1.5px}
-  @media(max-width:600px){.ystats{grid-template-columns:repeat(2,1fr)}}
+  .ystats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:40px}
+  .ystats .s{background:var(--panel);padding:24px 12px;text-align:center}
+  .ystats .s b{display:block;font-size:26px;color:#3fc88c;font-weight:800;letter-spacing:-1px;margin-bottom:6px;line-height:1.1}
+  .ystats .s span{font-size:11px;color:var(--txt2);text-transform:uppercase;letter-spacing:1.2px}
+  @media(max-width:900px){.ystats{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:500px){.ystats{grid-template-columns:repeat(2,1fr)}}
+  /* === 展会矩阵 === */
+  .yfairs{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px;margin-bottom:30px;text-align:center}
+  .yfairs h3{font-size:13px;color:var(--txt2);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px;font-weight:700}
+  .yfairs .sub{color:var(--txt2);font-size:13px;margin-bottom:22px}
+  .yfairs .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+  .yfairs .f{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:18px;transition:.2s}
+  .yfairs .f:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .yfairs .f .ico{font-size:24px;margin-bottom:8px;color:var(--accent2)}
+  .yfairs .f h4{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:4px}
+  .yfairs .f p{font-size:11px;color:var(--txt2);line-height:1.4}
   /* === 实力 4 卡片 === */
   .ywhy{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:40px}
   .ywhy .w{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.2s}
@@ -334,8 +345,11 @@ function heroSet(i){
   document.querySelectorAll(".yhero .slide").forEach((el,idx)=>el.classList.toggle("on",idx===HERO_IDX));
   document.querySelectorAll(".yhero .dot").forEach((el,idx)=>el.classList.toggle("on",idx===HERO_IDX));
   const k=document.getElementById("hero-kicker"),t=document.getElementById("hero-title"),u=document.getElementById("hero-sub");
+  const c1=document.getElementById("hero-cta1"),c2=document.getElementById("hero-cta2");
   if(k){k.style.opacity=0;t.style.opacity=0;u.style.opacity=0;
-    setTimeout(()=>{k.textContent=s.kicker;t.textContent=s.title;u.textContent=s.sub;k.style.opacity=1;t.style.opacity=1;u.style.opacity=1;},300);}
+    setTimeout(()=>{k.textContent=s.kicker;t.textContent=s.title;u.textContent=s.sub;
+      if(c1&&s.ctaPrimary)c1.textContent=s.ctaPrimary;if(c2&&s.ctaGhost)c2.textContent=s.ctaGhost;
+      k.style.opacity=1;t.style.opacity=1;u.style.opacity=1;},300);}
 }
 function heroGo(d){heroSet(HERO_IDX+d);heroResetAuto();}
 function heroResetAuto(){if(HERO_TIMER)clearInterval(HERO_TIMER);HERO_TIMER=setInterval(()=>heroSet(HERO_IDX+1),5500);}
@@ -348,20 +362,23 @@ function renderHome(){
   // 取前 3 款带图的产品作为产品分类入口
   const sampleProds=allProducts().filter(p=>p.images&&p.images[0]).slice(0,3);
   const ZH=LANG==='zh';
-  // Hero 轮播：3 张图 + 各自标语
+  // Hero 轮播：3 张图 + 各自标语（西门子风简洁定位 + 真实背书）
   const HERO_SLIDES=[
     {img:"https://sc02.alicdn.com/kf/Abebddf8579b946d2a9189e0d99f7d002j.png",
-     kicker:ZH?"12 年金牌工厂 · 服务全球零售巨头":"12-Year Gold Factory · Serving Global Retail Giants",
-     title:ZH?"户外 PP 编织地垫专业制造商":"Outdoor PP Woven Rug Manufacturer",
-     sub:ZH?"专注双面可逆户外地垫 ODM 12 年，TÜV 认证，25,000m² 厂区，服务 Aldi · Lidl · The Home Depot · K-mart 等欧美连锁零售商。":"Specializing in reversible recycled-PP outdoor rugs for 12 years. TÜV certified, 25,000 m² plant. Trusted ODM partner of Aldi, Lidl, The Home Depot and K-mart."},
+     kicker:ZH?"高新技术企业 · 广交会 6+ 届 · 12 年金牌":"HIGH-TECH ENTERPRISE · CANTON FAIR · 12 YRS GOLD",
+     title:ZH?"塑造户外生活的未来":"Engineering the future of outdoor living.",
+     sub:ZH?"双面可逆再生 PP 编织地垫的高新技术 ODM 制造商。90% 出口，服务 Aldi · Lidl · The Home Depot · K-mart 等全球零售巨头。":"A high-tech ODM factory of reversible recycled-PP woven rugs. 90% exported. Trusted by Aldi · Lidl · The Home Depot · K-mart.",
+     ctaPrimary:ZH?"探索 AIYISI":"Explore AIYISI",ctaGhost:ZH?"查看合作案例":"View Cases"},
     {img:"https://sc02.alicdn.com/kf/A25d828adf4984d568a23cdf80e8c2a56c.png",
-     kicker:ZH?"双面可逆 · 防水抗UV · 环保再生 PP":"Reversible · Waterproof · Recycled PP",
-     title:ZH?"专注双面可逆 RV 房车垫 12 年":"12 Years of Reversible RV Mats",
-     sub:ZH?"再生聚丙烯材质，双面双图案，可水洗、防霉、抗UV、轻便折叠。北美 RV 露营市场首选 ODM 供应商。":"Recycled PP material with reversible double-pattern design. Washable, mildew-resistant, UV-stable and lightweight. The preferred ODM supplier for the North American RV market."},
+     kicker:ZH?"双面可逆 · 防水抗UV · 100% 再生 PP":"REVERSIBLE · WATERPROOF · 100% RECYCLED PP",
+     title:ZH?"让可持续户外生活成为现实":"Powering sustainable outdoor living.",
+     sub:ZH?"100% 再生聚丙烯材质，双面双图案设计，可水洗、防霉、抗 UV。北美 RV 露营市场首选 ODM 供应商，复购率 38-50%。":"100% recycled-PP material with reversible double-pattern design. Washable, mildew-resistant, UV-stable. North America's preferred RV market ODM, with 38-50% reorder rate.",
+     ctaPrimary:ZH?"浏览产品目录":"Browse Catalog",ctaGhost:ZH?"了解我们的优势":"Why AIYISI"},
     {img:"https://sc02.alicdn.com/kf/A1cb1c311a0684e48961b50f6952b210dw.png",
-     kicker:ZH?"25,000m² 厂区 · 200+ 套先进设备":"25,000m² Plant · 200+ Modern Machines",
-     title:ZH?"工厂自有产能 · 全工艺覆盖":"In-House Manufacturing · Full Process Coverage",
-     sub:ZH?"机织 + 提花 + 绞编全工艺自有产能，100% 准时发货，≤3h 询盘响应，96.39% 快速回复率。":"In-house woven, jacquard and braided production capacity. 100% on-time delivery, ≤3h inquiry response and 96.39% quick reply rate."},
+     kicker:ZH?"25,000m² 厂区 · 200+ 套设备 · 9+ 项专利":"25,000 m² PLANT · 200+ MACHINES · 9+ PATENTS",
+     title:ZH?"自有工厂 · 全工艺覆盖 · 全球供应":"In-house manufacturing for global supply.",
+     sub:ZH?"机织 + 提花 + 绞编全工艺自有产能。100% 准时发货，≤3h 询盘响应，纳税信用 A 级企业。":"In-house woven, jacquard & braided production capacity. 100% on-time delivery, ≤3h response, A-grade tax-credit certified.",
+     ctaPrimary:ZH?"了解工厂实力":"Discover Capability",ctaGhost:ZH?"查看资质认证":"Certifications"},
   ];
   // 渲染后由 show() 启动轮播
   window.__pendingHero=HERO_SLIDES;
@@ -395,8 +412,8 @@ function renderHome(){
       <h1 id="hero-title">${esc(HERO_SLIDES[0].title)}</h1>
       <p class="sub" id="hero-sub">${esc(HERO_SLIDES[0].sub)}</p>
       <div class="cta">
-        <a class="primary" onclick="show('products')">${ZH?'浏览产品目录':'Browse Catalog'}</a>
-        <a class="ghost" onclick="show('cases')">${ZH?'查看合作案例':'View Cases'}</a>
+        <a class="primary" id="hero-cta1" onclick="show('products')">${esc(HERO_SLIDES[0].ctaPrimary)}</a>
+        <a class="ghost" id="hero-cta2" onclick="show('cases')">${esc(HERO_SLIDES[0].ctaGhost)}</a>
       </div>
     </div></div>
     <button class="nav-arrow prev" onclick="heroGo(-1)">‹</button>
@@ -404,24 +421,40 @@ function renderHome(){
     <div class="dots">${HERO_SLIDES.map((_,i)=>`<button class="dot ${i===0?'on':''}" data-i="${i}" onclick="heroSet(${i})"></button>`).join("")}</div>
   </section>
 
-  <!-- 数据成就横条 -->
+  <!-- 数据成就横条 (6 项) -->
   <div class="ystats">
     <div class="s"><b>${yrs||12} YRS</b><span>${ZH?'金牌供应商':'Gold Supplier'}</span></div>
     <div class="s"><b>25,000m²</b><span>${ZH?'厂区面积':'Plant Area'}</span></div>
-    <div class="s"><b>100%</b><span>${ZH?'准时发货率':'On-Time Delivery'}</span></div>
-    <div class="s"><b>5.0★</b><span>${ZH?'店铺评分':'Store Rating'}</span></div>
+    <div class="s"><b>90%</b><span>${ZH?'出口比例':'Export Ratio'}</span></div>
+    <div class="s"><b>38-50%</b><span>${ZH?'客户复购率':'Reorder Rate'}</span></div>
+    <div class="s"><b>9+</b><span>${ZH?'国家专利':'Patents'}</span></div>
+    <div class="s"><b>100%</b><span>${ZH?'准时发货':'On-Time'}</span></div>
   </div>
 
-  <!-- WHY 4 实力卡片 -->
+  <!-- WHY 实力卡片 (6 张) -->
   <div style="text-align:center;margin-bottom:24px">
     <h2 style="font-size:28px;letter-spacing:-.5px">${ZH?'为什么选择 AIYISI':'Why AIYISI'}</h2>
-    <p style="color:var(--txt2);font-size:14px;margin-top:6px">${ZH?'欧美商超供应链信赖的中国 ODM 工厂':'A trusted China ODM factory for global retail supply chains'}</p>
+    <p style="color:var(--txt2);font-size:14px;margin-top:6px">${ZH?'欧美商超供应链信赖的高新技术 ODM 工厂':'A high-tech ODM factory trusted by global retail supply chains'}</p>
   </div>
   <div class="ywhy">
-    <div class="w"><div class="ic">★</div><h4>${ZH?'12 年金牌供应商':'12-Year Gold Supplier'}</h4><p>${ZH?'Alibaba 国际站 12 年金牌资历，TÜV Rheinland 认证。':'12-year Gold rank on Alibaba.com, TÜV Rheinland certified.'}</p></div>
-    <div class="w"><div class="ic">⚙</div><h4>${ZH?'200+ 套先进设备':'200+ Modern Machines'}</h4><p>${ZH?'25,000m² 厂区，机织+提花+绞编全工艺自有产能。':'25,000m² plant with woven, jacquard & braided in-house capacity.'}</p></div>
-    <div class="w"><div class="ic">✓</div><h4>${ZH?'100% 准时发货':'100% On-Time'}</h4><p>${ZH?'Trade Assurance 保障，≤3h 响应，96.39% 快速回复率。':'Trade Assurance protected, ≤3h response, 96.39% reply rate.'}</p></div>
-    <div class="w"><div class="ic">↻</div><h4>${ZH?'OEM/ODM 全定制':'Full OEM/ODM'}</h4><p>${ZH?'2 名研发工程师，支持图纸/打样定制，私标包装。':'2 R&D engineers, drawing/sample-based customization, private label.'}</p></div>
+    <div class="w"><div class="ic">⌘</div><h4>${ZH?'高新技术企业':'High-Tech Enterprise'}</h4><p>${ZH?'国家/省级高新技术企业认定，9+ 项产品设计与实用新型专利。':'Government-certified High-Tech Enterprise with 9+ design & utility patents.'}</p></div>
+    <div class="w"><div class="ic">★</div><h4>${ZH?'12 年金牌供应商':'12-Year Gold Supplier'}</h4><p>${ZH?'Alibaba 国际站 12 年金牌资历，TÜV Rheinland 认证，纳税信用 A 级。':'12-year Alibaba Gold rank, TÜV Rheinland certified, A-grade tax credit.'}</p></div>
+    <div class="w"><div class="ic">⚙</div><h4>${ZH?'25,000m² 自有工厂':'25,000m² In-House Plant'}</h4><p>${ZH?'200+ 套设备，机织+提花+绞编全工艺自有产能。':'200+ machines covering woven, jacquard & braided processes.'}</p></div>
+    <div class="w"><div class="ic">⌖</div><h4>${ZH?'90% 出口全球':'90% Global Export'}</h4><p>${ZH?'90% 产品出口至欧美、澳洲、中东、南美市场。':'90% exported to Europe, North America, Oceania, Mid-East and South America.'}</p></div>
+    <div class="w"><div class="ic">↻</div><h4>${ZH?'38-50% 复购率':'38-50% Reorder Rate'}</h4><p>${ZH?'阿里平台客户复购率远超行业平均，客户黏性强。':'Reorder rate far above industry average, demonstrating strong customer loyalty.'}</p></div>
+    <div class="w"><div class="ic">✓</div><h4>${ZH?'100% 准时发货':'100% On-Time'}</h4><p>${ZH?'Trade Assurance 保障，≤3h 询盘响应，96.39% 快速回复率。':'Trade Assurance protected, ≤3h response, 96.39% reply rate.'}</p></div>
+  </div>
+
+  <!-- 国际展会 -->
+  <div class="yfairs">
+    <h3>${ZH?'全球展会持续参展':'Global Trade Show Presence'}</h3>
+    <div class="sub">${ZH?'连续多届亮相国际顶级户外/家纺展会，与全球采购商面对面':'Continuous presence at top international outdoor & home-textile fairs'}</div>
+    <div class="grid">
+      <div class="f"><div class="ico">🇨🇳</div><h4>${ZH?'广交会':'Canton Fair'}</h4><p>${ZH?'连续参展 6+ 届 · 11.1/12.1 馆':'6+ consecutive editions · Pavilion 11.1/12.1'}</p></div>
+      <div class="f"><div class="ico">🇩🇪</div><h4>Spoga+Gafa</h4><p>${ZH?'德国科隆 · 全球最大户外园艺展':'Cologne · World\\'s largest outdoor & garden fair'}</p></div>
+      <div class="f"><div class="ico">🇩🇪</div><h4>Heimtextil</h4><p>${ZH?'法兰克福 · 国际家纺展':'Frankfurt · International home textiles fair'}</p></div>
+      <div class="f"><div class="ico">🇦🇺</div><h4>${ZH?'中国品牌澳洲展':'China Brand Fair (AU)'}</h4><p>${ZH?'代表中国优质制造':'Representing China premium manufacturing'}</p></div>
+    </div>
   </div>
 
   <!-- 三大产品线分类入口 -->
