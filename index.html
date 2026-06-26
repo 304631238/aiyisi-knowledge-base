@@ -864,49 +864,41 @@ async function psRenderCanvas(){
     try{ tex=await psLoadTexture(texUrl); }
     catch(e){ console.warn("texture failed, fallback to plain pattern",e); }
     if(token!==PS_RENDER_TOKEN)return;
+    // ===== 2. 材质轻量叠加（只暗示编织感，不压客户图）=====
     if(tex){
-      // 用离屏 canvas 把材质平铺到 content 区域
       const off=document.createElement("canvas");
       off.width=cw; off.height=ch;
       const oc=off.getContext("2d");
-      // 平铺（草编母本 1024px → 在 cw 范围里铺 1-2 次保持纹理粗细可见）
-      const tileScale = isFlat ? 1.1 : 0.9; // 圆管放大些，更立体
+      const tileScale = isFlat ? 1.1 : 0.9;
       const tw=Math.round(tex.width*tileScale), th=Math.round(tex.height*tileScale);
-      // 多次平铺
       for(let y=0;y<ch;y+=th){
         for(let x=0;x<cw;x+=tw){
           oc.drawImage(tex,x,y,tw,th);
         }
       }
-      // 草编：multiply 让花色被编织凹凸"陷进去"
-      ctx.save();
-      ctx.globalCompositeOperation="multiply";
-      ctx.globalAlpha=isFlat?0.85:0.78;
-      ctx.drawImage(off,cx,cy,cw,ch);
-      ctx.restore();
-      // 再叠一层 overlay 提亮高光（圆管立体感来源）
+      // 只做一层 overlay 轻微光泽，让图案像"印在编织布上"
       ctx.save();
       ctx.globalCompositeOperation="overlay";
-      ctx.globalAlpha=isFlat?0.45:0.62;
+      ctx.globalAlpha=isFlat?0.18:0.22;
       ctx.drawImage(off,cx,cy,cw,ch);
       ctx.restore();
     }
 
-    // ===== 3. 编织凹凸光影（强化材质方向感）=====
+    // ===== 3. 编织凹凸光影（轻量，点到为止）=====
     if(isFlat){
-      // 草编：斜向细网 + 整体微噪
+      // 草编：极淡斜向网纹（让平面有"布纹感"）
       ctx.save();
-      ctx.globalAlpha=0.12;
+      ctx.globalAlpha=0.06;
       ctx.strokeStyle="rgba(0,0,0,.5)";
       ctx.lineWidth=1;
-      for(let i=-ch;i<cw;i+=4){
+      for(let i=-ch;i<cw;i+=5){
         ctx.beginPath();ctx.moveTo(cx+i,cy);ctx.lineTo(cx+i+ch,cy+ch);ctx.stroke();
       }
       ctx.restore();
     } else {
-      // 圆管：横向粗管高光
+      // 圆管：横向粗管高光（保留立体感，权重降低）
       ctx.save();
-      ctx.globalAlpha=0.18;
+      ctx.globalAlpha=0.10;
       for(let y=cy;y<cy+ch;y+=10){
         const grad=ctx.createLinearGradient(0,y,0,y+10);
         grad.addColorStop(0,"rgba(255,255,255,.45)");
