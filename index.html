@@ -507,8 +507,8 @@ function allScripts(){return DB.scripts}
 function setLang(l){LANG=l;localStorage.setItem(LS_LANG,l);const map={en:"en","zh":"zh-CN",de:"de",es:"es"};document.documentElement.lang=map[l]||"en";buildNav();render();}
 function buildNav(){
   // 内部栏目 intel/scripts 对客户隐藏；业务员(只读)和管理员可见
-  const tabs=[["home",T("home")],["identity",T("identity")],["products",T("products")],["cases",T("cases")],["brand",T("brand")]];
-  if(canViewInternal()){tabs.splice(4,0,["intel",T("intel")],["scripts",T("scripts")]);}
+  const tabs=[["home",T("home")],["identity",T("identity")],["products",T("products")],["cases",T("cases")]];
+  if(canViewInternal()){tabs.push(["intel",T("intel")],["scripts",T("scripts")]);}
   const nav=document.getElementById("nav");
   let html=tabs.map(([t,l])=>`<button data-t="${t}" class="${CUR===t?'active':''}">${l}</button>`).join("");
   html+=`<div class="langtoggle">`
