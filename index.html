@@ -367,7 +367,10 @@ const STAFF_PASSWORD="aiyisi2026";
 
 /* ===== STATE ===== */
 let DB=null,DATA_SHA=null;
-let LANG=localStorage.getItem(LS_LANG)||"en";   // 默认英文
+// 默认英文；如果 URL 带 ?lang=xx 则强制切换并记忆
+const _urlLang=(location.search.match(/[?&]lang=(en|zh|de|es)\b/)||[])[1];
+if(_urlLang)localStorage.setItem(LS_LANG,_urlLang);
+let LANG=localStorage.getItem(LS_LANG)||"en";
 let CUR="home", CUR_PID=null, CUR_FAIR=null;
 const IS_ADMIN_URL=/[?&]admin\b/.test(location.search);
 const IS_STAFF_URL=/[?&]staff\b/.test(location.search);
