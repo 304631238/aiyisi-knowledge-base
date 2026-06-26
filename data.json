@@ -4,7 +4,7 @@
       "en": "Taizhou Aiyisi Leisure Products Co., Ltd.",
       "zh": "台州爱以思休闲用品有限公司"
     },
-    "url": "https://aiyisi.en.alibaba.com/",
+    "url": "https://www.tzaiyisi.com",
     "founded": {
       "en": "Aug 26, 2014",
       "zh": "2014 年 8 月 26 日"
@@ -93,12 +93,12 @@
     {
       "id": "C-003",
       "t": {
-        "en": "Supplier Assessment / Onsite Check",
-        "zh": "实地核验 / 供应商评估"
+        "en": "Onsite Verification & Supplier Assessment",
+        "zh": "实地核验与供应商评估"
       },
       "d": {
-        "en": "Verified by Alibaba.com onsite check; legal status confirmed by a third-party verification company.",
-        "zh": "已通过 Alibaba.com 实地核验（Onsite Check），第三方机构确认法人资质。"
+        "en": "Factory verified by third-party onsite check; legal status confirmed by an independent verification company.",
+        "zh": "工厂已通过第三方机构实地核验（Onsite Check），法人资质经独立机构确认。"
       }
     },
     {
@@ -8000,17 +8000,6 @@
       }
     },
     {
-      "id": "B-003",
-      "t": {
-        "en": "Alibaba Store",
-        "zh": "国际站旺铺"
-      },
-      "d": {
-        "en": "https://aiyisi.en.alibaba.com/",
-        "zh": "https://aiyisi.en.alibaba.com/"
-      }
-    },
-    {
       "id": "B-004",
       "t": {
         "en": "Brand Positioning",
@@ -8066,7 +8055,7 @@
       }
     }
   ],
-  "_updated": "2026-06-26T11:21:02.688Z",
+  "_updated": "2026-06-26T11:30:57.512728+00:00",
   "_schema": "v4-full-bilingual",
   "cases": [
     {
@@ -8201,21 +8190,6 @@
             "zh": "秋季展"
           },
           "photos": []
-        },
-        {
-          "name": {
-            "en": "140th Canton Fair",
-            "zh": "第140届广交会"
-          },
-          "date": "2026年10月15日",
-          "dateEnd": "2026年10月19日",
-          "booth": "",
-          "note": {
-            "en": "",
-            "zh": ""
-          },
-          "photos": [],
-          "id": "ed--Mmquuanam208"
         }
       ]
     },
