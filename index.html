@@ -486,11 +486,26 @@ const SCHEMA={
   ]},
 };
 let EDIT_TYPE=null,EDIT_ID=null,EDIT_SPECS=[];
+/* 新增产品时预置的标准规格模板（阿里风格，参数名预填，值留空，你只需填值；不需要的删除即可） */
+const PRODUCT_SPEC_TEMPLATE=[
+  ["basic","Material","材质"],["basic","Backing","背衬"],["basic","Feature","特性"],
+  ["basic","Product Thickness","厚度"],["basic","Shape","形状"],["basic","Style","风格"],
+  ["basic","Pattern","图案"],["basic","Technics","工艺"],["basic","Size","尺寸"],
+  ["basic","Care Instructions","护理说明"],["basic","Place of Origin","产地"],
+  ["basic","Brand Name","品牌"],["basic","Pile Height","绒高"],["basic","Certificate","认证"],
+  ["basic","Logo","LOGO"],["basic","Sample","样品"],["basic","Use","用途"],
+  ["basic","MOQ","起订量"],["basic","Delivery Time","交货时间"],
+  ["packaging","Selling Units","销售单位"],["packaging","Single Package Size","单件包装尺寸"],
+  ["packaging","Single Gross Weight","单件毛重"]
+];
+function newSpecTemplate(){return PRODUCT_SPEC_TEMPLATE.map(([g,en,zh])=>({g:g,k:{en:en,zh:zh},v:{en:"",zh:""}}));}
 function fld(id){const e=document.getElementById(id);return e?e.value.trim():""}
 function openEdit(type,id){
   if(!isAdmin())return;EDIT_TYPE=type;EDIT_ID=id;
   const sc=SCHEMA[type];const it=id?DB[type].find(x=>String(x.id)===String(id)):null;
-  EDIT_SPECS=it&&it.specs?JSON.parse(JSON.stringify(it.specs)):[];
+  if(it&&it.specs&&it.specs.length)EDIT_SPECS=JSON.parse(JSON.stringify(it.specs));
+  else if(!id&&type==="products")EDIT_SPECS=newSpecTemplate();
+  else EDIT_SPECS=[];
   const lbl=o=>o[LANG]||o.en;
   let html=`<div class="box"><h3>${id?(LANG==='zh'?'编辑':'Edit'):(LANG==='zh'?'新增':'Add')} ${lbl(sc.title)}</h3>
     <p>${LANG==='zh'?'填中英两种语言；保存后同步到公开链接。':'Fill both EN & 中文; saved to the public link.'}</p>`;
@@ -507,7 +522,8 @@ function openEdit(type,id){
   }
   if(sc.hasSpecs){
     html+=`<div class="field"><label>${T('specs')}（${LANG==='zh'?'参数名 / 参数值，可双语':'key / value'}）</label><div id="specEdit">${specEditRows()}</div>
-      <button class="btn btn-ghost btn-sm" onclick="addSpecRow()">+ ${LANG==='zh'?'添加参数':'Add spec'}</button></div>`;
+      <button class="btn btn-ghost btn-sm" onclick="addSpecRow()">+ ${LANG==='zh'?'添加参数':'Add spec'}</button>
+      <button class="btn btn-ghost btn-sm" style="margin-left:8px" onclick="applyTemplate()">${LANG==='zh'?'套用标准模板':'Apply template'}</button></div>`;
   }
   html+=`<div style="display:flex;gap:10px;margin-top:10px"><button class="btn" id="editSaveBtn" onclick="saveEdit()">${LANG==='zh'?'保存':'Save'}</button><button class="btn btn-ghost" onclick="closeEdit()">${LANG==='zh'?'取消':'Cancel'}</button></div></div>`;
   const m=document.getElementById("editModal");m.innerHTML=html;m.classList.add("show");
@@ -523,6 +539,12 @@ function specEditRows(){
 }
 function mkbl(val,old){const o=(old&&typeof old==="object")?old:{en:"",zh:""};o[LANG]=val;if(!o[LANG==='en'?'zh':'en'])o[LANG==='en'?'zh':'en']=val;return o;}
 function addSpecRow(){EDIT_SPECS.push({g:"basic",k:{en:"",zh:""},v:{en:"",zh:""}});document.getElementById("specEdit").innerHTML=specEditRows();}
+function applyTemplate(){
+  const tpl=newSpecTemplate();
+  const have=new Set(EDIT_SPECS.map(s=>(s.k&&s.k.en||"").toLowerCase()));
+  tpl.forEach(t=>{if(!have.has(t.k.en.toLowerCase()))EDIT_SPECS.push(t);});
+  document.getElementById("specEdit").innerHTML=specEditRows();
+}
 function closeEdit(){const m=document.getElementById("editModal");m.classList.remove("show");m.innerHTML="";EDIT_TYPE=EDIT_ID=null;EDIT_SPECS=[];}
 async function saveEdit(){
   const type=EDIT_TYPE,sc=SCHEMA[type];const obj={};
@@ -533,7 +555,7 @@ async function saveEdit(){
       obj[f.k]={en:en||zh,zh:zh||en};
     }else{obj[f.k]=fld("ef_"+f.k);}
   }
-  if(sc.hasSpecs)obj.specs=EDIT_SPECS.filter(s=>L(s.k)||L(s.v));
+  if(sc.hasSpecs)obj.specs=EDIT_SPECS.filter(s=>(L(s.v)||"").trim()!=="");
   if(type==="products"){obj.images=EDIT_ID?(DB.products.find(x=>String(x.id)===String(EDIT_ID)).images||[]):[];}
   const btn=document.getElementById("editSaveBtn");if(btn){btn.disabled=1;btn.textContent="…";}
   let msg;
