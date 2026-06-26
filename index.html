@@ -200,6 +200,50 @@
   .ycats .c .lbl h4{font-size:22px;font-weight:800;letter-spacing:-.5px}
   .ycats .c .lbl span{display:block;font-size:12px;opacity:.85;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
   @media(max-width:600px){.hero{padding:22px}.hero h2{font-size:21px}}
+  /* === Pattern Studio === */
+  .ps-step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+  .ps-step-h{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .ps-lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+  .ps-tile{position:relative;aspect-ratio:1;border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;background:var(--panel2);transition:.15s}
+  .ps-tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .ps-tile.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+  .ps-tile img{width:100%;height:100%;object-fit:cover;display:block}
+  .ps-tile-name{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;padding:5px 8px;text-align:center;line-height:1.2}
+  .ps-tile-del{position:absolute;top:4px;right:4px;background:var(--danger);color:#fff;border:none;width:22px;height:22px;border-radius:50%;font-size:14px;font-weight:800;cursor:pointer;line-height:1;padding:0}
+  .ps-tile-add{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--panel2);border-style:dashed}
+  .ps-up{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ps-up-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:32px 16px;border:2px dashed var(--line);border-radius:10px;cursor:pointer;color:var(--txt2);font-size:13px;font-weight:600;transition:.15s;background:var(--panel2);text-align:center}
+  .ps-up-zone:hover{border-color:var(--accent);color:var(--accent);background:rgba(31,111,191,.04)}
+  .ps-up input{padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:13px}
+  .ps-up input:focus{outline:none;border-color:var(--accent)}
+  @media(max-width:600px){.ps-up{grid-template-columns:1fr}}
+  .ps-sizes,.ps-weaves{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:600px){.ps-sizes{grid-template-columns:repeat(2,1fr)}}
+  .ps-weaves{grid-template-columns:repeat(2,1fr)}
+  .ps-size,.ps-weave{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;background:var(--panel2);border:2px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;transition:.15s;color:var(--txt)}
+  .ps-size:hover,.ps-weave:hover{border-color:var(--accent)}
+  .ps-size.on,.ps-weave.on{border-color:var(--accent);background:rgba(31,111,191,.06);box-shadow:0 0 0 1px var(--accent) inset}
+  .ps-size b,.ps-weave b{font-size:15px;font-weight:800;color:var(--txt)}
+  .ps-size span,.ps-weave span{font-size:11.5px;color:var(--txt2);line-height:1.35}
+  .ps-size em{position:absolute;top:8px;right:8px;background:var(--accent2);color:#fff;font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:4px;font-style:normal;letter-spacing:.5px}
+  .ps-preview-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:6px}
+  @media(max-width:800px){.ps-preview-wrap{grid-template-columns:1fr}}
+  .ps-preview-col,.ps-spec-col{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .ps-preview{position:relative;background:linear-gradient(135deg,#e8eef3,#d4dce5);border-radius:12px;padding:24px;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ps-rug{position:relative;width:100%;max-width:520px;aspect-ratio:8/10;background:#fafafa;border:8px solid #1a1a1a;border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.22),0 6px 14px rgba(0,0,0,.15);overflow:hidden}
+  .ps-rug-inner{position:absolute;inset:6px;background-color:#f5f5f0;background-size:cover;background-position:center}
+  .ps-rug-inner.loaded{background-color:transparent}
+  .ps-rug[data-weave="flat"] .ps-rug-inner::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 3px);pointer-events:none;mix-blend-mode:multiply}
+  .ps-rug[data-weave="hollow"] .ps-rug-inner::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0,rgba(0,0,0,.18) 2px,transparent 2px,transparent 6px);pointer-events:none;mix-blend-mode:multiply;opacity:.6}
+  .ps-rug-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--txt2);font-size:13px;font-weight:600;text-align:center;padding:30px;pointer-events:none}
+  .ps-rug-tag{position:absolute;top:10px;right:10px;background:rgba(15,44,77,.92);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;letter-spacing:.5px;backdrop-filter:blur(4px)}
+  .ps-spec{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:18px}
+  .ps-spec td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .ps-spec td:first-child{color:var(--txt2);font-weight:600;width:42%;white-space:nowrap}
+  .ps-spec td:last-child{color:var(--txt);font-weight:700;word-break:break-word}
+  .ps-cta{display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:14px 18px;border-radius:10px;text-decoration:none;font-weight:800;font-size:14.5px;letter-spacing:.3px;box-shadow:0 6px 16px rgba(31,111,191,.28);transition:.15s}
+  .ps-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(31,111,191,.4)}
+  .ps-cta-sub{margin-top:8px;text-align:center;color:var(--txt2);font-size:11.5px}
 </style>
 </head>
 <body>
@@ -308,7 +352,7 @@ const I18N={
   products:{en:"Catalog",zh:"产品目录",de:"Katalog",es:"Catálogo"},
   intel:{en:"Intel",zh:"情报/画像",de:"Insights",es:"Inteligencia"},
   scripts:{en:"Scripts",zh:"话术/SOP",de:"Skripte/SOP",es:"Guiones/SOP"},
-  brand:{en:"Brand",zh:"品牌资产",de:"Marke",es:"Marca"},
+  brand:{en:"Pattern Studio",zh:"图案试样",de:"Musterstudio",es:"Estudio de Diseños"},
   cases:{en:"Partner Brands",zh:"合作品牌",de:"Partnermarken",es:"Marcas Asociadas"},
   addCase:{en:"+ Add brand",zh:"+ 新增合作品牌",de:"+ Marke hinzufügen",es:"+ Añadir marca"},
   fairs:{en:"Trade Show Records",zh:"参展记录",de:"Messeauftritte",es:"Ferias Comerciales"},
@@ -402,6 +446,35 @@ const I18N={
   loggedOut:{en:"Logged out",zh:"已退出",de:"Abgemeldet",es:"Desconectado"},
   wrongPw:{en:"Wrong password",zh:"密码错误",de:"Falsches Passwort",es:"Contraseña incorrecta"},
   copied:{en:"Copied",zh:"已复制",de:"Kopiert",es:"Copiado"},
+  // === Pattern Studio ===
+  psTitle:{en:"Pattern Try-On Studio",zh:"图案实时试样台",de:"Muster-Anprobierstudio",es:"Estudio de prueba de diseños"},
+  psSub:{en:"Upload your pattern, choose a size & weave — see it on an AIYISI rug instantly. ODM custom samples on demand.",zh:"上传你喜欢的图案，选好尺寸与编织工艺 —— 立刻看到铺在 AIYISI 户外垫上的实际效果，支持来图定制打样。",de:"Eigenes Muster hochladen, Größe & Webart wählen — sofort als AIYISI-Teppich vorschauen. ODM-Muster nach Maß.",es:"Sube tu diseño, elige tamaño y tejido — visualízalo al instante en una alfombra AIYISI. Muestras ODM bajo pedido."},
+  psLibrary:{en:"1 · Choose from our pattern library",zh:"1 · 从我们的图案库选择",de:"1 · Aus unserer Musterbibliothek wählen",es:"1 · Elige de nuestra biblioteca"},
+  psUpload:{en:"2 · Or upload your own / paste image URL",zh:"2 · 或上传自己的图案 / 粘贴图片链接",de:"2 · Oder eigenes hochladen / Bild-URL einfügen",es:"2 · O sube el tuyo / pega URL"},
+  psPickFile:{en:"Click or drag pattern image",zh:"点击或拖拽图案文件",de:"Bild anklicken oder ziehen",es:"Haz clic o arrastra imagen"},
+  psPasteUrl:{en:"…or paste image URL + Enter",zh:"…或粘贴图片链接后回车",de:"…oder Bild-URL einfügen + Enter",es:"…o pega URL + Enter"},
+  psSize:{en:"3 · Pick a size",zh:"3 · 选择规格",de:"3 · Größe wählen",es:"3 · Elige tamaño"},
+  psWeave:{en:"4 · Pick a weave style",zh:"4 · 选择编织工艺",de:"4 · Webart wählen",es:"4 · Elige el tejido"},
+  psPreview:{en:"Live preview",zh:"实时效果预览",de:"Live-Vorschau",es:"Vista previa en vivo"},
+  psPlaceholder:{en:"Pick a pattern above to see preview",zh:"在上方选择/上传图案，下方即时显示效果",de:"Muster wählen, um Vorschau zu sehen",es:"Selecciona un patrón para previsualizar"},
+  psSpecs:{en:"Specifications",zh:"产品参数",de:"Spezifikationen",es:"Especificaciones"},
+  psMaterial:{en:"Material",zh:"材质",de:"Material",es:"Material"},
+  psWeight:{en:"Weight",zh:"克重",de:"Gewicht",es:"Peso"},
+  psThickness:{en:"Thickness",zh:"厚度",de:"Stärke",es:"Espesor"},
+  psWaterproof:{en:"Waterproof",zh:"防水",de:"Wasserdicht",es:"Impermeable"},
+  psUV:{en:"UV stable",zh:"抗 UV",de:"UV-beständig",es:"Resistente UV"},
+  psReversible:{en:"Reversible",zh:"双面可逆",de:"Wendbar",es:"Reversible"},
+  psMoq:{en:"MOQ",zh:"起订量",de:"Mindestmenge",es:"Pedido mínimo"},
+  psCTA:{en:"✉ Inquire about this pattern",zh:"✉ 就这个图案咨询打样",de:"✉ Diesen Entwurf anfragen",es:"✉ Consultar este diseño"},
+  psCTAsub:{en:"We'll reply with quote & sample within 24h",zh:"我们将在 24 小时内回复报价 + 打样方案",de:"Antwort mit Angebot & Muster in 24h",es:"Respondemos con presupuesto y muestra en 24h"},
+  psFlat:{en:"Flat PP Straw Weave",zh:"扁平 PP 草编",de:"Flachgewebtes PP-Stroh",es:"PP plano tejido"},
+  psHollow:{en:"Hollow PP Tube",zh:"中空 PP 圆管",de:"Hohles PP-Rohr",es:"Tubo PP hueco"},
+  psFlatDesc:{en:"Lightweight, soft-touch, ideal for picnic & beach.",zh:"轻量软触感，适合野餐、沙滩与房车铺垫。",de:"Leicht, weich — ideal für Picknick & Strand.",es:"Ligero y suave — ideal para picnic y playa."},
+  psHollowDesc:{en:"Durable, structured, ideal for patio & RV awning.",zh:"耐用立体，适合露台与房车遮阳棚下铺垫。",de:"Robust, strukturiert — ideal für Terrasse & Wohnmobil.",es:"Resistente y estructurado — ideal para patio y caravanas."},
+  psAddLib:{en:"+ Add to library",zh:"+ 添加到图案库",de:"+ Zur Bibliothek hinzufügen",es:"+ Añadir a biblioteca"},
+  psCustom:{en:"Custom",zh:"自定义",de:"Eigene",es:"Personalizado"},
+  psSizeLabel:{en:"Selected size",zh:"已选规格",de:"Gewählte Größe",es:"Tamaño elegido"},
+  psWeaveLabel:{en:"Selected weave",zh:"已选工艺",de:"Gewählte Webart",es:"Tejido elegido"},
 };
 function T(k){const o=I18N[k];if(!o)return k;return o[LANG]||o.en||o.zh||o.de||o.es||k}
 /* 行内 4 语言选择器：pick({en,zh,de,es}) — 用于首页大量内联文案 */
@@ -413,7 +486,18 @@ async function loadDB(){
     try{const r=await fetch(base+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;DB=await r.json();break;}catch(e){}
   }
   if(!DB){document.getElementById("main").innerHTML=`<div class="loading"><p style="color:var(--danger)">Data load failed. Please refresh.</p></div>`;return false;}
-  ["products","scripts","intel","certs","brand","cases","fairs"].forEach(k=>DB[k]=DB[k]||[]);
+  ["products","scripts","intel","certs","brand","cases","fairs","patterns"].forEach(k=>DB[k]=DB[k]||[]);
+  // 如果 patterns 为空，注入 6 个预置图案（仅本地兜底显示；admin 可保存到 data.json）
+  if(!DB.patterns.length){
+    DB.patterns=[
+      {id:"P-001",name:{en:"Black & White Mountain",zh:"黑白山脉",de:"Berge schwarz/weiß",es:"Montaña B/N"},img:"https://sc02.alicdn.com/kf/A464ddd47ccdb427cb879c42351489e79s.png",tag:"reversible"},
+      {id:"P-002",name:{en:"Aztec Geometric",zh:"阿兹特克几何",de:"Azteken-Geometrie",es:"Geometría Azteca"},img:"https://sc02.alicdn.com/kf/H15b4c88f23164438be74a88921df7b5b7.jpg",tag:"bohemian"},
+      {id:"P-003",name:{en:"Bohemian Mandala",zh:"波西米亚曼陀罗",de:"Böhmisches Mandala",es:"Mandala Bohemio"},img:"https://sc02.alicdn.com/kf/Ha2bf902861ff48c1908c05a6bd56e402d.jpg",tag:"round"},
+      {id:"P-004",name:{en:"Quatrefoil Classic",zh:"经典四叶花",de:"Klassisches Vierpass",es:"Cuadrifolio Clásico"},img:"https://sc02.alicdn.com/kf/Abebddf8579b946d2a9189e0d99f7d002j.png",tag:"classic"},
+      {id:"P-005",name:{en:"Tropical Blue",zh:"热带蓝调",de:"Tropisches Blau",es:"Azul Tropical"},img:"https://sc02.alicdn.com/kf/A25d828adf4984d568a23cdf80e8c2a56c.png",tag:"beach"},
+      {id:"P-006",name:{en:"Modern Stripes",zh:"现代条纹",de:"Moderne Streifen",es:"Rayas Modernas"},img:"https://sc02.alicdn.com/kf/A1cb1c311a0684e48961b50f6952b210dw.png",tag:"modern"},
+    ];
+  }
   return true;
 }
 function allProducts(){return DB.products}
@@ -621,11 +705,172 @@ function renderIntel(){
   ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('intel','')">${T('addIntel')}</button>`:''}
   ${DB.intel.map(i=>`<div class="qrow">${adminBtns('intel',i.id)}<div class="q">${esc(L(i.t))}</div><div class="a">${esc(L(i.d))}</div></div>`).join("")}`;
 }
-function renderBrand(){
+/* ===== Pattern Studio：图案试样台 ===== */
+/* 规格预设（英寸 / 厘米 / 像素宽高比） */
+const PS_SIZES=[
+  {id:"6x9",label:"6 × 9 ft",dim:"183 × 274 cm",ratio:6/9,moq:"200 pcs",pop:false},
+  {id:"8x10",label:"8 × 10 ft",dim:"244 × 305 cm",ratio:8/10,moq:"200 pcs",pop:true},
+  {id:"9x12",label:"9 × 12 ft",dim:"274 × 366 cm",ratio:9/12,moq:"200 pcs",pop:true},
+  {id:"5x8",label:"5 × 8 ft",dim:"152 × 244 cm",ratio:5/8,moq:"300 pcs",pop:false},
+];
+const PS_WEAVES=[
+  {id:"flat",nameKey:"psFlat",descKey:"psFlatDesc",spec:{material:"100% Recycled PP Straw",weight:"800 g/m²",thickness:"3 mm",waterproof:"Yes",uv:"Yes",reversible:"Yes (double pattern)"}},
+  {id:"hollow",nameKey:"psHollow",descKey:"psHollowDesc",spec:{material:"100% Recycled PP Hollow Tube",weight:"1100 g/m²",thickness:"5 mm",waterproof:"Yes",uv:"Yes",reversible:"Yes (double pattern)"}},
+];
+
+function renderBrand(){  // 保留函数名，路由不变
+  const patterns=DB.patterns||[];
   return `<div class="sec-title"><span class="bar"></span>${T('brand')}</div>
-  <div class="sec-sub">${T('brandSub')}${isAdmin()?T('adminTip'):''}</div>
-  ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('brand','')">${T('addBrand')}</button>`:''}
-  ${DB.brand.map(b=>`<div class="qrow">${adminBtns('brand',b.id)}<div class="q">${esc(L(b.t))}</div><div class="a">${esc(L(b.d))}</div></div>`).join("")}`;
+  <div class="sec-sub">${T('psSub')}${isAdmin()?T('adminTip'):''}</div>
+
+  <!-- 1. 图案库 -->
+  <div class="ps-step">
+    <div class="ps-step-h">${T('psLibrary')}</div>
+    <div class="ps-lib" id="psLib">
+      ${patterns.map(p=>`<div class="ps-tile" data-pid="${esc(p.id)}" data-img="${esc(p.img)}" onclick="psPickLib('${esc(p.id)}')">
+        <img src="${esc(p.img)}" loading="lazy" alt="${esc(L(p.name))}" onerror="this.style.opacity=.2">
+        <div class="ps-tile-name">${esc(L(p.name))}</div>
+        ${isAdmin()?`<button class="ps-tile-del" onclick="event.stopPropagation();delItem('patterns','${esc(p.id)}')">×</button>`:''}
+      </div>`).join("")}
+      ${isAdmin()?`<div class="ps-tile ps-tile-add" onclick="openEdit('patterns','')"><div style="font-size:34px;color:var(--accent)">+</div><div class="ps-tile-name">${T('psAddLib')}</div></div>`:''}
+    </div>
+  </div>
+
+  <!-- 2. 上传 / URL -->
+  <div class="ps-step">
+    <div class="ps-step-h">${T('psUpload')}</div>
+    <div class="ps-up">
+      <label class="ps-up-zone" for="psFile">
+        <span style="font-size:34px">🖼️</span>
+        <span>${T('psPickFile')}</span>
+      </label>
+      <input type="file" id="psFile" accept="image/*" style="display:none" onchange="psPickFile(this)">
+      <input id="psUrl" placeholder="${T('psPasteUrl')}" onkeydown="if(event.key==='Enter')psPickUrl(this.value)">
+    </div>
+  </div>
+
+  <!-- 3. 规格 -->
+  <div class="ps-step">
+    <div class="ps-step-h">${T('psSize')}</div>
+    <div class="ps-sizes" id="psSizes">
+      ${PS_SIZES.map((s,i)=>`<button class="ps-size ${i===1?'on':''}" data-sid="${s.id}" data-ratio="${s.ratio}" data-moq="${s.moq}" data-dim="${s.dim}" data-label="${s.label}" onclick="psPickSize('${s.id}')">
+        <b>${s.label}</b>
+        <span>${s.dim}</span>
+        ${s.pop?`<em>${LANG==='zh'?'热销':'Popular'}</em>`:''}
+      </button>`).join("")}
+    </div>
+  </div>
+
+  <!-- 4. 编织工艺 -->
+  <div class="ps-step">
+    <div class="ps-step-h">${T('psWeave')}</div>
+    <div class="ps-weaves" id="psWeaves">
+      ${PS_WEAVES.map((w,i)=>`<button class="ps-weave ${i===0?'on':''}" data-wid="${w.id}" onclick="psPickWeave('${w.id}')">
+        <b>${T(w.nameKey)}</b>
+        <span>${T(w.descKey)}</span>
+      </button>`).join("")}
+    </div>
+  </div>
+
+  <!-- 预览 + 参数 -->
+  <div class="ps-preview-wrap">
+    <div class="ps-preview-col">
+      <div class="ps-step-h">${T('psPreview')}</div>
+      <div class="ps-preview" id="psPreview">
+        <div class="ps-rug" id="psRug">
+          <div class="ps-rug-inner" id="psRugInner"></div>
+        </div>
+        <div class="ps-rug-empty" id="psRugEmpty">${T('psPlaceholder')}</div>
+        <div class="ps-rug-tag" id="psRugTag">8 × 10 ft</div>
+      </div>
+    </div>
+    <div class="ps-spec-col">
+      <div class="ps-step-h">${T('psSpecs')}</div>
+      <table class="ps-spec" id="psSpec"></table>
+      <a class="ps-cta" id="psCTA" href="mailto:sales@tzaiyisi.com">${T('psCTA')}</a>
+      <p class="ps-cta-sub">${T('psCTAsub')}</p>
+    </div>
+  </div>
+  `;
+}
+
+/* === Pattern Studio 交互 === */
+let PS_STATE={img:"",pid:"",size:"8x10",weave:"flat"};
+function psApply(){
+  const inner=document.getElementById("psRugInner");
+  const empty=document.getElementById("psRugEmpty");
+  const rug=document.getElementById("psRug");
+  const tag=document.getElementById("psRugTag");
+  if(!inner)return;
+  // 尺寸 → 比例（容器宽度固定 by CSS，aspect-ratio 控制高）
+  const sz=PS_SIZES.find(s=>s.id===PS_STATE.size)||PS_SIZES[1];
+  rug.style.aspectRatio=sz.ratio;
+  tag.textContent=sz.label+" · "+sz.dim;
+  // 图案铺设
+  if(PS_STATE.img){
+    inner.style.backgroundImage=`url("${PS_STATE.img}")`;
+    inner.style.backgroundSize="cover";
+    inner.style.backgroundPosition="center";
+    inner.style.backgroundRepeat="no-repeat";
+    inner.classList.add("loaded");
+    empty.style.display="none";
+  }else{
+    inner.style.backgroundImage="";
+    inner.classList.remove("loaded");
+    empty.style.display="flex";
+  }
+  // 工艺切换 → 不同纹理叠加（伪 noise）
+  rug.dataset.weave=PS_STATE.weave;
+  // 参数表
+  const w=PS_WEAVES.find(x=>x.id===PS_STATE.weave)||PS_WEAVES[0];
+  const spec=w.spec;
+  const t=document.getElementById("psSpec");
+  if(t){
+    t.innerHTML=
+      `<tr><td>${T('psMaterial')}</td><td>${spec.material}</td></tr>`+
+      `<tr><td>${T('psWeight')}</td><td>${spec.weight}</td></tr>`+
+      `<tr><td>${T('psThickness')}</td><td>${spec.thickness}</td></tr>`+
+      `<tr><td>${T('psWaterproof')}</td><td>${spec.waterproof}</td></tr>`+
+      `<tr><td>${T('psUV')}</td><td>${spec.uv}</td></tr>`+
+      `<tr><td>${T('psReversible')}</td><td>${spec.reversible}</td></tr>`+
+      `<tr><td>${T('psSizeLabel')}</td><td><b style="color:var(--accent)">${sz.label}</b> (${sz.dim})</td></tr>`+
+      `<tr><td>${T('psMoq')}</td><td>${sz.moq}</td></tr>`;
+  }
+  // CTA mailto 带上下文
+  const cta=document.getElementById("psCTA");
+  if(cta){
+    const subj=encodeURIComponent("[Pattern Studio] Custom rug inquiry");
+    const pidPart=PS_STATE.pid?`Pattern ID: ${PS_STATE.pid}\n`:"";
+    const imgPart=PS_STATE.img?`Pattern URL: ${PS_STATE.img}\n`:"";
+    const body=encodeURIComponent(
+      `Hi AIYISI sales team,\n\nI just designed a custom rug on your Pattern Studio.\nPlease send a quote and sample plan.\n\n${pidPart}${imgPart}Size: ${sz.label} (${sz.dim})\nWeave: ${T(w.nameKey)}\nMaterial: ${spec.material}\nMOQ: ${sz.moq}\n\nThanks!`
+    );
+    cta.href=`mailto:sales@tzaiyisi.com?subject=${subj}&body=${body}`;
+  }
+}
+function psPickLib(id){
+  const p=(DB.patterns||[]).find(x=>x.id===id);if(!p)return;
+  PS_STATE.img=p.img;PS_STATE.pid=p.id;
+  document.querySelectorAll("#psLib .ps-tile").forEach(t=>t.classList.toggle("on",t.dataset.pid===id));
+  psApply();
+}
+function psPickFile(input){
+  const f=input.files&&input.files[0];if(!f)return;
+  const r=new FileReader();r.onload=e=>{PS_STATE.img=e.target.result;PS_STATE.pid="custom-"+Date.now();document.querySelectorAll("#psLib .ps-tile").forEach(t=>t.classList.remove("on"));psApply();};r.readAsDataURL(f);
+}
+function psPickUrl(v){
+  v=(v||"").trim();if(!v)return;
+  PS_STATE.img=v;PS_STATE.pid="url-"+Date.now();document.querySelectorAll("#psLib .ps-tile").forEach(t=>t.classList.remove("on"));psApply();
+}
+function psPickSize(id){
+  PS_STATE.size=id;
+  document.querySelectorAll("#psSizes .ps-size").forEach(b=>b.classList.toggle("on",b.dataset.sid===id));
+  psApply();
+}
+function psPickWeave(id){
+  PS_STATE.weave=id;
+  document.querySelectorAll("#psWeaves .ps-weave").forEach(b=>b.classList.toggle("on",b.dataset.wid===id));
+  psApply();
 }
 function renderCases(){
   const cs=DB.cases||[];
@@ -976,6 +1221,11 @@ const SCHEMA={
     {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
     {k:"d",t:"bl",label:{en:"Content",zh:"内容"},area:1},
   ]},
+  patterns:{title:{en:"Pattern",zh:"图案"},idp:"P",fields:[
+    {k:"name",t:"bl",label:{en:"Pattern name",zh:"图案名称"},req:1},
+    {k:"img",t:"s",label:{en:"Pattern image URL",zh:"图案图片链接"},req:1},
+    {k:"tag",t:"s",label:{en:"Style tag (e.g. bohemian / classic / modern)",zh:"风格标签（如：bohemian / classic / modern）"}},
+  ]},
   cases:{title:{en:"Case",zh:"合作案例"},idp:"CASE",fields:[
     {k:"t",t:"bl",label:{en:"Case title",zh:"案例标题"},req:1},
     {k:"d",t:"bl",label:{en:"Description",zh:"案例描述"},area:1},
@@ -1154,6 +1404,7 @@ function show(t){
   heroStopAuto(); // 离开 home 停止轮播
   CUR=t;buildNav();render();
   if(t==="home" && window.__pendingHero){heroStartAuto(window.__pendingHero);window.__pendingHero=null;}
+  if(t==="brand" && typeof psApply==="function")setTimeout(psApply,0); // Pattern Studio 默认参数
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
