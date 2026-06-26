@@ -490,12 +490,12 @@ function renderHome(){
     <p style="color:var(--txt2);font-size:14px;margin-top:6px">${ZH?'欧美商超供应链信赖的高新技术 ODM 工厂':'A high-tech ODM factory trusted by global retail supply chains'}</p>
   </div>
   <div class="ywhy">
-    <div class="w"><div class="ic">⌘</div><h4>${ZH?'高新技术企业':'High-Tech Enterprise'}</h4><p>${ZH?'国家/省级高新技术企业认定，纳税信用 A 级，9+ 项产品设计与实用新型专利。':'Government-certified High-Tech Enterprise with A-grade tax credit and 9+ design/utility patents.'}</p></div>
-    <div class="w"><div class="ic">✓</div><h4>${ZH?'TÜV Rheinland 认证':'TÜV Rheinland Certified'}</h4><p>${ZH?'德国 TÜV 认证供应商，Trade Assurance 保障，产品符合欧美主流标准。':'TÜV-audited supplier with Trade Assurance protection. Products meet EU/US standards.'}</p></div>
-    <div class="w"><div class="ic">⚙</div><h4>${ZH?'全工艺自有产能':'Full-Process In-House'}</h4><p>${ZH?'机织 + 提花 + 绞编 + 双面可逆设计，200+ 套先进设备全工艺覆盖。':'Woven + jacquard + braided + reversible design. 200+ machines for full-process coverage.'}</p></div>
-    <div class="w"><div class="ic">↻</div><h4>${ZH?'OEM/ODM 全定制':'Full OEM/ODM'}</h4><p>${ZH?'2 名研发工程师，支持图纸/打样定制，私标包装与花型独家开发。':'2 R&D engineers. Drawing & sample-based customization, private-label packaging, exclusive patterns.'}</p></div>
-    <div class="w"><div class="ic">🌐</div><h4>${ZH?'全球展会布局':'Global Trade Show Presence'}</h4><p>${ZH?'广交会 6+ 届常驻，德国 Spoga+Gafa、Heimtextil 持续参展。':'6+ consecutive Canton Fair editions, regular exhibitor at Spoga+Gafa & Heimtextil (Germany).'}</p></div>
-    <div class="w" style="grid-column:1 / -1;background:linear-gradient(135deg,#0F2C4D,#1a3a5e);border-color:#1F6FBF">
+    <div class="w" style="cursor:pointer" onclick="show('identity')"><div class="ic">⌘</div><h4>${ZH?'高新技术企业':'High-Tech Enterprise'}</h4><p>${ZH?'国家/省级高新技术企业认定，纳税信用 A 级，9+ 项产品设计与实用新型专利。':'Government-certified High-Tech Enterprise with A-grade tax credit and 9+ design/utility patents.'}</p><div style="margin-top:10px;font-size:11px;color:var(--accent);font-weight:700">${ZH?'查看认证详情 →':'View certifications →'}</div></div>
+    <div class="w" style="cursor:pointer" onclick="show('identity')"><div class="ic">✓</div><h4>${ZH?'TÜV Rheinland 认证':'TÜV Rheinland Certified'}</h4><p>${ZH?'德国 TÜV 认证供应商，产品符合欧美主流标准，所有认证均可在颁发机构官网查询。':'TÜV-audited supplier with products meeting EU/US standards. All certifications verifiable on the official source.'}</p><div style="margin-top:10px;font-size:11px;color:var(--accent);font-weight:700">${ZH?'查看认证详情 →':'View certifications →'}</div></div>
+    <div class="w" style="cursor:pointer" onclick="show('products')"><div class="ic">⚙</div><h4>${ZH?'全工艺自有产能':'Full-Process In-House'}</h4><p>${ZH?'机织 + 提花 + 绞编 + 双面可逆设计，200+ 套先进设备全工艺覆盖。':'Woven + jacquard + braided + reversible design. 200+ machines for full-process coverage.'}</p><div style="margin-top:10px;font-size:11px;color:var(--accent);font-weight:700">${ZH?'浏览产品目录 →':'Browse catalog →'}</div></div>
+    <div class="w" style="cursor:pointer" onclick="show('products')"><div class="ic">↻</div><h4>${ZH?'OEM/ODM 全定制':'Full OEM/ODM'}</h4><p>${ZH?'2 名研发工程师，支持图纸/打样定制，私标包装与花型独家开发。':'2 R&D engineers. Drawing & sample-based customization, private-label packaging, exclusive patterns.'}</p><div style="margin-top:10px;font-size:11px;color:var(--accent);font-weight:700">${ZH?'浏览产品目录 →':'Browse catalog →'}</div></div>
+    <div class="w" style="cursor:pointer" onclick="openFair('canton-fair')"><div class="ic">🌐</div><h4>${ZH?'全球展会布局':'Global Trade Show Presence'}</h4><p>${ZH?'广交会 6+ 届常驻，德国 Spoga+Gafa、Heimtextil 持续参展。':'6+ consecutive Canton Fair editions, regular exhibitor at Spoga+Gafa & Heimtextil (Germany).'}</p><div style="margin-top:10px;font-size:11px;color:var(--accent);font-weight:700">${ZH?'查看参展记录 →':'View fair records →'}</div></div>
+    <div class="w" style="grid-column:1 / -1;background:linear-gradient(135deg,#0F2C4D,#1a3a5e);border-color:#1F6FBF;cursor:pointer" onclick="show('cases')"
       <div class="ic" style="background:linear-gradient(135deg,#D62828,#ED1A3B);color:#fff">🛒</div>
       <h4 style="color:#fff;font-size:17px">${ZH?'Amazon 卖家优质供应商':'Premium Supplier for Amazon Sellers'}</h4>
       <p style="color:rgba(255,255,255,.85);line-height:1.6;font-size:13px">${ZH?'专为亚马逊卖家定制：低 MOQ 200pcs 起订、私标包装贴牌、TÜV/CE 合规文件、研发原创花型设计、FBA 友好打包。<strong style="color:#7DB8F0">12 年欧美零售品质把控 · 5.0★ 店铺评分 · 38-50% 客户复购验证</strong>——助你打造畅销爆款，远离差评困扰。':'Tailored for Amazon sellers: low MOQ from 200pcs, private-label packaging, TÜV/CE compliance docs, original pattern design, FBA-friendly packing. <strong style="color:#7DB8F0">12 years of EU/US quality control · 5.0★ store rating · 38-50% repeat-order rate</strong> — helping you build best-sellers, free from bad reviews.'}</p>
@@ -558,9 +558,9 @@ function adminBtns(type,id){
 }
 function renderIdentity(){
   return `<div class="sec-title"><span class="bar"></span>${T('identity')}</div>
-  <div class="sec-sub">${LANG==='zh'?'公司认证、贸易保障与定制能力。':'Certifications, trade assurance & customization.'}${isAdmin()?T('adminTip'):''}</div>
+  <div class="sec-sub">${LANG==='zh'?'所有认证均可在颁发机构官方网站验证真伪 —— 点击「官方查询」即可跳转。':'All certifications can be verified at the issuing authority — click "Verify" to visit the official source.'}${isAdmin()?T('adminTip'):''}</div>
   ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('certs','')">${T('addCert')}</button>`:''}
-  ${DB.certs.map(c=>`<div class="qrow">${adminBtns('certs',c.id)}<div class="q">${esc(L(c.t))}</div><div class="a">${esc(L(c.d))}</div></div>`).join("")}`;
+  ${DB.certs.map(c=>`<div class="qrow">${adminBtns('certs',c.id)}<div class="q">${esc(L(c.t))}</div><div class="a">${esc(L(c.d))}</div>${c.verify&&c.verify.url?`<div style="margin-top:12px"><a href="${esc(c.verify.url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none">🔍 ${esc(L(c.verify.label))} →</a></div>`:''}</div>`).join("")}`;
 }
 function renderIntel(){
   return `<div class="sec-title"><span class="bar"></span>${T('intel')} <span style="font-size:12px;color:var(--warn)">(${LANG==='zh'?'内部资料':'Internal only'})</span></div>
@@ -916,6 +916,8 @@ const SCHEMA={
   certs:{title:{en:"Certification",zh:"资质"},idp:"C",fields:[
     {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
     {k:"d",t:"bl",label:{en:"Content",zh:"内容"},area:1},
+    {k:"verifyUrl",t:"s",label:{en:"Verification URL (official site)",zh:"官方查询链接（可选）"}},
+    {k:"verifyLabel",t:"bl",label:{en:"Verify button text",zh:"查询按钮文字（如：在 TÜV 查询）"}},
   ]},
   brand:{title:{en:"Brand item",zh:"品牌项"},idp:"B",fields:[
     {k:"t",t:"bl",label:{en:"Title",zh:"标题"},req:1},
@@ -956,7 +958,9 @@ function getEditList(type){
 }
 function openEdit(type,id){
   if(!isAdmin())return;EDIT_TYPE=type;EDIT_ID=id;
-  const sc=SCHEMA[type];const list=getEditList(type);const it=id?list.find(x=>String(x.id)===String(id)):null;
+  const sc=SCHEMA[type];const list=getEditList(type);let it=id?list.find(x=>String(x.id)===String(id)):null;
+  // certs: 把嵌套 verify 拆成扁平字段供表单预填
+  if(type==="certs" && it && it.verify){it={...it,verifyUrl:it.verify.url,verifyLabel:it.verify.label};}
   if(it&&it.specs&&it.specs.length)EDIT_SPECS=JSON.parse(JSON.stringify(it.specs));
   else if(!id&&type==="products")EDIT_SPECS=newSpecTemplate();
   else EDIT_SPECS=[];
@@ -1010,6 +1014,12 @@ async function saveEdit(){
     }else{obj[f.k]=fld("ef_"+f.k);}
   }
   if(sc.hasSpecs)obj.specs=EDIT_SPECS.filter(s=>(L(s.v)||"").trim()!=="");
+  // certs: 把表单的 verifyUrl/verifyLabel 合并成嵌套 verify 对象
+  if(type==="certs"){
+    if(obj.verifyUrl){obj.verify={url:obj.verifyUrl,label:obj.verifyLabel||{en:"Verify",zh:"查询"}};}
+    else{obj.verify=null;}
+    delete obj.verifyUrl;delete obj.verifyLabel;
+  }
   if(type==="products"){const ex=EDIT_ID?DB.products.find(x=>String(x.id)===String(EDIT_ID)):null;obj.images=ex?(ex.images||[]):[];obj.detailImgs=ex?(ex.detailImgs||[]):[];}
   // fair-edition: 保留 photos
   if(type==="fair-edition"){
