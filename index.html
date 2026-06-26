@@ -249,11 +249,17 @@
   .ho-edit-btn{position:absolute;top:10px;right:10px;z-index:10;background:rgba(31,111,191,.95);color:#fff;border:none;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.18);transition:.15s;line-height:1}
   .ho-edit-btn:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.25)}
   .ho-edit-btn-light{background:rgba(31,111,191,.85)}
+  /* admin hover 时区块高亮，提示"点这里编辑" */
+  body.is-admin .ho-wrap{transition:.15s}
+  body.is-admin .ho-wrap:hover{outline:2px dashed rgba(31,111,191,.55);outline-offset:4px;border-radius:8px}
+  body.is-admin .ho-wrap:hover .ho-edit-btn{transform:scale(1.08);box-shadow:0 6px 18px rgba(31,111,191,.5)}
+  body.is-admin .yhero:hover{outline:2px dashed rgba(31,111,191,.55);outline-offset:-2px}
   .yhero .ho-edit-btn{top:14px;right:60px}
   /* 编辑模态框（家庭页专用，比通用 editModal 更宽更友好） */
   .ho-modal-list{display:flex;flex-direction:column;gap:14px;max-height:60vh;overflow-y:auto;padding:4px}
   .ho-item{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px;position:relative}
-  .ho-item-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700;color:var(--accent);font-size:13px}
+  .ho-item-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700;color:var(--accent);font-size:13px;gap:10px}
+  .ho-item-no{background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;flex-shrink:0}
   .ho-item-btns{display:flex;gap:6px}
   .ho-item-btns button{padding:4px 9px;font-size:11px;border-radius:5px;border:1px solid var(--line);background:var(--panel);color:var(--txt);cursor:pointer;font-weight:600}
   .ho-item-btns button:hover{border-color:var(--accent);color:var(--accent)}
@@ -264,6 +270,11 @@
   .ho-field textarea{resize:vertical;min-height:60px}
   .ho-field input:focus,.ho-field textarea:focus{outline:none;border-color:var(--accent)}
   .ho-lang-group{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  .ho-lang-collapse{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px;padding:8px;background:rgba(31,111,191,.04);border:1px dashed rgba(31,111,191,.25);border-radius:6px}
+  .ho-lang-collapse input{padding:6px 8px;font-size:12px}
+  .btn-mini{padding:6px 10px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .btn-mini:hover{background:#1856a0}
+  .btn-mini[disabled]{opacity:.6;cursor:not-allowed}
   @media(max-width:600px){.ho-lang-group{grid-template-columns:1fr}.ho-fields{grid-template-columns:1fr}}
 </style>
 </head>
@@ -528,6 +539,8 @@ function allScripts(){return DB.scripts}
 /* ===== LANG / NAV ===== */
 function setLang(l){LANG=l;localStorage.setItem(LS_LANG,l);const map={en:"en","zh":"zh-CN",de:"de",es:"es"};document.documentElement.lang=map[l]||"en";buildNav();render();}
 function buildNav(){
+  // 切换 admin 视觉提示（CSS 用）
+  document.body.classList.toggle("is-admin",isAdmin());
   // 内部栏目 intel/scripts 对客户隐藏；业务员(只读)和管理员可见
   const tabs=[["home",T("home")],["identity",T("identity")],["products",T("products")],["cases",T("cases")]];
   if(canViewInternal()){tabs.push(["intel",T("intel")],["scripts",T("scripts")]);}
@@ -1203,27 +1216,60 @@ function openHomeEdit(section){
     const id=`heo_${itemId}_${f.k}`;
     if(f.t==="bl"){
       const v=val&&typeof val==="object"?val:{};
-      return `<div class="ho-field" style="grid-column:1/-1"><label>${esc(f.label)}（多语言）</label><div class="ho-lang-group">
-        <input id="${id}__en" placeholder="EN" value="${esc(v.en||'')}">
-        <input id="${id}__zh" placeholder="中" value="${esc(v.zh||'')}">
-        <input id="${id}__de" placeholder="DE" value="${esc(v.de||'')}">
-        <input id="${id}__es" placeholder="ES" value="${esc(v.es||'')}">
-      </div></div>`;
+      // 默认显示当前界面语言（LANG）的值；优先用 zh 作为编辑入口（中国主公主用中文）
+      const primary = v.zh || v.en || v[LANG] || "";
+      const hasOther = !!(v.en||v.zh||v.de||v.es) && (v.en||v.zh||v.de||v.es)!==primary;
+      const TA = f.ta ? `<textarea id="${id}__primary" placeholder="${esc(f.label)}（任意一种语言即可）">${esc(primary)}</textarea>`
+                     : `<input id="${id}__primary" placeholder="${esc(f.label)}（任意一种语言即可）" value="${esc(primary)}">`;
+      return `<div class="ho-field" style="grid-column:1/-1"><label>${esc(f.label)} <span style="color:var(--accent);font-size:10px">智能识别+自动翻译</span></label>
+        <div style="display:flex;gap:6px;align-items:flex-start">
+          <div style="flex:1">${TA}</div>
+          <button class="btn-mini" type="button" onclick="heoTranslate('${id}',${f.ta?1:0})" title="自动翻译到其他 3 种语言">🌐 翻译</button>
+          <button class="btn-mini" type="button" onclick="heoToggleLangs('${id}')" title="查看/手动改其他语言">▾</button>
+        </div>
+        <div id="${id}__langs" class="ho-lang-collapse" style="display:${hasOther?'grid':'none'}">
+          <input id="${id}__en" placeholder="EN" value="${esc(v.en||'')}">
+          <input id="${id}__zh" placeholder="中" value="${esc(v.zh||'')}">
+          <input id="${id}__de" placeholder="DE" value="${esc(v.de||'')}">
+          <input id="${id}__es" placeholder="ES" value="${esc(v.es||'')}">
+        </div>
+      </div>`;
     }
     if(f.ta){
       return `<div class="ho-field" style="grid-column:1/-1"><label>${esc(f.label)}</label><textarea id="${id}">${esc(val||'')}</textarea></div>`;
+    }
+    // 图片字段：URL 输入 + 上传按钮 + 缩略图预览
+    if(f.k==="img"||f.k==="aiPreview"||/\b(URL)\b/i.test(f.label)){
+      const previewable = !!(val&&val.length);
+      return `<div class="ho-field" style="grid-column:1/-1"><label>${esc(f.label)}</label>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          ${previewable?`<img src="${esc(val)}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--line)" onerror="this.style.display='none'">`:''}
+          <input id="${id}" value="${esc(val||'')}" style="flex:1;min-width:200px" placeholder="https://... 或点击右侧上传">
+          <button class="btn-mini" type="button" onclick="heoUploadFor('${id}')" title="上传本地图片">📤 上传</button>
+        </div>
+      </div>`;
     }
     return `<div class="ho-field"><label>${esc(f.label)}</label><input id="${id}" value="${esc(val||'')}"></div>`;
   }
 
   function itemHtml(idx,item){
     const fid=`i${idx}`;
+    // 自动派生缩略图 + 主标题（让主公一眼分清编辑哪个）
+    const thumb = item.img || "";
+    const titleObj = item.title || item.name || item.label || item.kicker || {};
+    const titleTxt = typeof titleObj==="object" ? (titleObj.zh||titleObj.en||"") : (titleObj||"");
+    const fallback = item.value || item.flag || item.icon || "";
     return `<div class="ho-item" data-idx="${idx}">
       <div class="ho-item-h">
-        <span>#${idx+1}</span>
+        <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+          <span class="ho-item-no">#${idx+1}</span>
+          ${thumb?`<img src="${esc(thumb)}" style="width:38px;height:38px;object-fit:cover;border-radius:6px;border:1px solid var(--line)" onerror="this.style.display='none'">`:''}
+          ${fallback&&!thumb?`<span style="font-size:22px;line-height:1">${esc(fallback)}</span>`:''}
+          <strong style="color:var(--txt);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0">${esc(titleTxt||'(未命名)')}</strong>
+        </div>
         <div class="ho-item-btns">
-          <button onclick="heoMove(${idx},-1)">↑</button>
-          <button onclick="heoMove(${idx},1)">↓</button>
+          <button onclick="heoMove(${idx},-1)" title="上移">↑</button>
+          <button onclick="heoMove(${idx},1)" title="下移">↓</button>
           <button class="del" onclick="heoDel(${idx})">删除</button>
         </div>
       </div>
@@ -1267,8 +1313,24 @@ function heoCollect(){
     for(const f of fields){
       const id=`heo_${prefix}_${f.k}`;
       if(f.t==="bl"){
-        const en=document.getElementById(id+"__en"); if(!en)continue;
-        target[f.k]={en:en.value,zh:(document.getElementById(id+"__zh")||{}).value||"",de:(document.getElementById(id+"__de")||{}).value||"",es:(document.getElementById(id+"__es")||{}).value||""};
+        // 4 语言全收集
+        const enEl=document.getElementById(id+"__en");
+        if(!enEl)continue;
+        const obj={en:enEl.value,zh:(document.getElementById(id+"__zh")||{}).value||"",de:(document.getElementById(id+"__de")||{}).value||"",es:(document.getElementById(id+"__es")||{}).value||""};
+        // 主输入框的值额外覆盖到检测到的语言（若该语言为空就填入）
+        const primEl=document.getElementById(id+"__primary");
+        if(primEl){
+          const txt=(primEl.value||"").trim();
+          if(txt){
+            let lang="en";
+            if(/[\u4e00-\u9fff]/.test(txt))lang="zh";
+            else if(/[ñáéíóúüÑÁÉÍÓÚÜ¿¡]/.test(txt))lang="es";
+            else if(/[äöüßÄÖÜ]/.test(txt))lang="de";
+            // 优先填回未空的对应语言；若该语言已有不同值则覆盖
+            obj[lang]=txt;
+          }
+        }
+        target[f.k]=obj;
       } else {
         const el=document.getElementById(id); if(!el)continue;
         target[f.k]=el.value;
@@ -1315,6 +1377,81 @@ function heoMove(idx,dir){
   [arr[idx],arr[j]]=[arr[j],arr[idx]];
   heoRender();
 }
+async function heoTranslate(id,isTa){
+  const primEl=document.getElementById(id+"__primary");
+  if(!primEl)return;
+  const txt=(primEl.value||"").trim();
+  if(!txt){toast("请先输入文字",true);return;}
+  // 简单语种识别
+  let src="en";
+  if(/[\u4e00-\u9fff]/.test(txt))src="zh";
+  else if(/[ñáéíóúüÑÁÉÍÓÚÜ¿¡]/.test(txt))src="es";
+  else if(/[äöüßÄÖÜ]/.test(txt))src="de";
+  // 找到对应翻译按钮显示加载
+  const btn=document.querySelector(`button[onclick*="heoTranslate('${id}'"]`);
+  const orig=btn?btn.textContent:"";
+  if(btn){btn.disabled=1;btn.textContent="…";}
+  const all=await autoTranslateAll(txt,src);
+  // 写入 4 个语言输入框（自动展开）
+  ["en","zh","de","es"].forEach(l=>{
+    const el=document.getElementById(id+"__"+l);
+    if(el && all[l])el.value=all[l];
+  });
+  const langs=document.getElementById(id+"__langs");
+  if(langs)langs.style.display="grid";
+  if(btn){btn.disabled=0;btn.textContent=orig||"🌐 翻译";}
+  toast("已翻译到 4 种语言");
+}
+function heoToggleLangs(id){
+  const el=document.getElementById(id+"__langs");
+  if(el)el.style.display=el.style.display==="none"?"grid":"none";
+}
+/* 图片上传：选文件 → base64 → PUT GitHub /uploads/ */
+function heoUploadFor(inputId){
+  const f=document.createElement("input");
+  f.type="file"; f.accept="image/*";
+  f.onchange=async()=>{
+    const file=f.files&&f.files[0]; if(!file)return;
+    if(file.size>5*1024*1024){toast("图片不能超过 5MB",true);return;}
+    const r=new FileReader();
+    r.onload=async(e)=>{
+      const dataUrl=e.target.result;
+      const b64=dataUrl.split(",")[1];
+      const ext=(file.name.split(".").pop()||"png").toLowerCase().replace(/[^a-z0-9]/g,"")||"png";
+      const filename=`uploads/u${Date.now()}.${ext}`;
+      toast("上传中…");
+      try{
+        const api=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}`;
+        const res=await fetch(api,{
+          method:"PUT",
+          headers:{Authorization:"token "+token(),Accept:"application/vnd.github+json","Content-Type":"application/json"},
+          body:JSON.stringify({message:"upload "+filename,content:b64,branch:GH_BRANCH})
+        });
+        if(!res.ok){const er=await res.json();throw new Error(er.message||("HTTP "+res.status))}
+        const j=await res.json();
+        const url=j.content.download_url||filename; // raw 下载链接，跨源安全
+        const el=document.getElementById(inputId);
+        if(el)el.value=url;
+        // 触发 input event 让上方缩略图刷新（实际刷新由用户保存后整页 rerender）
+        toast("上传成功！保存后生效");
+        // 直接显示一个缩略图（用本地 dataUrl 先垫上）
+        const fieldParent = el && el.parentElement;
+        if(fieldParent){
+          let preview=fieldParent.querySelector("img");
+          if(!preview){
+            preview=document.createElement("img");
+            preview.style.cssText="width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--line)";
+            fieldParent.insertBefore(preview,fieldParent.firstChild);
+          }
+          preview.src=dataUrl;
+        }
+      }catch(e){toast("上传失败："+e.message,true);}
+    };
+    r.readAsDataURL(file);
+  };
+  f.click();
+}
+
 async function heoSave(){
   const {section}=window.HEO||{};
   heoCollect();
@@ -1579,6 +1716,59 @@ async function delFairEditionPhoto(eid,i){
   if(!confirm(T('confirmDelPhoto')))return;
   ed.photos.splice(i,1);
   if(await saveDB("Remove fair edition photo"))document.getElementById("main").innerHTML=renderFairDetail();
+}
+
+/* ===== AUTO-TRANSLATE ENGINE ===== */
+/* 双引擎：1) Google translate.googleapis.com (无 key 公开端点) 2) LibreTranslate 降级 */
+const TRANSLATE_CACHE={};
+async function translateText(text,targetLang,sourceLang="auto"){
+  text=(text||"").trim();
+  if(!text)return "";
+  if(sourceLang===targetLang)return text;
+  // 缓存
+  const ck=`${sourceLang}|${targetLang}|${text}`;
+  if(TRANSLATE_CACHE[ck])return TRANSLATE_CACHE[ck];
+  // 引擎 1: Google
+  try{
+    const url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+    const r=await fetch(url);
+    if(r.ok){
+      const j=await r.json();
+      // 拼接所有句子片段
+      const out=(j[0]||[]).map(p=>p[0]||"").join("");
+      if(out){TRANSLATE_CACHE[ck]=out;return out;}
+    }
+  }catch(e){console.warn("Google translate failed:",e.message);}
+  // 引擎 2: LibreTranslate (降级)
+  for(const host of ["https://libretranslate.de","https://translate.argosopentech.com"]){
+    try{
+      const r=await fetch(host+"/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({q:text,source:sourceLang==="auto"?"auto":sourceLang,target:targetLang,format:"text"})});
+      if(r.ok){
+        const j=await r.json();
+        if(j.translatedText){TRANSLATE_CACHE[ck]=j.translatedText;return j.translatedText;}
+      }
+    }catch(e){}
+  }
+  return text; // 全失败返回原文
+}
+/* 把任意输入文本翻译到 {en,zh,de,es} 完整对象 */
+async function autoTranslateAll(text,sourceLang="auto"){
+  const out={en:"",zh:"",de:"",es:""};
+  // 先设源语言（如果指定）
+  if(sourceLang!=="auto" && out[sourceLang]!==undefined) out[sourceLang]=text;
+  const targets=["en","zh","de","es"].filter(l=>!out[l]);
+  const results=await Promise.all(targets.map(t=>translateText(text,t,sourceLang)));
+  targets.forEach((t,i)=>out[t]=results[i]);
+  // 兜底：源语言版本必须有原文
+  if(sourceLang==="auto"){
+    // 简单语言识别：含汉字判中文；含 ñ á é í ó ú ü ¿ ¡ 判西语；含 ä ö ü ß 判德语；否则英语
+    let detected="en";
+    if(/[\u4e00-\u9fff]/.test(text))detected="zh";
+    else if(/[ñáéíóúüÑÁÉÍÓÚÜ¿¡]/.test(text))detected="es";
+    else if(/[äöüßÄÖÜ]/.test(text))detected="de";
+    out[detected]=text;
+  }
+  return out;
 }
 
 /* ===== GITHUB WRITE ===== */
