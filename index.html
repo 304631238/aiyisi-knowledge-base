@@ -929,16 +929,20 @@ function adminBtns(type,id){
          `<button class="editb" onclick="event.stopPropagation();openEdit('${type}','${esc(id)}')">${T('edit')}</button>`;
 }
 function renderIdentity(){
-  return `<a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
-  <div class="sec-title" translate="no"><span class="bar"></span>${T('identity')}</div>
-  <div class="sec-sub">${T('certSub')}${isAdmin()?T('adminTip'):''}</div>
+  return `<div class="catalog-sticky" id="catalogSticky">
+    <a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
+    <div class="sec-title" translate="no"><span class="bar"></span>${T('identity')}</div>
+    <div class="sec-sub" style="margin-bottom:0">${T('certSub')}${isAdmin()?T('adminTip'):''}</div>
+  </div>
   ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('certs','')">${T('addCert')}</button>`:''}
   ${DB.certs.map(c=>`<div class="qrow">${adminBtns('certs',c.id)}<div class="q">${esc(L(c.t))}</div><div class="a">${esc(L(c.d))}</div>${c.verify&&c.verify.url?`<div style="margin-top:12px"><a href="${esc(c.verify.url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none">🔍 ${esc(L(c.verify.label))} →</a></div>`:''}</div>`).join("")}`;
 }
 function renderIntel(){
-  return `<a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
-  <div class="sec-title" translate="no"><span class="bar"></span>${T('intel')} <span style="font-size:12px;color:var(--warn)">(${T('internalOnly')})</span></div>
-  <div class="sec-sub">${T('intelSub')}${isAdmin()?T('adminTip'):''}</div>
+  return `<div class="catalog-sticky" id="catalogSticky">
+    <a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
+    <div class="sec-title" translate="no"><span class="bar"></span>${T('intel')} <span style="font-size:12px;color:var(--warn)">(${T('internalOnly')})</span></div>
+    <div class="sec-sub" style="margin-bottom:0">${T('intelSub')}${isAdmin()?T('adminTip'):''}</div>
+  </div>
   ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('intel','')">${T('addIntel')}</button>`:''}
   ${DB.intel.map(i=>`<div class="qrow">${adminBtns('intel',i.id)}<div class="q">${esc(L(i.t))}</div><div class="a">${esc(L(i.d))}</div></div>`).join("")}`;
 }
@@ -1593,9 +1597,11 @@ async function heoSave(){
 
 function renderCases(){
   const cs=DB.cases||[];
-  return `<a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
-  <div class="sec-title" translate="no"><span class="bar"></span>${T('cases')}</div>
-  <div class="sec-sub">${T('casesSub')}${isAdmin()?T('adminTip'):''}</div>
+  return `<div class="catalog-sticky" id="catalogSticky">
+    <a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
+    <div class="sec-title" translate="no"><span class="bar"></span>${T('cases')}</div>
+    <div class="sec-sub" style="margin-bottom:0">${T('casesSub')}${isAdmin()?T('adminTip'):''}</div>
+  </div>
   ${isAdmin()?`<button class="btn" style="margin-bottom:16px" onclick="openEdit('cases','')">${T('addCase')}</button>`:''}
   <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
   ${cs.map(c=>`<div class="card" style="cursor:default">
@@ -1621,9 +1627,11 @@ function scriptRow(s){
 function scriptListHTML(f=""){f=f.toLowerCase();const list=allScripts().filter(s=>(bothLang(s.t)+" "+bothLang(s.c)+" "+bothLang(s.cat)+" "+s.id).toLowerCase().includes(f));return{count:list.length,html:list.map(scriptRow).join("")};}
 function renderScripts(filter=""){
   const r=scriptListHTML(filter);
-  return `<a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
-  <div class="sec-title" translate="no"><span class="bar"></span>${T('scripts')} <span style="font-size:12px;color:var(--warn)">(${T('internalOnly')})</span></div>
-  <div class="sec-sub">${T('scriptsSub')}${isAdmin()?T('adminTip'):''}</div>
+  return `<div class="catalog-sticky" id="catalogSticky">
+    <a class="page-back" onclick="show('home');return false" href="#">← ${T('backToHome')}</a>
+    <div class="sec-title" translate="no"><span class="bar"></span>${T('scripts')} <span style="font-size:12px;color:var(--warn)">(${T('internalOnly')})</span></div>
+    <div class="sec-sub" style="margin-bottom:0">${T('scriptsSub')}${isAdmin()?T('adminTip'):''}</div>
+  </div>
   <div class="toolbar"><div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <input id="ssearch" placeholder="${T('searchScript')}" value="${esc(filter)}" oninput="filterScripts(this.value)"></div>
     <div class="count" id="scount">${r.count} ${T('rows')}</div></div>
@@ -1728,7 +1736,9 @@ function renderDetail(){
   const imgs=p.images&&p.images.length?p.images:["https://img.alicdn.com/imgextra/i1/O1CN01YyMrnH1TH65JNfJZU_!!6000000002356-2-tps-600-600.png"];
   if(DETAIL_IMG>=imgs.length)DETAIL_IMG=0;
   const specs=p.specs||[];
-  return `<div class="back" onclick="show('products')">← ${T('back')}</div>
+  return `<div class="catalog-sticky" id="catalogSticky" style="padding-top:14px;padding-bottom:12px">
+    <a class="page-back" onclick="show('products');return false" href="#">← ${T('back')}</a>
+  </div>
   <div class="detail">
     <div class="gallery">
       <img class="main" id="mainImg" src="${esc(imgs[DETAIL_IMG])}" onerror="this.style.opacity=.3">
@@ -1795,7 +1805,7 @@ function detailImagesBlock(p){
   return html;
 }
 function setDetailImg(i){DETAIL_IMG=i;const m=document.getElementById("mainImg");if(m)m.src=DB.products.find(x=>String(x.id)===String(CUR_PID)).images[i];document.querySelectorAll(".thumbs .t").forEach((t,idx)=>t.classList.toggle("on",idx===i));}
-function openDetail(pid){CUR_PID=pid;DETAIL_IMG=0;CUR="detail";buildNav();document.getElementById("main").innerHTML=renderDetail();window.scrollTo({top:0,behavior:"smooth"});}
+function openDetail(pid){CUR_PID=pid;DETAIL_IMG=0;CUR="detail";buildNav();document.getElementById("main").innerHTML=renderDetail();window.scrollTo({top:0,behavior:"smooth"});setTimeout(setupCatalogSticky,50);}
 
 /* ===== 展会详情页 ===== */
 function openFair(fid){CUR_FAIR=fid;CUR="fair-detail";heroStopAuto();buildNav();document.getElementById("main").innerHTML=renderFairDetail();window.scrollTo({top:0,behavior:"smooth"});}
@@ -2226,7 +2236,7 @@ function show(t){
   CUR=t;buildNav();render();
   if(t==="home" && window.__pendingHero){heroStartAuto(window.__pendingHero);window.__pendingHero=null;}
   if(t==="brand" && typeof psApply==="function")setTimeout(psApply,0); // Pattern Studio 默认参数
-  if(t==="products") setTimeout(setupCatalogSticky,50);  // 给 sticky 工具条加吸顶阴影
+  if(["products","identity","intel","cases","scripts"].includes(t)) setTimeout(setupCatalogSticky,50);  // 子页 sticky 吸顶阴影
   window.scrollTo({top:0,behavior:"smooth"});
 }
 /* Catalog sticky 吸顶阴影（按 skill §3.3） */
